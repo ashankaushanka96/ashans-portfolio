@@ -10,8 +10,8 @@ const CvSection = () => {
         <Row>
           <Col size={12}>
             <div className="cv-content">
-              <h2>My CV</h2>
-              <p>Preview my CV below or download a copy.</p>
+              <h2>My Resume</h2>
+              <p>Preview my Resume below or download a copy.</p>
             </div>
           </Col>
         </Row>
@@ -37,7 +37,7 @@ const CvSection = () => {
               download
               className="cv-download-button-dark"
             >
-              Download My CV
+              Download My Resume
             </a>
           </Col>
         </Row>
