@@ -302,7 +302,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Skills Css ************/
 .skill {
-  padding: 0 0 50px 0;
+  padding: 20px 0 50px 0;
   position: relative;
 }
 .skill-bx {
@@ -342,7 +342,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Projects Css ************/
 .project {
-  padding: 80px 0;
+  padding: 20px 0;
   position: relative;
   background-color: black;
 }
@@ -548,6 +548,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /* Work Experience Section - Dark Theme with Projects Fonts */
 .work-experience-section {
   padding: 2rem 1rem;
+  padding-top: 10px;
   /* border-color: white;
   border-width: 100px;
   background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%); Dark background color */
