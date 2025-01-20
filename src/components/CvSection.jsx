@@ -35,7 +35,7 @@ const CvSection = () => {
             <a
               href={cvPath}
               download
-              className="cv-download-button-dark btn btn-primary mt-3"
+              className="cv-download-button-dark"
             >
               Download My CV
             </a>
