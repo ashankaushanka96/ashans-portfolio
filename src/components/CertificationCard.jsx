@@ -3,7 +3,7 @@ import { Col } from "react-bootstrap";
 
 export const CertificationCard = ({ title, description, imgUrl, certLink }) => {
   return (
-    <Col size={12} sm={6} md={4}>
+    <Col sm={12} md={6} lg={4} className="mb-4"> {/* Responsive column */}
       <div className="cert-card">
         <img src={imgUrl} alt={title} />
         <div className="cert-content">

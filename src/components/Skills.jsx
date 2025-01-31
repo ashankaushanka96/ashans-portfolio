@@ -76,7 +76,7 @@ export const Skills = () => {
             <div className="skill-bx wow zoomIn">
               {/* Skills Section */}
               <h2>Skills</h2>
-              <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
+              <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2000}  className="owl-carousel owl-theme skill-slider">
                 {skills.map((skill, index) => (
                   <SkillCard key={index} image={skill.image} title={skill.title} />
                 ))}
@@ -84,7 +84,7 @@ export const Skills = () => {
 
               {/* Tools and Cloud Platforms Section */}
               <h2>Tools & Platforms</h2>
-              <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
+              <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2000} className="owl-carousel owl-theme skill-slider">
                 {toolsAndPlatforms.map((tool, index) => (
                   <ToolCard key={index} image={tool.image} title={tool.title} />
                 ))}

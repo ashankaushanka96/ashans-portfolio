@@ -329,7 +329,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   position: relative;
 }
 .skill-slider .item img {
-  width: 50%;
+  width: 30%;
   margin: 0 auto 15px auto;
 }
 .background-image-left {
@@ -645,8 +645,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-top: 20px;
 }
 
-
-/**************** Certifications ***********************/
+/**************** Certifications Section ***********************/
 .certifications {
   padding: 30px 0;
   position: relative;
@@ -669,6 +668,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin: 14px auto 30px auto;
   text-align: center;
   width: 56%; /* Optional: matches the width constraint of Projects description */
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible grid with minimum 250px width */
+  gap: 20px; /* Spacing between grid items */
+  margin: 0 auto; /* Center the grid */
+  max-width: 1200px; /* Optional: constrain the grid's width */
+  padding: 20px;
+  justify-content: center;
 }
 
 .cert-card {

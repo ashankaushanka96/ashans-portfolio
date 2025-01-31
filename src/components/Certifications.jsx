@@ -20,11 +20,11 @@ export const Certifications = () => {
       certLink: "https://rhtapps.redhat.com/verify?certId=220-087-555",
     },
     {
-        title: "The Complete Python Bootcamp from Zero to Hero in Python",
-        description: ["Credential ID: UC-fa837d7d-dea8-416a-B617-taBe4431db0b", "Issued: Jan 2025"],
-        imgUrl: certImg3,
-        certLink: "https://www.udemy.com/certificate/UC-fa837d7d-dca8-416a-86f7-1a8e4431db0b/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com",
-      },
+      title: "The Complete Python Bootcamp from Zero to Hero in Python",
+      description: ["Credential ID: UC-fa837d7d-dea8-416a-B617-taBe4431db0b", "Issued: Jan 2025"],
+      imgUrl: certImg3,
+      certLink: "https://www.udemy.com/certificate/UC-fa837d7d-dca8-416a-86f7-1a8e4431db0b/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com",
+    }
   ];
 
   return (
