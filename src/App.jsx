@@ -1,13 +1,13 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavBar } from "./components/NavBar";
-import { Banner } from "./components/Banner";
-import { Skills } from "./components/Skills";
-import { Projects } from "./components/Projects";
-import { Footer } from "./components/Footer";
-import { Certifications } from './components/Certifications';
-import Experience from './components/Experience';
-import CvSection from './components/CvSection';
+import { NavBar } from "./components/NavBar/NavBar";
+import { Banner } from "./components/Banner/Banner";
+import { Skills } from "./components/SkillsSection/Skills";
+import { Certifications } from './components/CertificationsSection/Certifications';
+import { Projects } from "./components/ProjectsSection/Projects";
+import { Footer } from "./components/Footer/Footer";
+import Experience from './components/ExperienceSection/Experience';
+import CvSection from './components/CVSection/CvSection';
 
 function App() {
   return (

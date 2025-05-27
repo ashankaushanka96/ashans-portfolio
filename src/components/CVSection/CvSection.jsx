@@ -1,5 +1,5 @@
-import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import "./CVSection.css";
 
 const CvSection = () => {
   const cvPath = "assets/Ashan_Pathiranage.pdf"; // Path to your CV file in the public folder
@@ -32,11 +32,7 @@ const CvSection = () => {
         <Row>
           <Col size={12} className="text-center">
             {/* Download Button */}
-            <a
-              href={cvPath}
-              download
-              className="cv-download-button-dark"
-            >
+            <a href={cvPath} download className="cv-download-button-dark">
               Download My Resume
             </a>
           </Col>
