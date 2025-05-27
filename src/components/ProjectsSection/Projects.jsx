@@ -1,16 +1,16 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-images/bruno-project.png";
-import projImg2 from "../assets/img/project-images/server-migration-project.png";
-import projImg3 from "../assets/img/project-images/datadog.png";
-import projImg4 from "../assets/img/project-images/gitlab-project.png";
-import projImg5 from "../assets/img/project-images/monitoring-tool.png";
-import projImg6 from "../assets/img/project-images/inav-tool.png";
-import colorSharp2 from "../assets/img/color-sharp2.png";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import projImg1 from "../../assets/img/project-images/bruno-project.png";
+import projImg2 from "../../assets/img/project-images/server-migration-project.png";
+import projImg3 from "../../assets/img/project-images/datadog.png";
+import projImg4 from "../../assets/img/project-images/gitlab-project.png";
+import projImg5 from "../../assets/img/project-images/monitoring-tool.png";
+import projImg6 from "../../assets/img/project-images/inav-tool.png";
+import colorSharp2 from "../../assets/img/color-sharp2.png";
+import "animate.css";
+import TrackVisibility from "react-on-screen";
 import { useState } from "react";
-
+import "./Projects.css";
 export const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -19,7 +19,7 @@ export const Projects = () => {
       title: "AI Bruno (Ongoing)",
       description: [
         "Developing AI Bruno, a project utilizing generative AI, Machine Learning (ML), and Deep Learning (DL) to predict future system failures.",
-        "Integrating a chatbot feature powered by generative AI to provide user support and interact with systems for diagnostics."
+        "Integrating a chatbot feature powered by generative AI to provide user support and interact with systems for diagnostics.",
       ],
       imgUrl: projImg1,
     },
@@ -28,7 +28,7 @@ export const Projects = () => {
       description: [
         "Actively participated in AWS server migration from Ireland to North Virginia and Singapore.",
         "Gained expertise in managing AWS infrastructure and security.",
-        "Migrated operating systems from CentOS to Amazon Linux 2023 for improved performance and support."
+        "Migrated operating systems from CentOS to Amazon Linux 2023 for improved performance and support.",
       ],
       imgUrl: projImg2,
     },
@@ -36,7 +36,7 @@ export const Projects = () => {
       title: "Datadog Configuration",
       description: [
         "Implemented Datadog for comprehensive monitoring, including Application Performance Monitoring (APM), Server Health, synthetic monitoring, and centralized log management.",
-        "Configured custom dashboards, alerts, and monitors to optimize application performance and efficiently troubleshoot issues."
+        "Configured custom dashboards, alerts, and monitors to optimize application performance and efficiently troubleshoot issues.",
       ],
       imgUrl: projImg3,
     },
@@ -45,7 +45,7 @@ export const Projects = () => {
       description: [
         "Successfully migrated pipelines from Bamboo-Bitbucket to GitLab.",
         "Utilized Terraform and Packer for infrastructure creation and Ansible for configuration management.",
-        "Implemented AWS Auto Scaling for the pipeline components."
+        "Implemented AWS Auto Scaling for the pipeline components.",
       ],
       imgUrl: projImg4,
     },
@@ -54,7 +54,7 @@ export const Projects = () => {
       description: [
         "Developed a monitoring tool using React.js and Python to monitor component, process state, port state, and uptime.",
         "Configured notifications as well.",
-        "Repository: https://github.com/ashankaushanka96/component-checker"
+        "Repository: https://github.com/ashankaushanka96/component-checker",
       ],
       imgUrl: projImg5,
     },
@@ -62,7 +62,7 @@ export const Projects = () => {
       title: "iNAV Uploader Tool",
       description: [
         "Designed and developed an iNAV file uploader tool using JavaFX.",
-        "Implemented the tool to upload new iNAV files to multiple servers and backup their old files and restarts the components."
+        "Implemented the tool to upload new iNAV files to multiple servers and backup their old files and restarts the components.",
       ],
       imgUrl: projImg6,
     },
@@ -78,13 +78,20 @@ export const Projects = () => {
         <Row>
           <Col size={12}>
             <TrackVisibility>
-              {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+              {({ isVisible }) => (
+                <div
+                  className={
+                    isVisible ? "animate__animated animate__fadeIn" : ""
+                  }
+                >
                   <h2>Projects</h2>
                   {!selectedProject ? (
                     <>
                       <p>Click on a project to view details.</p>
-                      <Tab.Container id="projects-tabs" defaultActiveKey="first">
+                      <Tab.Container
+                        id="projects-tabs"
+                        defaultActiveKey="first"
+                      >
                         <Tab.Content>
                           <Tab.Pane eventKey="first">
                             <Row>
@@ -108,17 +115,26 @@ export const Projects = () => {
                           <li key={index}>{point}</li>
                         ))}
                       </ul>
-                      <img src={selectedProject.imgUrl} alt={selectedProject.title} />
-                      <button onClick={() => setSelectedProject(null)}>Back</button>
+                      <img
+                        src={selectedProject.imgUrl}
+                        alt={selectedProject.title}
+                      />
+                      <button onClick={() => setSelectedProject(null)}>
+                        Back
+                      </button>
                     </div>
                   )}
                 </div>
-              }
+              )}
             </TrackVisibility>
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2} alt="background" />
+      <img
+        className="background-image-right"
+        src={colorSharp2}
+        alt="background"
+      />
     </section>
   );
 };

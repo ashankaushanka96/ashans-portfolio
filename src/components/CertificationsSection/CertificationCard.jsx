@@ -1,5 +1,4 @@
-import React from "react";
-import { Col } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 export const CertificationCard = ({ title, description, imgUrl, certLink }) => {
   return (
@@ -21,4 +20,11 @@ export const CertificationCard = ({ title, description, imgUrl, certLink }) => {
       </div>
     </div>
   );
+};
+
+CertificationCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.array.isRequired,
+  imgUrl: PropTypes.string.isRequired,
+  certLink: PropTypes.string.isRequired,
 };
