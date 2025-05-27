@@ -196,3 +196,40 @@
 .project-details button:hover {
   background-color: #aa367c;
 }
+
+.modal-body {
+  max-height: 60vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.project-modal-dialog {
+  max-width: 800px;
+}
+.project-modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.project-images {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+.project-image {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.project-modal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.github-button {
+  align-items: center;
+  margin-right: 16px;
+}
