@@ -1,11 +1,31 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { CertificationCard } from "./CertificationCard";
-import certImg1 from "../assets/img/certificates/cert1.png";
-import certImg2 from "../assets/img/certificates/cert2.png";
-import certImg3 from "../assets/img/certificates/cert3.png";
+import certImg1 from "../../assets/img/certificates/cert1.png";
+import certImg2 from "../../assets/img/certificates/cert2.png";
+import certImg3 from "../../assets/img/certificates/cert3.png";
+import Carousel from 'react-multi-carousel';
+import './Certifications.css'
 
 
 export const Certifications = () => {
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
   const certifications = [
     {
       title: "AWS Certified Solution Architect Associate",
@@ -30,17 +50,17 @@ export const Certifications = () => {
   return (
     <section className="certifications" id="certifications">
       <Container>
-        <Row>
-          <Col size={12}>
+        <Col>
+          <Row className="certifications-bx">
             <h2>Certifications</h2>
             <p>Browse through my professional certifications.</p>
-            <Row>
+            <Carousel responsive={responsive} infinite={true} autoPlay={false} autoPlaySpeed={2000}  className="certifications-slider">
               {certifications.map((cert, index) => (
                 <CertificationCard key={index} {...cert} />
               ))}
-            </Row>
-          </Col>
-        </Row>
+            </Carousel>
+          </Row>
+        </Col>
       </Container>
     </section>
   );
