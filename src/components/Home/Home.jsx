@@ -40,7 +40,7 @@ export const Home = () => {
   }, [text, loopNum, isDeleting, delta]);
 
   return (
-    <section className="Home" id="home">
+    <section className="banner" id="home">
       <Container>
         <Row>
           <Col xs={12} md={6} xl={7}>
