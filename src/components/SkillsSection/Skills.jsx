@@ -1,5 +1,5 @@
-import { SkillCard } from './SkillCard';
-import { ToolCard } from './ToolCard';
+import { SkillCard } from "./SkillCard";
+import { ToolCard } from "./ToolCard";
 import meter1 from "../../assets/img/meter1.svg";
 import meter2 from "../../assets/img/meter2.svg";
 import meter3 from "../../assets/img/meter3.svg";
@@ -16,30 +16,30 @@ import packer from "../../assets/logo/packer.svg";
 import datadog from "../../assets/logo/datadog.svg";
 import python from "../../assets/logo/python.svg";
 import java from "../../assets/logo/java.svg";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import colorSharp from "../../assets/img/color-sharp.png";
-import './Skills.css'
-import { Col, Container, Row } from 'react-bootstrap';
+import "./Skills.css";
+import { Col, Container, Row } from "react-bootstrap";
 
 export const Skills = () => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      items: 5,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
+      items: 1,
+    },
   };
 
   const skills = [
@@ -67,8 +67,7 @@ export const Skills = () => {
     { image: datadog, title: "Datadog" },
     { image: python, title: "Python" },
     { image: java, title: "Java" },
-];
-
+  ];
 
   return (
     <section className="skill" id="skills">
@@ -77,16 +76,32 @@ export const Skills = () => {
           <Row className="skill-bx">
             {/* Skills Section */}
             <h2>Skills</h2>
-            <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2000}  className="slider">
+            <Carousel
+              responsive={responsive}
+              infinite={true}
+              autoPlay={true}
+              autoPlaySpeed={2000}
+              className="slider"
+            >
               {skills.map((skill, index) => (
-                <SkillCard key={index} image={skill.image} title={skill.title} />
+                <SkillCard
+                  key={index}
+                  image={skill.image}
+                  title={skill.title}
+                />
               ))}
             </Carousel>
           </Row>
           <Row className="platform-bx">
             {/* Tools and Cloud Platforms Section */}
             <h2>Tools & Platforms</h2>
-            <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2000} className="slider">
+            <Carousel
+              responsive={responsive}
+              infinite={true}
+              autoPlay={true}
+              autoPlaySpeed={2000}
+              className="slider"
+            >
               {toolsAndPlatforms.map((tool, index) => (
                 <ToolCard key={index} image={tool.image} title={tool.title} />
               ))}
@@ -94,7 +109,11 @@ export const Skills = () => {
           </Row>
         </Col>
       </Container>
-      <img className="background-image-left" src={colorSharp} alt="Background" />
+      <img
+        className="background-image-left"
+        src={colorSharp}
+        alt="Background"
+      />
     </section>
   );
 };

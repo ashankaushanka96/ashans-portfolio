@@ -73,7 +73,7 @@ export const Certifications = () => {
               responsive={responsive}
               infinite={true}
               autoPlay={true}
-              autoPlaySpeed={2000}
+              autoPlaySpeed={3000}
               className="certifications-slider"
             >
               {certifications.map((cert, index) => (
