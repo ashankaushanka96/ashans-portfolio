@@ -3,14 +3,14 @@
   position: relative;
 }
 .skill-bx {
-  background: #151515;
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 64px;
   text-align: center;
   padding: 60px 0px;
   margin-top: -60px;
 }
 .platform-bx {
-  background: #151515;
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 64px;
   text-align: center;
   padding: 60px 0;

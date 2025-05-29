@@ -1,7 +1,9 @@
 .project {
   padding: 20px 0;
   position: relative;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 64px;
+  margin: 45px 50px;
 }
 .project h2 {
   font-size: 45px;
@@ -197,17 +199,19 @@
   background-color: #aa367c;
 }
 
-.modal-body {
+/* .modal-body {
   max-height: 60vh;
   overflow-y: auto;
   position: relative;
-}
+} */
 
 .project-modal-dialog {
+  margin-top: 6%;
   max-width: 800px;
+  overflow: hidden;
 }
 .project-modal-body {
-  max-height: 70vh;
+  max-height: 58vh;
   overflow-y: auto;
 }
 .project-images {

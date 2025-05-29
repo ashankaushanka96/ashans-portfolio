@@ -31,7 +31,11 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  background-color: #121212 !important;
+  /* background-color: #121212 !important; */
+  background-image: url("./assets/img/website-bg-2.png");
+  /* background-attachment: fixed; */
+  /* background-position: center; */
+  background-size: contain;
   color: #fff !important;
   font-family: "Centra", sans-serif !important;
 }
