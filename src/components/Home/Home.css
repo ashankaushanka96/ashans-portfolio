@@ -1,6 +1,6 @@
 .banner {
   margin-top: 0;
-  padding: 260px 0 100px 0;
+  padding: 160px 0 100px 0;
   background-image: url("../../assets/img/banner-bg.jpg");
   background-position: top center;
   background-size: cover;
@@ -30,8 +30,10 @@
 }
 .banner p {
   color: #b8b8b8;
-  color: rgb(180, 210, 30);
+  /* color: rgb(180, 210, 30); */
+  color: #fffcfc;
   font-size: 18px;
+  font-weight: 500;
   letter-spacing: 0.8px;
   line-height: 1.5em;
   width: 96%;
