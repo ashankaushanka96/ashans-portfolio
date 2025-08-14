@@ -9,7 +9,7 @@ export const Footer = () => {
   return (
     <Box 
       component="footer" 
-      className="pt-8 sm:pt-10 pb-4 px-4 sm:px-0 overflow-hidden"
+      className="pt-12 sm:pt-16 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden"
       sx={{
         backgroundImage: `url(${footerBg})`,
         backgroundPosition: 'center center',
@@ -39,7 +39,7 @@ export const Footer = () => {
           </Box>
           
           <Box className="text-center md:text-right animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            <Box className="flex justify-center md:justify-end space-x-3 sm:space-x-4 mb-4">
+            <Box className="flex justify-center md:justify-end space-x-4 sm:space-x-6 mb-6 sm:mb-8">
               <IconButton
                 href="https://www.linkedin.com/in/ashan-kaushanka/"
                 target="_blank"

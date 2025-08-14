@@ -41,7 +41,7 @@ export const Banner = () => {
     <Box 
       component="section" 
       id="home"
-      className="relative min-h-screen flex items-center pt-16 pb-12 sm:pb-24 px-4 sm:px-0 overflow-hidden"
+      className="relative min-h-screen flex items-center pt-20 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
       sx={{
         backgroundImage: `url(${bannerBg})`,
         backgroundPosition: 'top center',
@@ -68,11 +68,11 @@ export const Banner = () => {
       </Box>
 
       <Container maxWidth="lg" className="relative z-10">
-        <Box className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+        <Box className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <Box className="opacity-100 translate-x-0 text-center lg:text-left animate-fade-in-up">
             <Typography
               component="span"
-              className="inline-block px-3 sm:px-4 py-2 sm:py-3 mb-4 sm:mb-6 text-sm sm:text-lg lg:text-xl font-black tracking-widest bg-gradient-to-r from-purple-600/90 via-pink-600/90 to-blue-600/90 border border-white/30 rounded-full shadow-2xl backdrop-blur-sm animate-float"
+              className="inline-block px-3 sm:px-4 py-2 sm:py-3 mb-6 sm:mb-8 text-sm sm:text-lg lg:text-xl font-black tracking-widest bg-gradient-to-r from-purple-600/90 via-pink-600/90 to-blue-600/90 border border-white/30 rounded-full shadow-2xl backdrop-blur-sm animate-float"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textShadow: '0 2px 4px rgba(0,0,0,0.3)',
@@ -89,7 +89,7 @@ export const Banner = () => {
             
             <Typography
               variant="h1"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none mb-3 sm:mb-4 text-white animate-slide-in-left"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white animate-slide-in-left"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textShadow: '0 4px 8px rgba(0,0,0,0.5)',
@@ -106,7 +106,7 @@ export const Banner = () => {
             
             <Typography
               variant="h1"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-accent animate-slide-in-right"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-6 sm:mb-8 text-accent animate-slide-in-right"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textShadow: '0 4px 8px rgba(0,0,0,0.5)',
@@ -119,7 +119,12 @@ export const Banner = () => {
                 '@keyframes slideInRight': {
                   '0%': { transform: 'translateX(100px)', opacity: 0 },
                   '100%': { transform: 'translateX(0)', opacity: 1 },
-                }
+                },
+                minHeight: '1.2em',
+                display: 'flex',
+                alignItems: 'center',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden'
               }}
             >
               {text}
@@ -127,7 +132,7 @@ export const Banner = () => {
             
             <Typography
               variant="body1"
-              className="text-base sm:text-lg lg:text-xl tracking-wide leading-relaxed mb-6 sm:mb-8 text-gray-200 max-w-4xl mx-auto lg:mx-0 animate-fade-in-up"
+              className="text-base sm:text-lg lg:text-xl tracking-wide leading-relaxed mb-8 sm:mb-10 text-gray-200 max-w-4xl mx-auto lg:mx-0 animate-fade-in-up"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 fontWeight: 400,
@@ -169,7 +174,7 @@ export const Banner = () => {
             </Button>
           </Box>
           
-          <Box className="flex justify-center lg:justify-end opacity-100 translate-x-0 mt-8 lg:mt-0 animate-fade-in-up">
+          <Box className="flex justify-center lg:justify-end opacity-100 translate-x-0 mt-12 lg:mt-0 animate-fade-in-up">
             <Box className="animate-float-slow relative">
               <Box className="absolute inset-0 bg-gradient-to-r from-accent/20 to-purple-600/20 rounded-full blur-3xl animate-pulse"></Box>
               <img 

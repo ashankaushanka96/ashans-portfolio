@@ -165,12 +165,12 @@ export const Projects = () => {
   };
 
   return (
-    <Box component="section" id="projects" className="relative py-8 sm:py-12 bg-black px-4 sm:px-0 overflow-hidden">
+    <Box component="section" id="projects" className="relative py-16 sm:py-20 bg-black px-4 sm:px-6 lg:px-8 overflow-hidden">
       <Container maxWidth="lg">
         <Box className="opacity-100 flex flex-col items-center">
           <Typography
             variant="h2"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white text-center animate-fade-in-up"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 text-white text-center animate-fade-in-up"
             sx={{
               background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
               backgroundClip: 'text',
@@ -187,7 +187,7 @@ export const Projects = () => {
           </Typography>
           <Typography
             variant="body1"
-            className="text-base sm:text-lg text-gray-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed text-center animate-fade-in-up"
+            className="text-base sm:text-lg text-gray-400 mb-12 sm:mb-16 max-w-2xl leading-relaxed text-center animate-fade-in-up"
             sx={{
               animation: 'fadeInUp 1s ease-out 0.3s both',
               '@keyframes fadeInUp': {
@@ -199,7 +199,7 @@ export const Projects = () => {
             Click on a project to learn more.
           </Typography>
           
-          <Grid container spacing={{ xs: 2, sm: 3 }}>
+          <Grid container spacing={{ xs: 3, sm: 4 }}>
             {projects.map((proj, idx) => (
               <Grid item xs={12} sm={6} md={4} key={idx}>
                 <Box 

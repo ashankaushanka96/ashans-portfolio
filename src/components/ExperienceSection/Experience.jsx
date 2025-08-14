@@ -49,12 +49,12 @@ const Experience = () => {
   ];
 
   return (
-    <Box component="section" id="experience" className="relative py-8 sm:py-12 px-4 sm:px-0 overflow-hidden">
+    <Box component="section" id="experience" className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <Container maxWidth="lg">
-        <Box className="space-y-4 sm:space-y-6">
+        <Box className="space-y-8 sm:space-y-12">
           <Typography
             variant="h2"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-white animate-fade-in-up"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 sm:mb-16 text-white animate-fade-in-up"
             sx={{
               background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
               backgroundClip: 'text',
@@ -73,7 +73,7 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <Box 
               key={index} 
-              className="mb-4 sm:mb-6 animate-fade-in-up" 
+              className="mb-8 sm:mb-12 animate-fade-in-up" 
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <ExperienceCard

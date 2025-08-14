@@ -5,12 +5,12 @@ const CvSection = () => {
   const cvPath = "assets/Ashan_Pathiranage.pdf"; // Path to your CV file in the public folder
 
   return (
-    <Box component="section" id="cvsection" className="py-8 sm:py-12 px-4 sm:px-0 overflow-hidden">
+    <Box component="section" id="cvsection" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <Container maxWidth="lg">
-        <Box className="max-w-4xl mx-auto text-center bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm p-4 sm:p-8 rounded-xl border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+        <Box className="max-w-4xl mx-auto text-center bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm p-6 sm:p-10 lg:p-12 rounded-xl border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
           <Typography
             variant="h2"
-            className="text-3xl sm:text-4xl font-bold mb-4 text-white animate-fade-in-up"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-white animate-fade-in-up"
             sx={{
               background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
               backgroundClip: 'text',
@@ -27,7 +27,7 @@ const CvSection = () => {
           </Typography>
           <Typography
             variant="body1"
-            className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 animate-fade-in-up"
+            className="text-base sm:text-lg text-gray-300 mb-8 sm:mb-12 animate-fade-in-up"
             sx={{
               animation: 'fadeInUp 1s ease-out 0.3s both',
               '@keyframes fadeInUp': {
@@ -40,7 +40,7 @@ const CvSection = () => {
           </Typography>
           
           {/* CV Preview */}
-          <Box className="w-full h-64 sm:h-80 lg:h-96 border border-gray-600/50 rounded-lg overflow-hidden mb-6 sm:mb-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+          <Box className="w-full h-64 sm:h-80 lg:h-96 border border-gray-600/50 rounded-lg overflow-hidden mb-8 sm:mb-12 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             <iframe
               src={cvPath}
               title="CV Preview"
