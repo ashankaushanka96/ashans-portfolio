@@ -5,37 +5,46 @@ import headerImg from "../../assets/img/sre-png-4.png";
 import bannerBg from "../../assets/img/banner-bg.jpg";
 
 export const Banner = () => {
-  const [text, setText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const toRotate = ["Site Reliability Engineer", "DevOPS Engineer"];
-  const period = 2000;
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+  
+  const toRotate = [
+    "Site Reliability Engineer", 
+    "DevOPS Engineer"
+  ];
+  const period = 3000; // Time to show each text
+  const typingSpeed = 100; // Speed of typing animation
+
+
 
   useEffect(() => {
-    const ticker = setInterval(() => {
-      const i = loopNum % toRotate.length;
-      const fullText = toRotate[i];
-      const updatedText = isDeleting ? fullText.slice(0, text.length - 1) : fullText.slice(0, text.length + 1);
+    if (isTyping) {
+      const currentText = toRotate[currentTextIndex];
+      let charIndex = 0;
       
-      setText(updatedText);
-      
-      if (isDeleting) {
-        setDelta(prev => prev / 2);
-      }
-      
-      if (!isDeleting && updatedText === fullText) {
-        setIsDeleting(true);
-        setDelta(period);
-      } else if (isDeleting && updatedText === '') {
-        setIsDeleting(false);
-        setLoopNum(prev => prev + 1);
-        setDelta(500);
-      }
-    }, delta);
+      const typingInterval = setInterval(() => {
+        if (charIndex <= currentText.length) {
+          setDisplayedText(currentText.substring(0, charIndex));
+          charIndex++;
+        } else {
+          setIsTyping(false);
+          clearInterval(typingInterval);
+        }
+      }, typingSpeed);
 
-    return () => clearInterval(ticker);
-  }, [text, loopNum, isDeleting, delta]);
+      return () => clearInterval(typingInterval);
+    } else {
+      // Wait before starting to type the next text
+      const timeout = setTimeout(() => {
+        setCurrentTextIndex(prev => (prev + 1) % toRotate.length);
+        setIsTyping(true);
+        setDisplayedText("");
+      }, 1000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [currentTextIndex, isTyping, toRotate.length]);
 
   return (
     <Box 
@@ -61,19 +70,19 @@ export const Banner = () => {
       }}
     >
       {/* Animated Background Elements */}
-      <Box className="absolute inset-0 z-0">
-        <Box className="absolute top-20 left-10 w-2 h-2 bg-accent rounded-full animate-pulse opacity-60"></Box>
-        <Box className="absolute top-40 right-20 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-40"></Box>
-        <Box className="absolute bottom-40 left-20 w-3 h-3 bg-blue-400 rounded-full animate-bounce opacity-50"></Box>
-        <Box className="absolute top-60 left-1/4 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-70"></Box>
+      <Box className="absolute inset-0 z-0 pointer-events-none">
+        <Box className="absolute top-20 left-10 w-2 h-2 bg-accent rounded-full animate-pulse opacity-30"></Box>
+        <Box className="absolute top-40 right-20 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-20"></Box>
+        <Box className="absolute bottom-40 left-20 w-3 h-3 bg-blue-400 rounded-full animate-bounce opacity-25"></Box>
+        <Box className="absolute top-60 left-1/4 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-35"></Box>
       </Box>
 
       <Container maxWidth="lg" className="relative z-10">
         <Box className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <Box className="opacity-100 translate-x-0 text-center lg:text-left animate-fade-in-up">
+          <Box className="opacity-100 translate-x-0 text-center lg:text-left animate-fade-in-up overflow-hidden relative z-10">
             <Typography
               component="span"
-              className="inline-block px-3 sm:px-4 py-2 sm:py-3 mb-6 sm:mb-8 text-sm sm:text-lg lg:text-xl font-black tracking-widest bg-gradient-to-r from-purple-600/90 via-pink-600/90 to-blue-600/90 border border-white/30 rounded-full shadow-2xl backdrop-blur-sm animate-float"
+              className="inline-block px-3 sm:px-4 py-2 sm:py-3 mb-6 sm:mb-8 text-sm sm:text-lg lg:text-xl font-black tracking-widest bg-gradient-to-r from-purple-600/90 via-pink-600/90 to-blue-600/90 border border-white/30 rounded-full shadow-2xl backdrop-blur-sm animate-float relative z-10"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textShadow: '0 2px 4px rgba(0,0,0,0.3)',
@@ -90,7 +99,7 @@ export const Banner = () => {
             
             <Typography
               variant="h1"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white animate-slide-in-left"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white animate-slide-in-left relative z-10"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textShadow: '0 4px 8px rgba(0,0,0,0.5)',
@@ -107,7 +116,7 @@ export const Banner = () => {
             
             <Typography
               variant="h1"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-6 sm:mb-8 text-accent animate-slide-in-right"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6 sm:mb-8 text-accent animate-slide-in-right relative z-10"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textShadow: '0 4px 8px rgba(0,0,0,0.5)',
@@ -121,14 +130,13 @@ export const Banner = () => {
                   '0%': { transform: 'translateX(100px)', opacity: 0 },
                   '100%': { transform: 'translateX(0)', opacity: 1 },
                 },
-                minHeight: '1.2em',
-                display: 'flex',
-                alignItems: 'center',
-                whiteSpace: 'nowrap',
-                overflow: 'hidden'
+                whiteSpace: 'pre-line',
+                lineHeight: 1.1,
+                color: '#00d4ff', // Fallback color
+                textAlign: 'left'
               }}
             >
-              {text}
+              {displayedText}
             </Typography>
             
             <Typography
@@ -217,6 +225,13 @@ export const Banner = () => {
         }
         .animate-float {
           animation: float 3s ease-in-out infinite;
+        }
+        .animate-blink {
+          animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+          from, to { color: transparent; }
+          50% { color: currentColor; }
         }
       `}</style>
     </Box>
