@@ -99,7 +99,7 @@ export const Banner = () => {
             
             <Typography
               variant="h1"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white animate-slide-in-left relative z-10"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white animate-slide-in-left relative z-10"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textShadow: '0 4px 8px rgba(0,0,0,0.5)',
@@ -114,30 +114,32 @@ export const Banner = () => {
               Hi! I'm Ashan,
             </Typography>
             
-            <Typography
-              variant="h1"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6 sm:mb-8 text-accent animate-slide-in-right relative z-10"
-              sx={{
-                fontFamily: 'CentraNo2, sans-serif',
-                textShadow: '0 4px 8px rgba(0,0,0,0.5)',
-                fontWeight: 900,
-                background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #00d4ff 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                animation: 'slideInRight 1s ease-out 0.3s both',
-                '@keyframes slideInRight': {
-                  '0%': { transform: 'translateX(100px)', opacity: 0 },
-                  '100%': { transform: 'translateX(0)', opacity: 1 },
-                },
-                whiteSpace: 'pre-line',
-                lineHeight: 1.1,
-                color: '#00d4ff', // Fallback color
-                textAlign: 'left'
-              }}
-            >
-              {displayedText}
-            </Typography>
+            <Box style={{ height: '20em', minHeight: '20em', maxHeight: '20em', overflow: 'hidden' }}>
+              <Typography
+                variant="h1"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-6 sm:mb-8 text-accent animate-slide-in-right relative z-10"
+                sx={{
+                  fontFamily: 'CentraNo2, sans-serif',
+                  textShadow: '0 4px 8px rgba(0,0,0,0.5)',
+                  fontWeight: 900,
+                  background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #00d4ff 100%)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  animation: 'slideInRight 1s ease-out 0.3s both',
+                  '@keyframes slideInRight': {
+                    '0%': { transform: 'translateX(100px)', opacity: 0 },
+                    '100%': { transform: 'translateX(0)', opacity: 1 },
+                  },
+                  whiteSpace: 'pre-line',
+                  lineHeight: 1.1,
+                  color: '#00d4ff', // Fallback color
+                  textAlign: 'left'
+                }}
+              >
+                {displayedText}
+              </Typography>
+            </Box>
             
             <Typography
               variant="body1"
