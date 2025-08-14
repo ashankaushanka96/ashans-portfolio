@@ -73,13 +73,14 @@ export const Certifications = () => {
         <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl text-center py-12 sm:py-20 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
           <Typography
             variant="h2"
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 text-white animate-fade-in-up"
+            className="text-base sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 text-white animate-fade-in-up"
             sx={{
               background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               animation: 'fadeInUp 1s ease-out',
+              fontSize: { xs: '16px', sm: '30px', md: '36px', lg: '48px' },
               '@keyframes fadeInUp': {
                 '0%': { transform: 'translateY(30px)', opacity: 0 },
                 '100%': { transform: 'translateY(0)', opacity: 1 },
@@ -88,19 +89,22 @@ export const Certifications = () => {
           >
             Certifications
           </Typography>
-          <Typography
-            variant="body1"
-            className="text-base sm:text-lg text-gray-400 mb-10 sm:mb-16 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
-            sx={{
-              animation: 'fadeInUp 1s ease-out 0.3s both',
-              '@keyframes fadeInUp': {
-                '0%': { transform: 'translateY(30px)', opacity: 0 },
-                '100%': { transform: 'translateY(0)', opacity: 1 },
-              }
-            }}
-          >
-            Browse through my professional certifications.
-          </Typography>
+          <Box className="flex justify-center">
+            <Typography
+              variant="body1"
+              className="text-base sm:text-lg text-gray-400 mb-10 sm:mb-16 max-w-2xl leading-relaxed animate-fade-in-up text-center"
+              sx={{
+                animation: 'fadeInUp 1s ease-out 0.3s both',
+                textAlign: 'center',
+                '@keyframes fadeInUp': {
+                  '0%': { transform: 'translateY(30px)', opacity: 0 },
+                  '100%': { transform: 'translateY(0)', opacity: 1 },
+                }
+              }}
+            >
+              Browse through my professional certifications.
+            </Typography>
+          </Box>
           
           <Box className="w-full">
             <Carousel
@@ -111,7 +115,7 @@ export const Certifications = () => {
               className="certifications-slider"
             >
               {certifications.map((cert, index) => (
-                <Box key={index} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                <Box key={index} className="animate-fade-in-up h-full" style={{ animationDelay: `${index * 0.1}s` }}>
                   <CertificationCard {...cert} />
                 </Box>
               ))}
@@ -135,6 +139,17 @@ export const Certifications = () => {
         @keyframes fadeInUp {
           0% { transform: translateY(30px); opacity: 0; }
           100% { transform: translateY(0); opacity: 1; }
+        }
+        .certifications-slider {
+          height: auto;
+        }
+        .certifications-slider .react-multi-carousel-item {
+          height: auto;
+          display: flex;
+        }
+        .certifications-slider .react-multi-carousel-item > div {
+          height: 100%;
+          width: 100%;
         }
       `}</style>
     </Box>

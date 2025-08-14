@@ -170,20 +170,21 @@ export const Projects = () => {
         <Box className="opacity-100 flex flex-col items-center">
           <Typography
             variant="h2"
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 text-white text-center animate-fade-in-up"
+            className="text-base sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 text-white animate-fade-in-up"
             sx={{
               background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               animation: 'fadeInUp 1s ease-out',
+              fontSize: { xs: '16px', sm: '30px', md: '36px', lg: '48px' },
               '@keyframes fadeInUp': {
                 '0%': { transform: 'translateY(30px)', opacity: 0 },
                 '100%': { transform: 'translateY(0)', opacity: 1 },
               }
             }}
           >
-            Notable Projects
+            Projects
           </Typography>
           <Typography
             variant="body1"

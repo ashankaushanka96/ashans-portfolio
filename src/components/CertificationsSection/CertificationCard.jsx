@@ -3,28 +3,28 @@ import { Box, Typography, Button } from "@mui/material";
 
 export const CertificationCard = ({ title, description, imgUrl, certLink }) => {
   return (
-    <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-xl p-3 sm:p-5 text-center shadow-xl hover:shadow-2xl mx-1 sm:mx-2 border border-gray-700/50 transition-all duration-500 transform hover:-translate-y-2 group">
+    <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-xl p-3 sm:p-5 text-center shadow-xl hover:shadow-2xl mx-1 sm:mx-2 border border-gray-700/50 transition-all duration-500 transform hover:-translate-y-2 group h-full flex flex-col min-h-[350px] sm:min-h-[400px]">
       {/* Animated Background Glow */}
       <Box className="absolute inset-0 bg-gradient-to-br from-accent/10 via-purple-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-xl"></Box>
       
-      <Box className="relative z-10">
-        <Box className="relative overflow-hidden rounded-lg mb-3 sm:mb-4">
+      <Box className="relative z-10 flex flex-col h-full">
+        <Box className="relative overflow-hidden rounded-lg mb-3 sm:mb-4 flex-shrink-0">
           <img 
             src={imgUrl} 
             alt={title} 
-            className="w-full rounded-lg transition-all duration-500 group-hover:scale-105 drop-shadow-lg"
+            className="w-full h-28 sm:h-36 object-cover rounded-lg transition-all duration-500 group-hover:scale-105 drop-shadow-lg"
           />
           <Box className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></Box>
         </Box>
         
-        <Box className="cert-content">
+        <Box className="cert-content flex flex-col flex-grow">
           <Typography
             variant="h6"
-            className="text-sm sm:text-lg font-bold mb-2 sm:mb-3 line-clamp-2 leading-tight transition-all duration-300 group-hover:text-accent"
+            className="text-sm sm:text-lg font-bold mb-2 sm:mb-3 line-clamp-2 leading-tight transition-all duration-300 group-hover:text-accent flex-shrink-0"
           >
             {title}
           </Typography>
-          <Box component="ul" className="list-none p-0 m-0 mb-3 sm:mb-4 text-gray-400 text-xs sm:text-base space-y-1">
+          <Box component="ul" className="list-none p-0 m-0 mb-3 sm:mb-4 text-gray-400 text-xs sm:text-base space-y-1 flex-grow">
             {description.map((point, index) => (
               <Box 
                 component="li" 
@@ -39,7 +39,7 @@ export const CertificationCard = ({ title, description, imgUrl, certLink }) => {
           <Button
             variant="contained"
             onClick={() => window.open(certLink, "_blank")}
-            className="bg-gradient-to-r from-purple-600 to-accent hover:from-accent hover:to-purple-600 text-white font-semibold px-3 sm:px-5 py-2 rounded-lg transition-all duration-300 text-sm sm:text-base transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="bg-gradient-to-r from-purple-600 to-accent hover:from-accent hover:to-purple-600 text-white font-semibold px-3 sm:px-5 py-2 rounded-lg transition-all duration-300 text-sm sm:text-base transform hover:scale-105 shadow-lg hover:shadow-xl flex-shrink-0 mt-auto"
             sx={{
               '&:hover': {
                 boxShadow: '0 8px 25px rgba(0, 212, 255, 0.4)',
