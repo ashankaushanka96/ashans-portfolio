@@ -76,14 +76,14 @@ export const Skills = () => {
           <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl text-center py-8 sm:py-12 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
             <Typography
               variant="h2"
-              className="text-base sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-10 text-white animate-fade-in-up"
+              className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-10 text-white animate-fade-in-up"
               sx={{
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 animation: 'fadeInUp 1s ease-out',
-                fontSize: { xs: '16px', sm: '30px', md: '36px', lg: '48px' },
+                fontSize: { xs: '36px', sm: '30px', md: '36px', lg: '48px' },
                 '@keyframes fadeInUp': {
                   '0%': { transform: 'translateY(30px)', opacity: 0 },
                   '100%': { transform: 'translateY(0)', opacity: 1 },
@@ -113,14 +113,14 @@ export const Skills = () => {
           <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl text-center py-8 sm:py-12 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
             <Typography
               variant="h2"
-              className="text-base sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-10 text-white animate-fade-in-up"
+              className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-10 text-white animate-fade-in-up"
               sx={{
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 animation: 'fadeInUp 1s ease-out 0.3s both',
-                fontSize: { xs: '16px', sm: '30px', md: '36px', lg: '48px' },
+                fontSize: { xs: '36px', sm: '30px', md: '36px', lg: '48px' },
                 '@keyframes fadeInUp': {
                   '0%': { transform: 'translateY(30px)', opacity: 0 },
                   '100%': { transform: 'translateY(0)', opacity: 1 },
