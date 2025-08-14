@@ -1,6 +1,6 @@
 // src/components/ProjectsSection/Projects.jsx
 import React, { useState } from "react";
-import { Container, Row, Col, Tab } from "react-bootstrap";
+import { Container, Box, Typography, Grid } from "@mui/material";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectModal } from "./ProjectModal";
 
@@ -20,9 +20,6 @@ import projImg10_3 from "../../assets/img/project-images/EC2SchedulesSection.png
 import projImg10_4 from "../../assets/img/project-images/Route53Section.png";
 import projImg10_5 from "../../assets/img/project-images/ServerStartStopSection.png";
 import colorSharp2 from "../../assets/img/color-sharp2.png";
-import "animate.css";
-import TrackVisibility from "react-on-screen";
-import "./Projects.css";
 
 export const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -168,46 +165,40 @@ export const Projects = () => {
   };
 
   return (
-    <section className="project" id="projects">
-      <Container>
-        <Row>
-          <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <div
-                  className={
-                    isVisible ? "animate__animated animate__fadeIn" : ""
-                  }
-                >
-                  <h2>Notable Projects</h2>
-                  <p>Click on a project to learn more.</p>
-                  <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                    <Tab.Content>
-                      <Tab.Pane eventKey="first">
-                        <Row>
-                          {projects.map((proj, idx) => (
-                            <ProjectCard
-                              key={idx}
-                              title={proj.title}
-                              short_description={proj.short_description}
-                              imgUrl={proj.imgUrl}
-                              onClick={() => handleCardClick(proj)}
-                            />
-                          ))}
-                        </Row>
-                      </Tab.Pane>
-                    </Tab.Content>
-                  </Tab.Container>
-                </div>
-              )}
-            </TrackVisibility>
-          </Col>
-        </Row>
+    <Box component="section" id="projects" className="relative py-8 sm:py-12 bg-black px-4 sm:px-0">
+      <Container maxWidth="lg">
+        <Box className="opacity-100 flex flex-col items-center">
+          <Typography
+            variant="h2"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white text-center"
+          >
+            Notable Projects
+          </Typography>
+          <Typography
+            variant="body1"
+            className="text-base sm:text-lg text-gray-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed text-center"
+          >
+            Click on a project to learn more.
+          </Typography>
+          
+          <Grid container spacing={{ xs: 2, sm: 3 }}>
+            {projects.map((proj, idx) => (
+              <Grid item xs={12} sm={6} md={4} key={idx}>
+                <ProjectCard
+                  title={proj.title}
+                  short_description={proj.short_description}
+                  imgUrl={proj.imgUrl}
+                  onClick={() => handleCardClick(proj)}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
       </Container>
 
       <ProjectModal
-        show={showModal}
-        onHide={handleClose}
+        open={showModal}
+        onClose={handleClose}
         title={selectedProject?.title}
         description={selectedProject?.description}
         images={selectedProject?.images}
@@ -215,10 +206,10 @@ export const Projects = () => {
       />
 
       <img
-        className="background-image-right"
+        className="absolute top-0 right-0 w-0 -z-10"
         src={colorSharp2}
         alt="background"
       />
-    </section>
+    </Box>
   );
 };

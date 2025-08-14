@@ -1,11 +1,10 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Box, Typography } from "@mui/material";
 import { CertificationCard } from "./CertificationCard";
 import certImg1 from "../../assets/img/certificates/cert1.png";
 import certImg2 from "../../assets/img/certificates/cert2.png";
 import certImg3 from "../../assets/img/certificates/cert3.png";
 import certImg4 from "../../assets/img/certificates/cert4.png";
 import Carousel from "react-multi-carousel";
-import "./Certifications.css";
 
 export const Certifications = () => {
   const responsive = {
@@ -26,6 +25,7 @@ export const Certifications = () => {
       items: 1,
     },
   };
+  
   const certifications = [
     {
       title: "AWS Certified Solution Architect Associate",
@@ -63,12 +63,27 @@ export const Certifications = () => {
   ];
 
   return (
-    <section className="certifications" id="certifications">
-      <Container>
-        <Col>
-          <Row className="certifications-bx">
-            <h2>Certifications</h2>
-            <p>Browse through my professional certifications.</p>
+    <Box 
+      component="section" 
+      id="certifications" 
+      className="relative py-8 sm:py-12 bg-black text-center px-4 sm:px-0"
+    >
+      <Container maxWidth="lg">
+        <Box className="bg-gray-900 rounded-2xl sm:rounded-3xl text-center py-8 sm:py-12 px-6 sm:px-12">
+          <Typography
+            variant="h2"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white"
+          >
+            Certifications
+          </Typography>
+          <Typography
+            variant="body1"
+            className="text-base sm:text-lg text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed"
+          >
+            Browse through my professional certifications.
+          </Typography>
+          
+          <Box className="w-full">
             <Carousel
               responsive={responsive}
               infinite={true}
@@ -80,9 +95,9 @@ export const Certifications = () => {
                 <CertificationCard key={index} {...cert} />
               ))}
             </Carousel>
-          </Row>
-        </Col>
+          </Box>
+        </Box>
       </Container>
-    </section>
+    </Box>
   );
 };

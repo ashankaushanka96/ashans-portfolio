@@ -1,48 +1,68 @@
-import { Container, Row, Col } from "react-bootstrap";
-// import { MailchimpForm } from "./MailchimpForm";
+import { Container, Box, Typography, IconButton } from "@mui/material";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import logo from "../../assets/img/logonew.svg";
-import navIcon1 from "../../assets/img/nav-icon1.svg";
-import navIcon2 from "../../assets/img/nav-icon2.svg";
-import navIcon3 from "../../assets/img/nav-icon3.svg";
-import "./Footer.css";
+import footerBg from "../../assets/img/footer-bg.png";
 
 export const Footer = () => {
   return (
-    <footer className="footer">
-      <Container>
-        <Row className="align-items-center">
-          {/* <MailchimpForm /> */}
-          <Col size={12} sm={6}>
-            <img src={logo} alt="Logo" />
-          </Col>
-          <Col size={12} sm={6} className="text-center text-sm-end">
-            <div className="social-icon">
-              <a
+    <Box 
+      component="footer" 
+      className="pt-8 sm:pt-10 pb-4 px-4 sm:px-0"
+      sx={{
+        backgroundImage: `url(${footerBg})`,
+        backgroundPosition: 'center center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <Container maxWidth="lg">
+        <Box className="flex flex-col md:flex-row items-center justify-between">
+          <Box className="mb-4 md:mb-0">
+            <img src={logo} alt="Logo" className="w-1/3 sm:w-1/4" />
+          </Box>
+          
+          <Box className="text-center md:text-right">
+            <Box className="flex justify-center md:justify-end space-x-3 sm:space-x-4 mb-4">
+              <IconButton
                 href="https://www.linkedin.com/in/ashan-kaushanka/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white bg-opacity-10 border border-white border-opacity-50 rounded-full hover:bg-white hover:bg-opacity-20 transition-all duration-300"
+                aria-label="LinkedIn"
               >
-                <img src={navIcon1} alt="LinkedIn" />
-              </a>
-              <a
+                <LinkedInIcon className="text-white text-lg sm:text-xl" />
+              </IconButton>
+              <IconButton
                 href="https://www.facebook.com/ashan.kaushanka/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white bg-opacity-10 border border-white border-opacity-50 rounded-full hover:bg-white hover:bg-opacity-20 transition-all duration-300"
+                aria-label="Facebook"
               >
-                <img src={navIcon2} alt="Facebook" />
-              </a>
-              <a
+                <FacebookIcon className="text-white text-lg sm:text-xl" />
+              </IconButton>
+              <IconButton
                 href="https://github.com/ashankaushanka96"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white bg-opacity-10 border border-white border-opacity-50 rounded-full hover:bg-white hover:bg-opacity-20 transition-all duration-300"
+                aria-label="GitHub"
               >
-                <img src={navIcon3} alt="GitHub" />
-              </a>
-            </div>
-            <p>Copyright 2022. All Rights Reserved</p>
-          </Col>
-        </Row>
+                <GitHubIcon className="text-white text-lg sm:text-xl" />
+              </IconButton>
+            </Box>
+            
+            <Typography
+              variant="body2"
+              className="text-xs sm:text-sm text-gray-400 tracking-wider"
+            >
+              Copyright 2022. All Rights Reserved
+            </Typography>
+          </Box>
+        </Box>
       </Container>
-    </footer>
+    </Box>
   );
 };

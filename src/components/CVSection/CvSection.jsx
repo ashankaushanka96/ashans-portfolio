@@ -1,44 +1,50 @@
-import { Container, Row, Col } from "react-bootstrap";
-import "./CVSection.css";
+import { Container, Box, Typography, Button } from "@mui/material";
+import { Download } from "@mui/icons-material";
 
 const CvSection = () => {
   const cvPath = "assets/Ashan_Pathiranage.pdf"; // Path to your CV file in the public folder
 
   return (
-    <section className="cv-section-dark" id="cvsection">
-      <Container>
-        <Row>
-          <Col size={12}>
-            <div className="cv-content">
-              <h2>My Resume</h2>
-              <p>Preview my Resume below or download a copy.</p>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col size={12}>
-            {/* CV Preview */}
-            <div className="cv-preview-dark">
-              <iframe
-                src={cvPath}
-                title="CV Preview"
-                frameBorder="0"
-                width="100%"
-                height="500px"
-              />
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col size={12} className="text-center">
-            {/* Download Button */}
-            <a href={cvPath} download className="cv-download-button-dark">
+    <Box component="section" id="cvsection" className="py-8 sm:py-12 px-4 sm:px-0">
+      <Container maxWidth="lg">
+        <Box className="max-w-4xl mx-auto text-center bg-gray-900 p-4 sm:p-8 rounded-xl border border-gray-700 shadow-lg">
+          <Typography
+            variant="h2"
+            className="text-3xl sm:text-4xl font-bold mb-4 text-white"
+          >
+            My Resume
+          </Typography>
+          <Typography
+            variant="body1"
+            className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8"
+          >
+            Preview my Resume below or download a copy.
+          </Typography>
+          
+          {/* CV Preview */}
+          <Box className="w-full h-64 sm:h-80 lg:h-96 border border-gray-600 rounded-lg overflow-hidden mb-6 sm:mb-8 bg-gray-800">
+            <iframe
+              src={cvPath}
+              title="CV Preview"
+              className="w-full h-full border-0"
+            />
+          </Box>
+          
+          {/* Download Button */}
+          <Box className="text-center">
+            <Button
+              variant="contained"
+              href={cvPath}
+              download
+              startIcon={<Download />}
+              className="bg-purple-600 hover:bg-pink-600 text-white font-semibold px-6 sm:px-8 py-3 rounded-lg transition-colors duration-300 text-sm sm:text-base"
+            >
               Download My Resume
-            </a>
-          </Col>
-        </Row>
+            </Button>
+          </Box>
+        </Box>
       </Container>
-    </section>
+    </Box>
   );
 };
 

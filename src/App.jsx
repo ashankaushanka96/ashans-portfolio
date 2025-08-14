@@ -1,5 +1,5 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import { NavBar } from "./components/NavBar/NavBar";
 import { Banner } from "./components/Banner/Banner";
 import { Skills } from "./components/SkillsSection/Skills";
@@ -9,18 +9,44 @@ import { Footer } from "./components/Footer/Footer";
 import Experience from './components/ExperienceSection/Experience';
 import CvSection from './components/CVSection/CvSection';
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#00d4ff',
+    },
+    secondary: {
+      main: '#ffffff',
+    },
+    background: {
+      default: '#121212',
+      paper: '#1e1e1e',
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: 'rgba(255, 255, 255, 0.7)',
+    },
+  },
+  typography: {
+    fontFamily: 'CentraNo2, sans-serif',
+  },
+});
+
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <Banner />
-      <Skills />
-      <Certifications/>
-      <Experience/>
-      <Projects />
-      <CvSection/>
-      <Footer />
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <div className="App">
+        <NavBar />
+        <Banner />
+        <Skills />
+        <Certifications/>
+        <Experience/>
+        <Projects />
+        <CvSection/>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

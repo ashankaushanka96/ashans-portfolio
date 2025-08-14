@@ -1,24 +1,35 @@
 import PropTypes from "prop-types";
+import { Box, Typography, Button } from "@mui/material";
 
 export const CertificationCard = ({ title, description, imgUrl, certLink }) => {
   return (
-    <div className="cert-card">
-      <img src={imgUrl} alt={title} />
-      <div className="cert-content">
-        <h4>{title}</h4>
-        <ul>
+    <Box className="bg-gray-900 rounded-xl p-3 sm:p-5 text-center shadow-lg mx-1 sm:mx-2">
+      <img 
+        src={imgUrl} 
+        alt={title} 
+        className="w-full rounded-lg mb-3 sm:mb-4"
+      />
+      <Box className="cert-content">
+        <Typography
+          variant="h6"
+          className="text-sm sm:text-lg font-bold mb-2 sm:mb-3 line-clamp-2 leading-tight"
+        >
+          {title}
+        </Typography>
+        <Box component="ul" className="list-none p-0 m-0 mb-3 sm:mb-4 text-gray-400 text-xs sm:text-base space-y-1">
           {description.map((point, index) => (
-            <li key={index}>{point}</li>
+            <Box component="li" key={index}>{point}</Box>
           ))}
-        </ul>
-        <button
+        </Box>
+        <Button
+          variant="contained"
           onClick={() => window.open(certLink, "_blank")}
-          className="view-cert-button"
+          className="bg-purple-600 hover:bg-pink-600 text-white font-semibold px-3 sm:px-5 py-2 rounded transition-colors duration-300 text-sm sm:text-base"
         >
           View Certificate
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Box>
+    </Box>
   );
 };
 

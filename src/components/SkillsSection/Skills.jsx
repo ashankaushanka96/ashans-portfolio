@@ -1,5 +1,6 @@
 import { SkillCard } from './SkillCard';
 import { ToolCard } from './ToolCard';
+import { Container, Box, Typography } from "@mui/material";
 import meter1 from "../../assets/img/meter1.svg";
 import meter2 from "../../assets/img/meter2.svg";
 import meter3 from "../../assets/img/meter3.svg";
@@ -19,8 +20,6 @@ import java from "../../assets/logo/java.svg";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import colorSharp from "../../assets/img/color-sharp.png";
-import './Skills.css'
-import { Col, Container, Row } from 'react-bootstrap';
 
 export const Skills = () => {
   const responsive = {
@@ -67,34 +66,66 @@ export const Skills = () => {
     { image: datadog, title: "Datadog" },
     { image: python, title: "Python" },
     { image: java, title: "Java" },
-];
-
+  ];
 
   return (
-    <section className="skill" id="skills">
-      <Container>
-        <Col>
-          <Row className="skill-bx">
-            {/* Skills Section */}
-            <h2>Skills</h2>
-            <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2000}  className="slider">
-              {skills.map((skill, index) => (
-                <SkillCard key={index} image={skill.image} title={skill.title} />
-              ))}
-            </Carousel>
-          </Row>
-          <Row className="platform-bx">
-            {/* Tools and Cloud Platforms Section */}
-            <h2>Tools & Platforms</h2>
-            <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={2000} className="slider">
-              {toolsAndPlatforms.map((tool, index) => (
-                <ToolCard key={index} image={tool.image} title={tool.title} />
-              ))}
-            </Carousel>
-          </Row>
-        </Col>
+    <Box component="section" id="skills" className="relative py-8 sm:py-12 px-4 sm:px-0">
+      <Container maxWidth="lg">
+        <Box className="space-y-6 sm:space-y-8">
+          {/* Skills Section */}
+          <Box className="bg-gray-900 rounded-2xl sm:rounded-3xl text-center py-8 sm:py-16 px-6 sm:px-12 -mt-8 sm:-mt-16">
+            <Typography
+              variant="h2"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-white"
+            >
+              Skills
+            </Typography>
+            <Box className="w-full sm:w-4/5 mx-auto">
+              <Carousel 
+                responsive={responsive} 
+                infinite={true} 
+                autoPlay={true} 
+                autoPlaySpeed={2000}
+                className="skills-carousel"
+              >
+                {skills.map((skill, index) => (
+                  <SkillCard key={index} image={skill.image} title={skill.title} />
+                ))}
+              </Carousel>
+            </Box>
+          </Box>
+
+          {/* Tools and Cloud Platforms Section */}
+          <Box className="bg-gray-900 rounded-2xl sm:rounded-3xl text-center py-8 sm:py-16 px-6 sm:px-12">
+            <Typography
+              variant="h2"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-white"
+            >
+              Tools & Platforms
+            </Typography>
+            <Box className="w-full sm:w-4/5 mx-auto">
+              <Carousel 
+                responsive={responsive} 
+                infinite={true} 
+                autoPlay={true} 
+                autoPlaySpeed={2000}
+                className="tools-carousel"
+              >
+                {toolsAndPlatforms.map((tool, index) => (
+                  <ToolCard key={index} image={tool.image} title={tool.title} />
+                ))}
+              </Carousel>
+            </Box>
+          </Box>
+        </Box>
       </Container>
-      <img className="background-image-left" src={colorSharp} alt="Background" />
-    </section>
+      
+      {/* Background Image */}
+      <img 
+        className="absolute top-1/4 bottom-0 w-1/2 sm:w-2/5 -z-10" 
+        src={colorSharp} 
+        alt="Background" 
+      />
+    </Box>
   );
 };

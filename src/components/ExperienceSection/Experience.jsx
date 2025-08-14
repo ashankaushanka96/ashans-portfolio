@@ -1,7 +1,6 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Box, Typography } from "@mui/material";
 import ExperienceCard from "./ExperienceCard";
 import colorSharp from "../../assets/img/color-sharp2.png";
-import "./Experience.css";
 
 const Experience = () => {
   const experiences = [
@@ -50,32 +49,36 @@ const Experience = () => {
   ];
 
   return (
-    <section className="experience" id="experience">
-      <Container>
-        <Row>
-          <Col size={12}>
-            <div className="work-experience-section">
-              <h2>Work Experience</h2>
-              {experiences.map((exp, index) => (
-                <div key={index} className="experience-tile">
-                  <ExperienceCard
-                    role={exp.role}
-                    company={exp.company}
-                    duration={exp.duration}
-                    responsibilities={exp.responsibilities}
-                  />
-                </div>
-              ))}
-            </div>
-          </Col>
-        </Row>
+    <Box component="section" id="experience" className="relative py-8 sm:py-12 px-4 sm:px-0">
+      <Container maxWidth="lg">
+        <Box className="space-y-4 sm:space-y-6">
+          <Typography
+            variant="h2"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-white"
+          >
+            Work Experience
+          </Typography>
+          
+          {experiences.map((exp, index) => (
+            <Box key={index} className="mb-4 sm:mb-6">
+              <ExperienceCard
+                role={exp.role}
+                company={exp.company}
+                duration={exp.duration}
+                responsibilities={exp.responsibilities}
+              />
+            </Box>
+          ))}
+        </Box>
       </Container>
+      
+      {/* Background Image */}
       <img
-        className="background-image-right-2"
+        className="absolute top-1/3 right-0 bottom-0 w-1/2 sm:w-2/5 -z-10"
         src={colorSharp}
         alt="background"
       />
-    </section>
+    </Box>
   );
 };
 
