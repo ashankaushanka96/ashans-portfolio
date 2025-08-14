@@ -11,9 +11,13 @@ import {
   ListItem, 
   ListItemText,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
+  Fade,
+  Slide,
+  Typography
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -23,10 +27,14 @@ export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   useEffect(() => {
+    setIsVisible(true);
+    
     const onScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true);
@@ -54,9 +62,9 @@ export const NavBar = () => {
   ];
 
   const socialLinks = [
-    { icon: <LinkedInIcon />, href: "https://www.linkedin.com/in/ashan-kaushanka/", label: "LinkedIn" },
-    { icon: <FacebookIcon />, href: "https://www.facebook.com/ashan.kaushanka/", label: "Facebook" },
-    { icon: <GitHubIcon />, href: "https://github.com/ashankaushanka96", label: "GitHub" },
+    { icon: <LinkedInIcon />, href: "https://www.linkedin.com/in/ashan-kaushanka/", label: "LinkedIn", color: "hover:shadow-blue-500/50" },
+    { icon: <FacebookIcon />, href: "https://www.facebook.com/ashan.kaushanka/", label: "Facebook", color: "hover:shadow-blue-600/50" },
+    { icon: <GitHubIcon />, href: "https://github.com/ashankaushanka96", label: "GitHub", color: "hover:shadow-purple-500/50" },
   ];
 
   const handleDrawerToggle = () => {
@@ -64,20 +72,32 @@ export const NavBar = () => {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} className="text-center">
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item.id} disablePadding>
+    <Box onClick={handleDrawerToggle} className="text-center h-full flex flex-col">
+      {/* Close Button */}
+      <Box className="flex justify-end p-4">
+        <IconButton
+          onClick={handleDrawerToggle}
+          className="text-white hover:bg-white/10 rounded-full transition-all duration-300"
+        >
+          <CloseIcon />
+        </IconButton>
+      </Box>
+      
+      {/* Navigation Items */}
+      <List className="flex-1 flex flex-col justify-center">
+        {navItems.map((item, index) => (
+          <ListItem key={item.id} disablePadding className="mb-2">
             <ListItemText
               primary={
                 <a
                   href={item.href}
-                  className={`block px-4 py-3 text-lg transition-all duration-300 transform hover:scale-105 ${
+                  className={`block px-6 py-4 text-lg font-medium transition-all duration-500 transform hover:scale-105 rounded-xl ${
                     activeLink === item.id 
-                      ? "text-white opacity-100 bg-gradient-to-r from-accent/20 to-purple-600/20 rounded-lg" 
-                      : "text-white opacity-75 hover:opacity-100 hover:bg-white/10 rounded-lg"
+                      ? "text-white bg-gradient-to-r from-accent/20 to-purple-600/20 border border-accent/30 shadow-lg" 
+                      : "text-white/80 hover:text-white hover:bg-white/10 border border-transparent"
                   }`}
                   onClick={() => onUpdateActiveLink(item.id)}
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {item.label}
                 </a>
@@ -86,6 +106,32 @@ export const NavBar = () => {
           </ListItem>
         ))}
       </List>
+      
+      {/* Social Links */}
+      <Box className="p-6">
+        <Typography variant="body2" className="text-white/60 mb-4 text-sm">
+          Connect with me
+        </Typography>
+        <Box className="flex justify-center space-x-4">
+          {socialLinks.map((social, index) => (
+            <IconButton
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-12 h-12 bg-white/10 border border-white/20 rounded-full hover:bg-white/20 hover:border-white/40 transition-all duration-300 transform hover:scale-110 hover:rotate-12 backdrop-blur-sm ${social.color}`}
+              aria-label={social.label}
+              sx={{
+                '&:hover': {
+                  boxShadow: '0 0 20px rgba(0, 212, 255, 0.5)',
+                }
+              }}
+            >
+              {social.icon}
+            </IconButton>
+          ))}
+        </Box>
+      </Box>
     </Box>
   );
 
@@ -93,107 +139,120 @@ export const NavBar = () => {
     <>
       <AppBar 
         position="fixed" 
-        className={`transition-all duration-500 backdrop-blur-md ${
-          scrolled ? "bg-black/80 py-0 shadow-2xl" : "bg-transparent py-2 sm:py-4"
+        className={`transition-all duration-700 backdrop-blur-md ${
+          scrolled ? "bg-black/90 py-2 shadow-2xl" : "bg-transparent py-4"
         }`}
         elevation={0}
         sx={{
           background: scrolled 
-            ? 'linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 100%)' 
+            ? 'linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%)' 
             : 'transparent',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
           borderBottom: scrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Toolbar className="justify-between px-2 sm:px-4">
-            <Box className="flex items-center">
-              <a href="/ashans-portfolio/" className="w-12 sm:w-16 transition-transform duration-300 hover:scale-110">
-                <img src={logo} alt="Logo" className="w-full h-auto drop-shadow-lg" />
-              </a>
-            </Box>
+            {/* Logo */}
+            <Fade in={isVisible} timeout={1000}>
+              <Box className="flex items-center">
+                <a href="/ashans-portfolio/" className="w-12 sm:w-16 transition-all duration-300 hover:scale-110 hover:rotate-3">
+                  <img src={logo} alt="Logo" className="w-full h-auto drop-shadow-lg" />
+                </a>
+              </Box>
+            </Fade>
 
             {/* Desktop Navigation */}
             {!isMobile && (
-              <Box className="flex items-center space-x-4 lg:space-x-6">
-                <Box className="flex space-x-4 lg:space-x-6">
-                  {navItems.map((item) => (
-                    <a
-                      key={item.id}
-                      href={item.href}
-                      className={`text-base lg:text-lg font-normal tracking-wider transition-all duration-300 relative group ${
-                        activeLink === item.id 
-                          ? "text-white opacity-100" 
-                          : "text-white opacity-75 hover:opacity-100"
-                      }`}
-                      onClick={() => onUpdateActiveLink(item.id)}
-                    >
-                      {item.label}
-                      <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-purple-600 transition-all duration-300 group-hover:w-full ${
-                        activeLink === item.id ? 'w-full' : ''
-                      }`}></span>
-                    </a>
-                  ))}
-                </Box>
-
-                <Box className="flex items-center space-x-2 lg:space-x-3 ml-4 lg:ml-6">
-                  <Box className="flex space-x-1 lg:space-x-2">
-                    {socialLinks.map((social, index) => (
-                      <IconButton
-                        key={index}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 lg:w-10 lg:h-10 bg-white/10 border border-white/20 rounded-full hover:bg-white/20 hover:border-white/40 transition-all duration-300 transform hover:scale-110 hover:rotate-12 backdrop-blur-sm"
-                        aria-label={social.label}
-                        sx={{
-                          '&:hover': {
-                            boxShadow: '0 0 20px rgba(0, 212, 255, 0.5)',
-                          }
-                        }}
+              <Fade in={isVisible} timeout={1000} style={{ transitionDelay: '200ms' }}>
+                <Box className="flex items-center space-x-6 lg:space-x-8">
+                  {/* Navigation Links */}
+                  <Box className="flex space-x-6 lg:space-x-8">
+                    {navItems.map((item, index) => (
+                      <a
+                        key={item.id}
+                        href={item.href}
+                        className={`text-base lg:text-lg font-medium tracking-wider transition-all duration-300 relative group ${
+                          activeLink === item.id 
+                            ? "text-white" 
+                            : "text-white/80 hover:text-white"
+                        }`}
+                        onClick={() => onUpdateActiveLink(item.id)}
+                        style={{ animationDelay: `${index * 0.1}s` }}
                       >
-                        {social.icon}
-                      </IconButton>
+                        {item.label}
+                        <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-purple-600 transition-all duration-300 group-hover:w-full ${
+                          activeLink === item.id ? 'w-full' : ''
+                        }`}></span>
+                      </a>
                     ))}
                   </Box>
-                  
-                  <Button
-                    variant="outlined"
-                    href="https://www.linkedin.com/in/ashan-kaushanka/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ml-2 lg:ml-4 px-4 lg:px-8 py-2 lg:py-3 text-sm lg:text-lg font-bold border-white/50 text-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
-                    sx={{
-                      background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
-                      backdropFilter: 'blur(10px)',
-                      '&:hover': {
-                        background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%)',
-                        boxShadow: '0 8px 25px rgba(255,255,255,0.3)',
-                      }
-                    }}
-                  >
-                    Let's Connect
-                  </Button>
+
+                  {/* Social Links & CTA */}
+                  <Box className="flex items-center space-x-3 lg:space-x-4 ml-6 lg:ml-8">
+                    {/* Social Icons */}
+                    <Box className="flex space-x-2 lg:space-x-3">
+                      {socialLinks.map((social, index) => (
+                        <IconButton
+                          key={index}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`w-9 h-9 lg:w-10 lg:h-10 bg-white/10 border border-white/20 rounded-full hover:bg-white/20 hover:border-white/40 transition-all duration-300 transform hover:scale-110 hover:rotate-12 backdrop-blur-sm ${social.color}`}
+                          aria-label={social.label}
+                          sx={{
+                            '&:hover': {
+                              boxShadow: '0 0 20px rgba(0, 212, 255, 0.5)',
+                            }
+                          }}
+                        >
+                          {social.icon}
+                        </IconButton>
+                      ))}
+                    </Box>
+                    
+                    {/* CTA Button */}
+                    <Button
+                      variant="outlined"
+                      href="https://www.linkedin.com/in/ashan-kaushanka/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-2 lg:ml-4 px-6 lg:px-8 py-2 lg:py-3 text-sm lg:text-base font-bold border-white/30 text-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
+                      sx={{
+                        background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+                        backdropFilter: 'blur(10px)',
+                        borderRadius: '25px',
+                        '&:hover': {
+                          background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%)',
+                          boxShadow: '0 8px 25px rgba(255,255,255,0.3)',
+                        }
+                      }}
+                    >
+                      Let's Connect
+                    </Button>
+                  </Box>
                 </Box>
-              </Box>
+              </Fade>
             )}
 
             {/* Mobile Menu Button */}
             {isMobile && (
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-                className="text-white p-2 transition-all duration-300 hover:bg-white/10 rounded-full"
-                sx={{
-                  '&:hover': {
-                    transform: 'rotate(90deg)',
-                  }
-                }}
-              >
-                <MenuIcon className="text-2xl" />
-              </IconButton>
+              <Fade in={isVisible} timeout={1000} style={{ transitionDelay: '400ms' }}>
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  edge="start"
+                  onClick={handleDrawerToggle}
+                  className="text-white p-2 transition-all duration-300 hover:bg-white/10 rounded-full"
+                  sx={{
+                    '&:hover': {
+                      transform: 'rotate(90deg)',
+                    }
+                  }}
+                >
+                  <MenuIcon className="text-2xl" />
+                </IconButton>
+              </Fade>
             )}
           </Toolbar>
         </Container>
@@ -205,65 +264,25 @@ export const NavBar = () => {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
         sx={{
           display: { xs: 'block', md: 'none' },
           '& .MuiDrawer-paper': { 
             boxSizing: 'border-box', 
-            width: 280,
-            background: 'linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 100%)',
+            width: 320,
+            background: 'linear-gradient(135deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.95) 100%)',
             backdropFilter: 'blur(20px)',
             border: 'none',
             boxShadow: '0 0 50px rgba(0,0,0,0.8)',
           },
         }}
       >
-        <Box className="pt-16 pb-4">
-          {drawer}
-          
-          {/* Social Links in Mobile Drawer */}
-          <Box className="flex justify-center space-x-4 mt-8 px-4">
-            {socialLinks.map((social, index) => (
-              <IconButton
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/10 border border-white/20 rounded-full hover:bg-white/20 hover:border-white/40 transition-all duration-300 transform hover:scale-110 hover:rotate-12"
-                aria-label={social.label}
-                sx={{
-                  '&:hover': {
-                    boxShadow: '0 0 20px rgba(0, 212, 255, 0.5)',
-                  }
-                }}
-              >
-                {social.icon}
-              </IconButton>
-            ))}
+        <Slide direction="left" in={mobileOpen} mountOnEnter unmountOnExit>
+          <Box className="h-full">
+            {drawer}
           </Box>
-          
-          {/* Connect Button in Mobile Drawer */}
-          <Box className="flex justify-center mt-6 px-4">
-            <Button
-              variant="outlined"
-              href="https://www.linkedin.com/in/ashan-kaushanka/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full px-6 py-3 text-lg font-bold border-white/50 text-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105"
-              sx={{
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
-                backdropFilter: 'blur(10px)',
-                '&:hover': {
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%)',
-                  boxShadow: '0 8px 25px rgba(255,255,255,0.3)',
-                }
-              }}
-            >
-              Let's Connect
-            </Button>
-          </Box>
-        </Box>
+        </Slide>
       </Drawer>
     </>
   );
