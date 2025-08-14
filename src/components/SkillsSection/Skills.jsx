@@ -69,14 +69,14 @@ export const Skills = () => {
   ];
 
   return (
-    <Box component="section" id="skills" className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <Box component="section" id="skills" className="relative py-8 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ scrollMarginTop: '20px' }}>
       <Container maxWidth="lg">
-        <Box className="space-y-12 sm:space-y-16">
-          {/* Skills Section */}
-          <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl text-center py-12 sm:py-20 px-6 sm:px-12 lg:px-16 -mt-12 sm:-mt-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+        <Box className="space-y-6 sm:space-y-8">
+          {/* Technical Skills Section */}
+          <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl text-center py-8 sm:py-12 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
             <Typography
               variant="h2"
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-10 sm:mb-16 text-white animate-fade-in-up"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-10 text-white animate-fade-in-up"
               sx={{
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
                 backgroundClip: 'text',
@@ -89,7 +89,7 @@ export const Skills = () => {
                 }
               }}
             >
-              Skills
+              Technical Skills
             </Typography>
             <Box className="w-full sm:w-4/5 mx-auto">
               <Carousel 
@@ -108,11 +108,11 @@ export const Skills = () => {
             </Box>
           </Box>
 
-          {/* Tools and Cloud Platforms Section */}
-          <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl text-center py-12 sm:py-20 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+          {/* Tools & Technologies Section */}
+          <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl text-center py-8 sm:py-12 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
             <Typography
               variant="h2"
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-10 sm:mb-16 text-white animate-fade-in-up"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-10 text-white animate-fade-in-up"
               sx={{
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
                 backgroundClip: 'text',
@@ -125,7 +125,7 @@ export const Skills = () => {
                 }
               }}
             >
-              Tools & Platforms
+              Tools & Technologies
             </Typography>
             <Box className="w-full sm:w-4/5 mx-auto">
               <Carousel 

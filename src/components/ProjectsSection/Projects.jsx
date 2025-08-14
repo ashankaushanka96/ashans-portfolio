@@ -165,7 +165,7 @@ export const Projects = () => {
   };
 
   return (
-    <Box component="section" id="projects" className="relative py-16 sm:py-20 bg-black px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <Box component="section" id="projects" className="relative py-16 sm:py-20 bg-black px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ scrollMarginTop: '20px' }}>
       <Container maxWidth="lg">
         <Box className="opacity-100 flex flex-col items-center">
           <Typography

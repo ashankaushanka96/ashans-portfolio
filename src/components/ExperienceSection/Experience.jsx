@@ -49,7 +49,7 @@ const Experience = () => {
   ];
 
   return (
-    <Box component="section" id="experience" className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <Box component="section" id="experience" className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ scrollMarginTop: '20px' }}>
       <Container maxWidth="lg">
         <Box className="space-y-8 sm:space-y-12">
           <Typography

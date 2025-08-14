@@ -42,6 +42,7 @@ export const Banner = () => {
       component="section" 
       id="home"
       className="relative min-h-screen flex items-center pt-20 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      style={{ scrollMarginTop: '20px' }}
       sx={{
         backgroundImage: `url(${bannerBg})`,
         backgroundPosition: 'top center',

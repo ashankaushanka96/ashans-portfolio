@@ -5,7 +5,7 @@ const CvSection = () => {
   const cvPath = "assets/Ashan_Pathiranage.pdf"; // Path to your CV file in the public folder
 
   return (
-    <Box component="section" id="cvsection" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <Box component="section" id="cvsection" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ scrollMarginTop: '20px' }}>
       <Container maxWidth="lg">
         <Box className="max-w-4xl mx-auto text-center bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm p-6 sm:p-10 lg:p-12 rounded-xl border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
           <Typography
