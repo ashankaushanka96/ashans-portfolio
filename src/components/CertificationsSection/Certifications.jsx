@@ -87,15 +87,15 @@ export const Certifications = () => {
     <Box 
       component="section" 
       id="certifications" 
-      className="relative py-16 sm:py-20 lg:py-24 bg-black text-center px-4 sm:px-6 lg:px-8 overflow-hidden"
-      style={{ scrollMarginTop: '20px' }}
+      className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-center"
+      style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">
-        <Box className={`bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl text-center py-12 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-20 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 ${
+        <Box className={`bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl text-center py-12 sm:py-16 px-6 sm:px-12 lg:px-20 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           {/* Section Header */}
-          <Box className="mb-12 sm:mb-16">
+          <Box className="mb-8 sm:mb-12">
             <Typography
               variant="h2"
               className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-white"
@@ -112,8 +112,14 @@ export const Certifications = () => {
             </Typography>
             <Typography
               variant="body1"
-              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-              sx={{ fontFamily: 'CentraNo2, sans-serif' }}
+              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center"
+              sx={{ 
+                fontFamily: 'CentraNo2, sans-serif',
+                textAlign: 'center !important',
+                display: 'block',
+                width: '100%',
+                margin: '0 auto',
+              }}
             >
               Validated expertise through industry-recognized certifications that demonstrate my commitment to continuous learning and professional development.
             </Typography>

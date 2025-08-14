@@ -81,18 +81,18 @@ export const Skills = () => {
     <Box 
       component="section" 
       id="skills" 
-      className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden" 
-      style={{ scrollMarginTop: '20px' }}
+      className="relative py-8 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-center justify-center" 
+      style={{ scrollMarginTop: '80px' }}
     >
-      <Container maxWidth="xl">
-        <Box className="space-y-12 sm:space-y-16">
+      <Container maxWidth="xl" className="h-full flex items-center justify-center">
+        <Box className="space-y-6 sm:space-y-8 w-full max-w-6xl mx-auto text-center">
           {/* Section Header */}
-          <Box className={`text-center transition-all duration-1000 ${
+          <Box className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <Typography
               variant="h2"
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-white"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
@@ -100,14 +100,21 @@ export const Skills = () => {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 textShadow: '0 4px 8px rgba(0,0,0,0.5)',
+                textAlign: 'center',
               }}
             >
               Skills & Expertise
             </Typography>
             <Typography
               variant="body1"
-              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-              sx={{ fontFamily: 'CentraNo2, sans-serif' }}
+              className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed text-center"
+              sx={{ 
+                fontFamily: 'CentraNo2, sans-serif',
+                textAlign: 'center !important',
+                display: 'block',
+                width: '100%',
+                margin: '0 auto',
+              }}
             >
               A comprehensive overview of my technical skills and the tools I use to build robust, scalable solutions.
             </Typography>
@@ -117,16 +124,17 @@ export const Skills = () => {
           <Box className={`transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl text-center py-12 sm:py-16 px-6 sm:px-12 lg:px-20 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl py-8 sm:py-12 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
               <Typography
                 variant="h3"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 text-white"
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
+                  textAlign: 'center',
                 }}
               >
                 Technical Skills
@@ -161,16 +169,17 @@ export const Skills = () => {
           <Box className={`transition-all duration-1000 delay-400 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl text-center py-12 sm:py-16 px-6 sm:px-12 lg:px-20 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl py-8 sm:py-12 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
               <Typography
                 variant="h3"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 text-white"
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
+                  textAlign: 'center',
                 }}
               >
                 Tools & Technologies
@@ -231,21 +240,34 @@ export const Skills = () => {
           animation: floatSlow 8s ease-in-out infinite;
         }
         .custom-dot-list-style {
-          bottom: -40px;
+          bottom: -30px;
         }
         .custom-dot-list-style li button {
           background: rgba(255, 255, 255, 0.3);
           border-radius: 50%;
-          width: 12px;
-          height: 12px;
-          margin: 0 4px;
+          width: 10px;
+          height: 10px;
+          margin: 0 3px;
         }
         .custom-dot-list-style li.react-multi-carousel-dot--active button {
           background: #00d4ff;
           box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
         }
         .carousel-item-padding-40-px {
-          padding: 0 20px;
+          padding: 0 15px;
+        }
+        /* Force text centering for all Typography components in Skills section */
+        #skills .MuiTypography-root {
+          text-align: center !important;
+          display: block !important;
+          width: 100% !important;
+        }
+        #skills .MuiTypography-h2,
+        #skills .MuiTypography-h3,
+        #skills .MuiTypography-body1 {
+          text-align: center !important;
+          display: block !important;
+          width: 100% !important;
         }
       `}</style>
     </Box>

@@ -41,6 +41,23 @@ export const NavBar = () => {
       } else {
         setScrolled(false);
       }
+
+      // Update active link based on scroll position
+      const sections = ['home', 'skills', 'certifications', 'experience', 'projects', 'cvsection'];
+      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            setActiveLink(sections[i]);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener("scroll", onScroll);
@@ -50,6 +67,16 @@ export const NavBar = () => {
   const onUpdateActiveLink = (value) => {
     setActiveLink(value);
     setMobileOpen(false);
+    
+    // Smooth scroll to section
+    const element = document.getElementById(value);
+    if (element) {
+      const offsetTop = element.offsetTop - 80; // Account for navbar height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const navItems = [

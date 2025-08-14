@@ -196,15 +196,15 @@ export const Projects = () => {
     <Box 
       component="section" 
       id="projects" 
-      className="relative py-16 sm:py-20 lg:py-24 bg-black px-4 sm:px-6 lg:px-8 overflow-hidden" 
-      style={{ scrollMarginTop: '20px' }}
+      className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-center" 
+      style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">
         <Box className={`flex flex-col items-center transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           {/* Section Header */}
-          <Box className="text-center mb-12 sm:mb-16">
+          <Box className="text-center mb-8 sm:mb-12">
             <Typography
               variant="h2"
               className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-white"
@@ -221,7 +221,7 @@ export const Projects = () => {
             </Typography>
             <Typography
               variant="body1"
-              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center"
               sx={{ fontFamily: 'CentraNo2, sans-serif' }}
             >
               Explore my portfolio of innovative solutions and technical implementations. Click on any project to learn more about the technologies used and the challenges solved.

@@ -73,11 +73,11 @@ const Experience = () => {
     <Box 
       component="section" 
       id="experience" 
-      className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden" 
-      style={{ scrollMarginTop: '20px' }}
+      className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-center" 
+      style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">
-        <Box className="space-y-12 sm:space-y-16">
+        <Box className="space-y-8 sm:space-y-12">
           {/* Section Header */}
           <Box className={`text-center transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -98,15 +98,21 @@ const Experience = () => {
             </Typography>
             <Typography
               variant="body1"
-              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-              sx={{ fontFamily: 'CentraNo2, sans-serif' }}
+              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center"
+              sx={{ 
+                fontFamily: 'CentraNo2, sans-serif',
+                textAlign: 'center !important',
+                display: 'block',
+                width: '100%',
+                margin: '0 auto',
+              }}
             >
               My journey through various roles, each contributing to my growth as a Site Reliability Engineer and technology professional.
             </Typography>
           </Box>
           
           {/* Experience Timeline */}
-          <Box className="space-y-8 sm:space-y-12">
+          <Box className="space-y-6 sm:space-y-8">
             {experiences.map((exp, index) => (
               <Box 
                 key={index} 
