@@ -69,14 +69,25 @@ export const Skills = () => {
   ];
 
   return (
-    <Box component="section" id="skills" className="relative py-8 sm:py-12 px-4 sm:px-0">
+    <Box component="section" id="skills" className="relative py-8 sm:py-12 px-4 sm:px-0 overflow-hidden">
       <Container maxWidth="lg">
         <Box className="space-y-6 sm:space-y-8">
           {/* Skills Section */}
-          <Box className="bg-gray-900 rounded-2xl sm:rounded-3xl text-center py-8 sm:py-16 px-6 sm:px-12 -mt-8 sm:-mt-16">
+          <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl text-center py-8 sm:py-16 px-6 sm:px-12 -mt-8 sm:-mt-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
             <Typography
               variant="h2"
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-white"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-white animate-fade-in-up"
+              sx={{
+                background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                animation: 'fadeInUp 1s ease-out',
+                '@keyframes fadeInUp': {
+                  '0%': { transform: 'translateY(30px)', opacity: 0 },
+                  '100%': { transform: 'translateY(0)', opacity: 1 },
+                }
+              }}
             >
               Skills
             </Typography>
@@ -89,17 +100,30 @@ export const Skills = () => {
                 className="skills-carousel"
               >
                 {skills.map((skill, index) => (
-                  <SkillCard key={index} image={skill.image} title={skill.title} />
+                  <Box key={index} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <SkillCard image={skill.image} title={skill.title} />
+                  </Box>
                 ))}
               </Carousel>
             </Box>
           </Box>
 
           {/* Tools and Cloud Platforms Section */}
-          <Box className="bg-gray-900 rounded-2xl sm:rounded-3xl text-center py-8 sm:py-16 px-6 sm:px-12">
+          <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl text-center py-8 sm:py-16 px-6 sm:px-12 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
             <Typography
               variant="h2"
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-white"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-white animate-fade-in-up"
+              sx={{
+                background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                animation: 'fadeInUp 1s ease-out 0.3s both',
+                '@keyframes fadeInUp': {
+                  '0%': { transform: 'translateY(30px)', opacity: 0 },
+                  '100%': { transform: 'translateY(0)', opacity: 1 },
+                }
+              }}
             >
               Tools & Platforms
             </Typography>
@@ -112,7 +136,9 @@ export const Skills = () => {
                 className="tools-carousel"
               >
                 {toolsAndPlatforms.map((tool, index) => (
-                  <ToolCard key={index} image={tool.image} title={tool.title} />
+                  <Box key={index} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <ToolCard image={tool.image} title={tool.title} />
+                  </Box>
                 ))}
               </Carousel>
             </Box>
@@ -120,12 +146,39 @@ export const Skills = () => {
         </Box>
       </Container>
       
-      {/* Background Image */}
+      {/* Background Image with Animation */}
       <img 
-        className="absolute top-1/4 bottom-0 w-1/2 sm:w-2/5 -z-10" 
+        className="absolute top-1/4 bottom-0 w-1/2 sm:w-2/5 -z-10 animate-float-slow opacity-30" 
         src={colorSharp} 
         alt="Background" 
+        style={{
+          animation: 'floatSlow 6s ease-in-out infinite',
+        }}
       />
+
+      {/* Animated Background Elements */}
+      <Box className="absolute inset-0 -z-10">
+        <Box className="absolute top-20 right-10 w-2 h-2 bg-accent rounded-full animate-pulse opacity-40"></Box>
+        <Box className="absolute bottom-20 left-10 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-30"></Box>
+        <Box className="absolute top-1/2 left-1/4 w-3 h-3 bg-blue-400 rounded-full animate-bounce opacity-20"></Box>
+      </Box>
+
+      <style jsx>{`
+        @keyframes floatSlow {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        .animate-float-slow {
+          animation: floatSlow 6s ease-in-out infinite;
+        }
+        .animate-fade-in-up {
+          animation: fadeInUp 1s ease-out both;
+        }
+        @keyframes fadeInUp {
+          0% { transform: translateY(30px); opacity: 0; }
+          100% { transform: translateY(0); opacity: 1; }
+        }
+      `}</style>
     </Box>
   );
 };

@@ -165,18 +165,36 @@ export const Projects = () => {
   };
 
   return (
-    <Box component="section" id="projects" className="relative py-8 sm:py-12 bg-black px-4 sm:px-0">
+    <Box component="section" id="projects" className="relative py-8 sm:py-12 bg-black px-4 sm:px-0 overflow-hidden">
       <Container maxWidth="lg">
         <Box className="opacity-100 flex flex-col items-center">
           <Typography
             variant="h2"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white text-center"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white text-center animate-fade-in-up"
+            sx={{
+              background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              animation: 'fadeInUp 1s ease-out',
+              '@keyframes fadeInUp': {
+                '0%': { transform: 'translateY(30px)', opacity: 0 },
+                '100%': { transform: 'translateY(0)', opacity: 1 },
+              }
+            }}
           >
             Notable Projects
           </Typography>
           <Typography
             variant="body1"
-            className="text-base sm:text-lg text-gray-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed text-center"
+            className="text-base sm:text-lg text-gray-400 mb-8 sm:mb-12 max-w-2xl leading-relaxed text-center animate-fade-in-up"
+            sx={{
+              animation: 'fadeInUp 1s ease-out 0.3s both',
+              '@keyframes fadeInUp': {
+                '0%': { transform: 'translateY(30px)', opacity: 0 },
+                '100%': { transform: 'translateY(0)', opacity: 1 },
+              }
+            }}
           >
             Click on a project to learn more.
           </Typography>
@@ -184,12 +202,17 @@ export const Projects = () => {
           <Grid container spacing={{ xs: 2, sm: 3 }}>
             {projects.map((proj, idx) => (
               <Grid item xs={12} sm={6} md={4} key={idx}>
-                <ProjectCard
-                  title={proj.title}
-                  short_description={proj.short_description}
-                  imgUrl={proj.imgUrl}
-                  onClick={() => handleCardClick(proj)}
-                />
+                <Box 
+                  className="animate-fade-in-up" 
+                  style={{ animationDelay: `${idx * 0.1}s` }}
+                >
+                  <ProjectCard
+                    title={proj.title}
+                    short_description={proj.short_description}
+                    imgUrl={proj.imgUrl}
+                    onClick={() => handleCardClick(proj)}
+                  />
+                </Box>
               </Grid>
             ))}
           </Grid>
@@ -205,11 +228,28 @@ export const Projects = () => {
         repoUrl={selectedProject?.repoUrl}
       />
 
+      {/* Animated Background Elements */}
+      <Box className="absolute inset-0 -z-10">
+        <Box className="absolute top-20 left-10 w-2 h-2 bg-accent rounded-full animate-pulse opacity-40"></Box>
+        <Box className="absolute bottom-20 right-10 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-30"></Box>
+        <Box className="absolute top-1/2 right-1/4 w-3 h-3 bg-blue-400 rounded-full animate-bounce opacity-20"></Box>
+      </Box>
+
       <img
         className="absolute top-0 right-0 w-0 -z-10"
         src={colorSharp2}
         alt="background"
       />
+
+      <style jsx>{`
+        .animate-fade-in-up {
+          animation: fadeInUp 1s ease-out both;
+        }
+        @keyframes fadeInUp {
+          0% { transform: translateY(30px); opacity: 0; }
+          100% { transform: translateY(0); opacity: 1; }
+        }
+      `}</style>
     </Box>
   );
 };

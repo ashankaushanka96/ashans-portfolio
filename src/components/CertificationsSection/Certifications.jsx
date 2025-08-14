@@ -66,19 +66,37 @@ export const Certifications = () => {
     <Box 
       component="section" 
       id="certifications" 
-      className="relative py-8 sm:py-12 bg-black text-center px-4 sm:px-0"
+      className="relative py-8 sm:py-12 bg-black text-center px-4 sm:px-0 overflow-hidden"
     >
       <Container maxWidth="lg">
-        <Box className="bg-gray-900 rounded-2xl sm:rounded-3xl text-center py-8 sm:py-12 px-6 sm:px-12">
+        <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl text-center py-8 sm:py-12 px-6 sm:px-12 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
           <Typography
             variant="h2"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white animate-fade-in-up"
+            sx={{
+              background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              animation: 'fadeInUp 1s ease-out',
+              '@keyframes fadeInUp': {
+                '0%': { transform: 'translateY(30px)', opacity: 0 },
+                '100%': { transform: 'translateY(0)', opacity: 1 },
+              }
+            }}
           >
             Certifications
           </Typography>
           <Typography
             variant="body1"
-            className="text-base sm:text-lg text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
+            sx={{
+              animation: 'fadeInUp 1s ease-out 0.3s both',
+              '@keyframes fadeInUp': {
+                '0%': { transform: 'translateY(30px)', opacity: 0 },
+                '100%': { transform: 'translateY(0)', opacity: 1 },
+              }
+            }}
           >
             Browse through my professional certifications.
           </Typography>
@@ -92,12 +110,32 @@ export const Certifications = () => {
               className="certifications-slider"
             >
               {certifications.map((cert, index) => (
-                <CertificationCard key={index} {...cert} />
+                <Box key={index} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <CertificationCard {...cert} />
+                </Box>
               ))}
             </Carousel>
           </Box>
         </Box>
       </Container>
+
+      {/* Animated Background Elements */}
+      <Box className="absolute inset-0 -z-10">
+        <Box className="absolute top-20 left-10 w-2 h-2 bg-accent rounded-full animate-pulse opacity-40"></Box>
+        <Box className="absolute bottom-20 right-10 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-30"></Box>
+        <Box className="absolute top-1/2 left-1/4 w-3 h-3 bg-blue-400 rounded-full animate-bounce opacity-20"></Box>
+        <Box className="absolute top-1/3 right-1/4 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-50"></Box>
+      </Box>
+
+      <style jsx>{`
+        .animate-fade-in-up {
+          animation: fadeInUp 1s ease-out both;
+        }
+        @keyframes fadeInUp {
+          0% { transform: translateY(30px); opacity: 0; }
+          100% { transform: translateY(0); opacity: 1; }
+        }
+      `}</style>
     </Box>
   );
 };

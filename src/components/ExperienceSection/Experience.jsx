@@ -49,18 +49,33 @@ const Experience = () => {
   ];
 
   return (
-    <Box component="section" id="experience" className="relative py-8 sm:py-12 px-4 sm:px-0">
+    <Box component="section" id="experience" className="relative py-8 sm:py-12 px-4 sm:px-0 overflow-hidden">
       <Container maxWidth="lg">
         <Box className="space-y-4 sm:space-y-6">
           <Typography
             variant="h2"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-white animate-fade-in-up"
+            sx={{
+              background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              animation: 'fadeInUp 1s ease-out',
+              '@keyframes fadeInUp': {
+                '0%': { transform: 'translateY(30px)', opacity: 0 },
+                '100%': { transform: 'translateY(0)', opacity: 1 },
+              }
+            }}
           >
             Work Experience
           </Typography>
           
           {experiences.map((exp, index) => (
-            <Box key={index} className="mb-4 sm:mb-6">
+            <Box 
+              key={index} 
+              className="mb-4 sm:mb-6 animate-fade-in-up" 
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
               <ExperienceCard
                 role={exp.role}
                 company={exp.company}
@@ -72,12 +87,40 @@ const Experience = () => {
         </Box>
       </Container>
       
-      {/* Background Image */}
+      {/* Background Image with Animation */}
       <img
-        className="absolute top-1/3 right-0 bottom-0 w-1/2 sm:w-2/5 -z-10"
+        className="absolute top-1/3 right-0 bottom-0 w-1/2 sm:w-2/5 -z-10 animate-float-slow opacity-30"
         src={colorSharp}
         alt="background"
+        style={{
+          animation: 'floatSlow 6s ease-in-out infinite',
+        }}
       />
+
+      {/* Animated Background Elements */}
+      <Box className="absolute inset-0 -z-10">
+        <Box className="absolute top-20 right-10 w-2 h-2 bg-accent rounded-full animate-pulse opacity-40"></Box>
+        <Box className="absolute bottom-20 left-10 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-30"></Box>
+        <Box className="absolute top-1/2 left-1/4 w-3 h-3 bg-blue-400 rounded-full animate-bounce opacity-20"></Box>
+        <Box className="absolute top-1/3 right-1/4 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-50"></Box>
+      </Box>
+
+      <style jsx>{`
+        @keyframes floatSlow {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        .animate-float-slow {
+          animation: floatSlow 6s ease-in-out infinite;
+        }
+        .animate-fade-in-up {
+          animation: fadeInUp 1s ease-out both;
+        }
+        @keyframes fadeInUp {
+          0% { transform: translateY(30px); opacity: 0; }
+          100% { transform: translateY(0); opacity: 1; }
+        }
+      `}</style>
     </Box>
   );
 };
