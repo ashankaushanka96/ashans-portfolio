@@ -218,7 +218,7 @@ export const Banner = () => {
                 variant="outlined"
                 size="large"
                 className="px-8 py-4 text-lg font-bold border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-500"
-                onClick={() => window.open('/assets/Ashan_Pathiranage.pdf', '_blank')}
+                onClick={() => window.open('assets/Ashan_Pathiranage.pdf', '_blank')}
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   fontWeight: 700,
