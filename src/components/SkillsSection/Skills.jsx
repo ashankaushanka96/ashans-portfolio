@@ -82,7 +82,7 @@ export const Skills = () => {
     <Box 
       component="section" 
       id="skills" 
-      className="relative pt-0 pb-4 px-4 sm:px-6 lg:px-8 overflow-hidden h-screen flex items-center justify-center" 
+      className="relative pt-0 pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden h-screen flex items-center justify-center" 
       style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl" className="h-full flex items-center justify-center">
