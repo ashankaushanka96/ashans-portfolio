@@ -4,6 +4,7 @@ import { ArrowForward, KeyboardArrowDown } from "@mui/icons-material";
 import headerImg from "../../assets/img/sre-png-4.png";
 import Divider from "../Divider/Divider";
 import SceneSelector from "../ThreeScene/SceneSelector";
+import SREBackground from "../SREBackground";
 
 export const Banner = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -109,6 +110,9 @@ export const Banner = () => {
         <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] xl:w-[800px] xl:h-[800px] 2xl:w-[900px] 2xl:h-[900px] opacity-40 lg:opacity-50 scene-container">
           <SceneSelector />
         </Box>
+        
+        {/* SRE-themed background elements */}
+        <SREBackground />
         
         {/* Additional floating particles for depth */}
         <Box className="absolute top-20 left-10 w-4 h-4 bg-accent rounded-full animate-pulse opacity-40"></Box>
