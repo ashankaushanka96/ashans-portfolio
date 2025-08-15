@@ -128,7 +128,7 @@ export const Banner = () => {
             {/* Main Heading */}
             <Typography
               variant="h1"
-              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl 5xl:text-6xl 6xl:text-7xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white"
+              className="text-lg sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl 5xl:text-9xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white banner-main-heading"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textShadow: '0 4px 8px rgba(0,0,0,0.5)',

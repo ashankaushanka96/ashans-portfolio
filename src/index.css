@@ -110,6 +110,18 @@ code {
     font-size: 1.875rem !important; /* 30px */
     line-height: 1.2 !important;
   }
+  
+  /* Force main heading to be much bigger than typing animation */
+  .MuiTypography-h1 {
+    font-size: 2.5rem !important; /* 40px */
+    line-height: 1.2 !important;
+  }
+  
+  /* Specific override for banner main heading */
+  .banner-main-heading {
+    font-size: 2.5rem !important; /* 40px */
+    line-height: 1.2 !important;
+  }
 }
 
 /* Custom Scrollbar */
