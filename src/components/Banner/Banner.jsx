@@ -143,10 +143,10 @@ export const Banner = () => {
             </Typography>
             
             {/* Animated Role Text */}
-            <Box className="h-4 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-16 3xl:h-20 4xl:h-24 5xl:h-28 mb-6 sm:mb-8 flex items-center justify-center lg:justify-start">
+            <Box className="h-4 sm:h-6 md:h-8 lg:h-16 xl:h-20 2xl:h-24 3xl:h-28 4xl:h-32 5xl:h-36 mb-6 sm:mb-8 flex items-center justify-center lg:justify-start banner-typing-container">
               <Typography
                 variant="h2"
-                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl 5xl:text-5xl font-black tracking-tight leading-tight text-accent"
+                className="text-xs sm:text-sm md:text-base lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl 4xl:text-7xl 5xl:text-8xl font-black tracking-tight leading-tight text-accent banner-typing-text"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   textShadow: '0 4px 8px rgba(0,0,0,0.5)',
