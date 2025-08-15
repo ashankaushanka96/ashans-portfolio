@@ -200,9 +200,9 @@ export const Projects = () => {
       style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">
-        <Box className="space-y-8 sm:space-y-12">
+        <Box className="space-y-2 sm:space-y-3">
           {/* Section Header */}
-          <Box className="text-center mb-8 sm:mb-12">
+          <Box className="text-center mb-0">
             <Typography
               variant="h2"
               className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-white"
