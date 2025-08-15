@@ -234,7 +234,7 @@ export const Skills = () => {
 
 
 
-      <style jsx>{`
+      <style>{`
         @keyframes floatSlow {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-15px) rotate(1deg); }

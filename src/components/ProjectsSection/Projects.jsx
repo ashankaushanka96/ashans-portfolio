@@ -291,9 +291,9 @@ export const Projects = () => {
       <ProjectModal
         open={showModal}
         onClose={handleClose}
-        title={selectedProject?.title}
-        description={selectedProject?.description}
-        images={selectedProject?.images}
+        title={selectedProject?.title || "Project Details"}
+        description={selectedProject?.description || []}
+        images={selectedProject?.images || []}
         repoUrl={selectedProject?.repoUrl}
         category={selectedProject?.category}
         status={selectedProject?.status}
@@ -320,7 +320,7 @@ export const Projects = () => {
 
 
 
-      <style jsx>{`
+      <style>{`
         @keyframes floatSlow {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-20px) rotate(2deg); }

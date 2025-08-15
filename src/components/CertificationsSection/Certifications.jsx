@@ -162,7 +162,7 @@ export const Certifications = () => {
 
 
 
-      <style jsx>{`
+      <style>{`
         .custom-dot-list-style {
           bottom: -40px;
         }

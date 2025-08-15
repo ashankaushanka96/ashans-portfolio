@@ -136,7 +136,7 @@ const CvSection = () => {
 
 
 
-      <style jsx>{`
+      <style>{`
         .animate-bounce-x {
           animation: bounce-x 1s infinite;
         }

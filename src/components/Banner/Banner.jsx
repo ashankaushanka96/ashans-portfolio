@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Container, Box, Typography, Button, useTheme, useMediaQuery } from "@mui/material";
 import { ArrowForward, KeyboardArrowDown } from "@mui/icons-material";
 import headerImg from "../../assets/img/sre-png-4.png";
-import bannerBg from "../../assets/img/banner-bg.jpg";
 import Divider from "../Divider/Divider";
+import SceneSelector from "../ThreeScene/SceneSelector";
 
 export const Banner = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -69,11 +69,13 @@ export const Banner = () => {
       className="relative section-height-lg flex items-center justify-center pt-20 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
       style={{ scrollMarginTop: '20px' }}
       sx={{
-        backgroundImage: `url(${bannerBg})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
+        background: `
+          radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%),
+          linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%)
+        `,
+        position: 'relative',
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -81,20 +83,45 @@ export const Banner = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%)',
+          background: `
+            linear-gradient(45deg, transparent 30%, rgba(0, 212, 255, 0.1) 50%, transparent 70%),
+            linear-gradient(-45deg, transparent 30%, rgba(147, 51, 234, 0.1) 50%, transparent 70%)
+          `,
+          backgroundSize: '200% 200%',
+          animation: 'gradientShift 8s ease-in-out infinite',
+          zIndex: 1,
+        },
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 70%)',
           zIndex: 1,
         }
       }}
     >
-      {/* Animated Background Elements */}
+      {/* 3D Background Centerpiece */}
       <Box className="absolute inset-0 z-0 pointer-events-none">
-        {/* Floating particles */}
-        <Box className="absolute top-20 left-10 w-2 h-2 bg-accent rounded-full animate-pulse opacity-30"></Box>
-        <Box className="absolute top-40 right-20 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-20"></Box>
-        <Box className="absolute bottom-40 left-20 w-3 h-3 bg-blue-400 rounded-full animate-bounce opacity-25"></Box>
-        <Box className="absolute top-60 left-1/4 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-35"></Box>
-        <Box className="absolute top-80 right-1/3 w-2 h-2 bg-cyan-400 rounded-full animate-bounce opacity-20"></Box>
-        <Box className="absolute bottom-60 right-10 w-1 h-1 bg-yellow-400 rounded-full animate-ping opacity-25"></Box>
+        {/* 3D Scene Container */}
+        <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] xl:w-[800px] xl:h-[800px] 2xl:w-[900px] 2xl:h-[900px] opacity-40 lg:opacity-50 scene-container">
+          <SceneSelector />
+        </Box>
+        
+        {/* Additional floating particles for depth */}
+        <Box className="absolute top-20 left-10 w-4 h-4 bg-accent rounded-full animate-pulse opacity-40"></Box>
+        <Box className="absolute top-40 right-20 w-2 h-2 bg-purple-400 rounded-full animate-ping opacity-30"></Box>
+        <Box className="absolute bottom-40 left-20 w-6 h-6 bg-blue-400 rounded-full animate-bounce opacity-35"></Box>
+        <Box className="absolute top-60 left-1/4 w-2 h-2 bg-pink-400 rounded-full animate-pulse opacity-45"></Box>
+        <Box className="absolute top-80 right-1/3 w-4 h-4 bg-cyan-400 rounded-full animate-bounce opacity-30"></Box>
+        <Box className="absolute bottom-60 right-10 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-35"></Box>
+        
+        {/* Additional animated elements */}
+        <Box className="absolute top-1/4 left-1/4 w-8 h-8 bg-gradient-to-r from-accent to-purple-500 rounded-full animate-pulse opacity-20" style={{ animationDelay: '1s' }}></Box>
+        <Box className="absolute bottom-1/4 right-1/4 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-bounce opacity-15" style={{ animationDelay: '2s' }}></Box>
+        <Box className="absolute top-1/3 right-1/3 w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full animate-ping opacity-25" style={{ animationDelay: '0.5s' }}></Box>
         
         {/* Grid pattern overlay */}
         <Box 
@@ -284,7 +311,7 @@ export const Banner = () => {
 
 
 
-      <style jsx>{`
+      <style>{`
         @keyframes floatSlow {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-20px) rotate(2deg); }
@@ -297,6 +324,14 @@ export const Banner = () => {
           from, to { opacity: 1; }
           50% { opacity: 0; }
         }
+        @keyframes sceneFadeIn {
+          from { opacity: 0; transform: scale(0.8) translate(-50%, -50%); }
+          to { opacity: 1; transform: scale(1) translate(-50%, -50%); }
+        }
+        @keyframes gradientShift {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
         .animate-bounce-x {
           animation: bounce-x 1s infinite;
         }
@@ -305,6 +340,9 @@ export const Banner = () => {
         }
         .animate-float {
           animation: float 3s ease-in-out infinite;
+        }
+        .scene-container {
+          animation: sceneFadeIn 1.5s ease-out;
         }
       `}</style>
     </Box>
