@@ -4,14 +4,14 @@ import { Box, Typography, Chip } from "@mui/material";
 
 export const ProjectCard = ({ title, short_description, imgUrl, category, status, onClick }) => (
   <Box 
-    className="relative rounded-3xl overflow-hidden cursor-pointer group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 h-full flex flex-col min-h-[500px]"
+    className="relative rounded-3xl overflow-hidden cursor-pointer group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 h-full flex flex-col min-h-[400px] sm:min-h-[450px] md:min-h-[500px]"
     onClick={onClick}
   >
     {/* Animated Background Glow */}
     <Box className="absolute inset-0 bg-gradient-to-br from-accent/10 via-purple-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-all duration-500"></Box>
     
     {/* Image Container */}
-    <Box className="w-full flex items-center justify-center p-4 sm:p-6 relative z-10">
+    <Box className="w-full flex items-center justify-center p-4 sm:p-6 relative z-0">
       <Box className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 shadow-lg group-hover:shadow-xl transition-all duration-500">
         <img 
           src={imgUrl} 
@@ -22,7 +22,7 @@ export const ProjectCard = ({ title, short_description, imgUrl, category, status
     </Box>
     
     {/* Content Container */}
-    <Box className="p-4 sm:p-6 relative z-10 flex-1 flex flex-col">
+    <Box className="p-4 sm:p-6 relative z-0 flex-1 flex flex-col">
       {/* Title and Badges */}
       <Box className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
         <Typography
@@ -75,10 +75,10 @@ export const ProjectCard = ({ title, short_description, imgUrl, category, status
     </Box>
     
     {/* Enhanced Hover Overlay */}
-    <Box className="absolute inset-0 bg-gradient-to-br from-pink-600/90 via-purple-600/90 to-blue-600/90 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out backdrop-blur-sm" />
+    <Box className="absolute inset-0 bg-gradient-to-br from-pink-600/90 via-purple-600/90 to-blue-600/90 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out backdrop-blur-sm z-20" />
     
     {/* Hover Content */}
-    <Box className="absolute inset-0 flex flex-col justify-center items-center p-6 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform translate-y-4 group-hover:translate-y-0">
+    <Box className="absolute inset-0 flex flex-col justify-center items-center p-6 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform translate-y-4 group-hover:translate-y-0 z-30">
       <Typography
         variant="h5"
         className="text-xl sm:text-2xl font-bold tracking-wider mb-4 drop-shadow-lg text-center"

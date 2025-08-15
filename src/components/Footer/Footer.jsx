@@ -140,7 +140,7 @@ export const Footer = () => {
                     className="text-gray-300"
                     sx={{ fontFamily: 'CentraNo2, sans-serif' }}
                   >
-                    ashan.kaushanka@gmail.com
+                    ashankaushanka96@gmail.com
                   </Typography>
                 </Box>
                 <Box className="flex items-center justify-center md:justify-start gap-3">
@@ -150,7 +150,7 @@ export const Footer = () => {
                     className="text-gray-300"
                     sx={{ fontFamily: 'CentraNo2, sans-serif' }}
                   >
-                    +44 123 456 7890
+                    +94717584677
                   </Typography>
                 </Box>
               </Box>

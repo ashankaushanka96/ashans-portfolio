@@ -42,7 +42,7 @@ export const Projects = () => {
         "Proactively monitors and diagnoses system health.",
       ],
       short_description:
-        "LangChain-based chat assistant with proactive system monitoring.",
+        "Advanced AI-powered chat assistant built with LangChain framework, featuring proactive system monitoring, custom tool integrations, and intelligent response generation for enhanced user experience.",
       images: [projImg1],
       category: "AI/ML",
       status: "In Progress"
@@ -55,7 +55,7 @@ export const Projects = () => {
         "Optimized AMIs and automated security hardening.",
       ],
       short_description:
-        "Cross-region AWS migration with AMI optimization and automatic security hardening.",
+        "Comprehensive AWS infrastructure migration project involving cross-region server transfers, AMI optimization for performance, and automated security hardening protocols to ensure data integrity and compliance.",
       images: [projImg2],
       category: "Cloud",
       status: "Completed"
@@ -68,7 +68,7 @@ export const Projects = () => {
         "Custom dashboards and alerts for performance optimization.",
       ],
       short_description:
-        "Comprehensive Datadog setup including APM, logs, synthetic checks, and custom dashboards.",
+        "End-to-end Datadog monitoring implementation featuring Application Performance Monitoring (APM), centralized log management, synthetic monitoring checks, and custom dashboard creation for comprehensive system observability.",
       images: [projImg3],
       category: "Monitoring",
       status: "Completed"
@@ -81,7 +81,7 @@ export const Projects = () => {
         "Leveraged Terraform, Packer, and Ansible.",
       ],
       short_description:
-        "Migrated CI/CD pipelines to GitLab using Terraform, Packer, and Ansible.",
+        "Complete CI/CD pipeline migration from Bamboo/Bitbucket to GitLab, leveraging Infrastructure as Code with Terraform, automated image building with Packer, and configuration management using Ansible for streamlined deployment processes.",
       images: [projImg4],
       category: "DevOps",
       status: "Completed"
@@ -94,7 +94,7 @@ export const Projects = () => {
         "Notification support for critical events.",
       ],
       short_description:
-        "Real-time health monitoring dashboard for components and ports built with React and Python.",
+        "Full-stack monitoring solution built with React frontend and Python backend, providing real-time health monitoring for system components, port status tracking, and instant notification alerts for critical system events.",
       images: [projImg5],
       repoUrl: "https://github.com/ashankaushanka96/component-checker",
       category: "Full-Stack",
@@ -109,7 +109,7 @@ export const Projects = () => {
         "Sends email notifications summarizing the update status.",
       ],
       short_description:
-        "Python tool for automated FTP file management with validation, backup, and notifications.",
+        "Sophisticated Python automation tool for FTP file management featuring automated downloads, intelligent file comparison, ISIN validation, automated backup systems, and comprehensive email notification reporting for operational transparency.",
       images: [projImg6],
       repoUrl: "https://github.com/ashankaushanka96/ftp-file-downloader",
       category: "Automation",
@@ -125,7 +125,7 @@ export const Projects = () => {
         "Offers YAML/INI configuration and dynamic context-aware logging.",
       ],
       short_description:
-        "Multi-threaded monitoring solution with datadog integration and automatic process management.",
+        "Advanced multi-threaded monitoring solution with Datadog integration, automatic process restart capabilities, PID tracking, uptime metrics, AWS Secrets Manager integration, and dynamic logging with YAML/INI configuration support.",
       images: [projImg7],
       repoUrl: "https://github.com/ashankaushanka96/component-watcher",
       category: "Monitoring",
@@ -141,7 +141,7 @@ export const Projects = () => {
         "Manages server configurations and details with a unified interface.",
       ],
       short_description:
-        "Python-based solution for end-to-end component management with detection, fetching, and search capabilities.",
+        "Comprehensive Python-based component management system featuring automatic component detection, remote source fetching, advanced search capabilities, server configuration management, and unified interface for complete component lifecycle control.",
       images: [projImg8],
       repoUrl: "https://github.com/ashankaushanka96/component-inventory",
       category: "Automation",
@@ -157,7 +157,7 @@ export const Projects = () => {
         "Scales across DEV, UAT, and PROD environments through Terraform.",
       ],
       short_description:
-        "Terraform and AWS Lambda-driven scheduler automating EC2 lifecycles with cron tagging.",
+        "Serverless EC2 lifecycle automation solution using AWS Lambda and CloudWatch events, featuring cron-style tag expressions for granular scheduling, comprehensive logging via CloudWatch, and scalable deployment across DEV, UAT, and PROD environments.",
       images: [projImg9],
       repoUrl: "https://github.com/ashankaushanka96/instance-scheduler",
       category: "Cloud",
@@ -174,7 +174,7 @@ export const Projects = () => {
         "Server Start/Stop Section: let developers start/stop dev servers from the UI without logging into the AWS console.",
       ],
       short_description:
-        "Full-stack dashboard (FastAPI backend + React frontend) for managing components, EC2 inventory & schedules, Route53, and server start/stop.",
+        "Enterprise-grade full-stack operations dashboard built with FastAPI backend and React frontend, providing comprehensive management of system components, EC2 inventory and scheduling, Route53 DNS management, and secure server start/stop functionality for development teams.",
       images: [projImg10_1, projImg10_2, projImg10_3, projImg10_4, projImg10_5],
       repoUrl: "https://github.com/ashankaushanka96/operations-dashboard",
       category: "Full-Stack",
@@ -196,7 +196,7 @@ export const Projects = () => {
     <Box 
       component="section" 
       id="projects" 
-      className="relative pt-0 sm:pt-2 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-start" 
+      className="relative pt-0 sm:pt-2 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-start" 
       style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">
