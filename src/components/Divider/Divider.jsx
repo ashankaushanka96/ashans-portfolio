@@ -3,7 +3,7 @@ import React from 'react';
 const Divider = () => {
   return (
     <div 
-      className="w-full py-8 sm:py-12 lg:py-16 flex justify-center items-center relative"
+      className="divider-component w-full py-12 sm:py-16 lg:py-20 flex justify-center items-center relative"
       style={{
         position: 'relative',
       }}

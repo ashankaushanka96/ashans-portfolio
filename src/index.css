@@ -141,8 +141,8 @@ section {
   padding: 0 !important;
 }
 
-/* Ensure consistent spacing between sections */
-.App > div {
+/* Ensure consistent spacing between sections (excluding divider) */
+.App > div:not(.divider-component) {
   margin: 0 !important;
   padding: 0 !important;
 }
