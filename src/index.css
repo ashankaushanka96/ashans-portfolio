@@ -86,7 +86,7 @@ code {
 @media (max-width: 480px) {
   .MuiTypography-h1,
   .MuiTypography-h2 {
-    font-size: 1.50rem !important; /* 20px */
+    font-size: 1.25rem !important; /* 20px */
   }
   
   .MuiTypography-h3 {
