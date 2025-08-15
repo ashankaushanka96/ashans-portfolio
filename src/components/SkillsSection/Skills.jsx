@@ -35,7 +35,7 @@ export const Skills = () => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      items: 4
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -82,11 +82,11 @@ export const Skills = () => {
     <Box 
       component="section" 
       id="skills" 
-      className="relative pt-0 sm:pt-2 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-start justify-center" 
+      className="relative pt-0 pb-4 px-4 sm:px-6 lg:px-8 overflow-hidden h-screen flex items-center justify-center" 
       style={{ scrollMarginTop: '80px' }}
     >
-      <Container maxWidth="xl" className="h-full flex items-start justify-center pt-2 sm:pt-4">
-        <Box className="space-y-6 sm:space-y-8 w-full max-w-6xl mx-auto text-center">
+      <Container maxWidth="xl" className="h-full flex items-center justify-center">
+        <Box className="space-y-3 sm:space-y-4 w-full max-w-6xl mx-auto text-center">
           {/* Section Header */}
           <Box className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -108,7 +108,7 @@ export const Skills = () => {
             </Typography>
             <Typography
               variant="body1"
-              className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed text-center"
+              className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto leading-tight text-center mb-2"
               sx={{ 
                 fontFamily: 'CentraNo2, sans-serif',
                 textAlign: 'center !important',
@@ -125,10 +125,10 @@ export const Skills = () => {
           <Box className={`transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl py-8 sm:py-12 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-10 sm:pt-2 pb-8 sm:pb-20 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 mb-8">
               <Typography
                 variant="h3"
-                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-6 sm:mb-8 text-white"
+                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-4 sm:mb-6 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
@@ -141,7 +141,7 @@ export const Skills = () => {
                 Technical Skills
               </Typography>
               
-              <Box className="w-full sm:w-4/5 mx-auto">
+              <Box className="w-full mx-auto" style={{ maxHeight: '150px' }}>
                 <Carousel 
                   responsive={responsive} 
                   infinite={true} 
@@ -167,13 +167,13 @@ export const Skills = () => {
           </Box>
 
           {/* Tools & Technologies Section */}
-          <Box className={`transition-all duration-1000 delay-400 ${
+          <Box className={`transition-all duration-1000 delay-400 mt-2 tools-section ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl py-8 sm:py-12 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-6 sm:pt-2 pb-8 sm:pb-18 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
               <Typography
                 variant="h3"
-                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-6 sm:mb-8 text-white"
+                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-4 sm:mb-6 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
@@ -186,7 +186,7 @@ export const Skills = () => {
                 Tools & Technologies
               </Typography>
               
-              <Box className="w-full sm:w-4/5 mx-auto">
+              <Box className="w-full mx-auto" style={{ maxHeight: '150px' }}>
                 <Carousel 
                   responsive={responsive} 
                   infinite={true} 
@@ -243,7 +243,16 @@ export const Skills = () => {
           animation: floatSlow 8s ease-in-out infinite;
         }
         .custom-dot-list-style {
-          bottom: -30px;
+          bottom: -15px;
+        }
+        
+        /* Force spacing between sections */
+        .skills-carousel {
+          margin-bottom: 4rem !important;
+        }
+        
+        .tools-section {
+          margin-top: 1rem !important;
         }
         .custom-dot-list-style li button {
           background: rgba(255, 255, 255, 0.3);

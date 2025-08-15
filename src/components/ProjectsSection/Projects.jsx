@@ -227,7 +227,7 @@ export const Projects = () => {
     <Box 
       component="section" 
       id="projects" 
-      className="relative pt-16 sm:pt-20 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-start" 
+      className="relative pt-4 sm:pt-6 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-start" 
       style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">
