@@ -45,17 +45,17 @@ code {
   /* Force smaller font sizes on mobile */
   .MuiTypography-h1,
   .MuiTypography-h2 {
-    font-size: 1.25rem !important; /* 20px */
+    font-size: 1.5rem !important; /* 24px */
     line-height: 1.2 !important;
   }
   
   .MuiTypography-h3 {
-    font-size: 1.125rem !important; /* 18px */
+    font-size: 1.25rem !important; /* 20px */
     line-height: 1.2 !important;
   }
   
   .MuiTypography-body1 {
-    font-size: 1rem !important; /* 16px */
+    font-size: 1.125rem !important; /* 18px */
     line-height: 1.4 !important;
   }
   
@@ -64,21 +64,21 @@ code {
   #certifications .MuiTypography-h2,
   #experience .MuiTypography-h2,
   #cv .MuiTypography-h2 {
-    font-size: 1.25rem !important; /* 20px */
+    font-size: 1.5rem !important; /* 24px */
   }
   
   #skills .MuiTypography-h3,
   #certifications .MuiTypography-h3,
   #experience .MuiTypography-h3,
   #cv .MuiTypography-h3 {
-    font-size: 1.125rem !important; /* 18px */
+    font-size: 1.25rem !important; /* 20px */
   }
   
   #skills .MuiTypography-body1,
   #certifications .MuiTypography-body1,
   #experience .MuiTypography-body1,
   #cv .MuiTypography-body1 {
-    font-size: 1rem !important; /* 16px */
+    font-size: 1.125rem !important; /* 18px */
   }
 }
 
@@ -86,15 +86,15 @@ code {
 @media (max-width: 480px) {
   .MuiTypography-h1,
   .MuiTypography-h2 {
-    font-size: 1.125rem !important; /* 18px */
+    font-size: 1.50rem !important; /* 20px */
   }
   
   .MuiTypography-h3 {
-    font-size: 1rem !important; /* 16px */
+    font-size: 1.125rem !important; /* 18px */
   }
   
   .MuiTypography-body1 {
-    font-size: 0.875rem !important; /* 14px */
+    font-size: 1rem !important; /* 16px */
   }
 }
 
