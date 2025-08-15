@@ -147,8 +147,12 @@ section {
   padding: 0 !important;
 }
 
-/* Override any excessive margins in section containers */
-.MuiContainer-root {
+/* Override any excessive margins in section containers (excluding Banner) */
+#skills .MuiContainer-root,
+#certifications .MuiContainer-root,
+#experience .MuiContainer-root,
+#projects .MuiContainer-root,
+#cvsection .MuiContainer-root {
   margin: 0 !important;
   padding: 0 !important;
 }
