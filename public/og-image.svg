@@ -1,0 +1,7 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0ea5e9"/>
+  <rect x="100" y="100" width="1000" height="430" fill="white" rx="20"/>
+  <text x="600" y="250" text-anchor="middle" font-family="Inter, sans-serif" font-size="48" font-weight="bold" fill="#0c4a6e">Ashan Pathiranage</text>
+  <text x="600" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" fill="#64748b">Site Reliability Engineer & DevOps Engineer</text>
+  <text x="600" y="380" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#64748b">Cloud Infrastructure • DevOps • Reliability Engineering</text>
+</svg>
