@@ -87,7 +87,7 @@ export const Certifications = () => {
     <Box 
       component="section" 
       id="certifications" 
-      className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-center"
+      className="relative pt-0 sm:pt-2 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-start"
       style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">

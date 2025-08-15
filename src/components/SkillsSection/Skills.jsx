@@ -81,10 +81,10 @@ export const Skills = () => {
     <Box 
       component="section" 
       id="skills" 
-      className="relative py-8 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-center justify-center" 
+      className="relative pt-0 sm:pt-2 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-start justify-center" 
       style={{ scrollMarginTop: '80px' }}
     >
-      <Container maxWidth="xl" className="h-full flex items-center justify-center">
+      <Container maxWidth="xl" className="h-full flex items-start justify-center pt-2 sm:pt-4">
         <Box className="space-y-6 sm:space-y-8 w-full max-w-6xl mx-auto text-center">
           {/* Section Header */}
           <Box className={`transition-all duration-1000 ${
