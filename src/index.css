@@ -40,6 +40,129 @@ code {
     monospace;
 }
 
+/* Section Spacing Utilities */
+.section-spacing {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.section-spacing-sm {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.section-spacing-lg {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.section-spacing-xl {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Responsive section spacing */
+@media (min-width: 640px) {
+  .section-spacing {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .section-spacing-sm {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .section-spacing-lg {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .section-spacing-xl {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .section-spacing-sm {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .section-spacing-lg {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  .section-spacing-xl {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Section height utilities */
+.section-height {
+  min-height: 80vh;
+}
+
+.section-height-sm {
+  min-height: 60vh;
+}
+
+.section-height-lg {
+  min-height: 100vh;
+}
+
+/* Divider spacing */
+.divider-spacing {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.divider-spacing-sm {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.divider-spacing-lg {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Section spacing overrides to prevent excessive spacing */
+section {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure consistent spacing between sections */
+.App > div {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Override any excessive margins in section containers */
+.MuiContainer-root {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure sections don't have excessive padding */
+[id$="skills"],
+[id$="certifications"],
+[id$="experience"],
+[id$="projects"],
+[id$="cvsection"] {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 /* Mobile Font Size Overrides */
 @media (max-width: 640px) {
   /* Force smaller font sizes on mobile */

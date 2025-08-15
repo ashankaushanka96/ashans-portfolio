@@ -74,7 +74,7 @@ const Experience = () => {
     <Box 
       component="section" 
       id="experience" 
-      className="relative pt-0 sm:pt-2 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-start" 
+      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden section-height flex items-center justify-center" 
       style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">

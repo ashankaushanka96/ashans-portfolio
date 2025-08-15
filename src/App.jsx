@@ -40,16 +40,25 @@ function App() {
       <div className="App">
         <NavBar />
         <Banner />
-        {/* <Divider /> */}
-        <Skills />
+        <div className="section-spacing-sm">
+          <Skills />
+        </div>
         <Divider />
-        <Certifications/>
+        <div className="section-spacing-sm">
+          <Certifications/>
+        </div>
         <Divider />
-        <Experience/>
+        <div className="section-spacing-sm">
+          <Experience/>
+        </div>
         <Divider />
-        <Projects />
+        <div className="section-spacing-sm">
+          <Projects />
+        </div>
         <Divider />
-        <CvSection/>
+        <div className="section-spacing-sm">
+          <CvSection/>
+        </div>
         <Footer />
       </div>
     </ThemeProvider>

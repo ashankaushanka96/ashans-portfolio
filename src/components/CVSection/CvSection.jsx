@@ -18,7 +18,7 @@ const CvSection = () => {
     <Box 
       component="section" 
       id="cvsection" 
-      className="pt-0 sm:pt-2 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-start" 
+      className="px-4 sm:px-6 lg:px-8 overflow-hidden section-height flex items-center justify-center" 
       style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">
