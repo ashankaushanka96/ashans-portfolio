@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import ExperienceCard from "./ExperienceCard";
+import Divider from "../Divider/Divider";
 import colorSharp from "../../assets/img/color-sharp2.png";
 
 const Experience = () => {
@@ -154,6 +155,8 @@ const Experience = () => {
         <Box className="absolute top-1/3 right-1/4 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-50"></Box>
         <Box className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-cyan-400 rounded-full animate-bounce opacity-30"></Box>
       </Box>
+
+
 
       <style jsx>{`
         @keyframes floatSlow {

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Box, Typography, Grid, useTheme, useMediaQuery } from "@mui/material";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectModal } from "./ProjectModal";
+import Divider from "../Divider/Divider";
 
 import projImg1 from "../../assets/img/project-images/bruno-project.png";
 import projImg2 from "../../assets/img/project-images/server-migration-project.png";
@@ -226,7 +227,7 @@ export const Projects = () => {
     <Box 
       component="section" 
       id="projects" 
-      className="relative pt-0 sm:pt-2 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-start" 
+      className="relative pt-16 sm:pt-20 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-start" 
       style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">
@@ -316,6 +317,8 @@ export const Projects = () => {
           animation: 'floatSlow 10s ease-in-out infinite',
         }}
       />
+
+
 
       <style jsx>{`
         @keyframes floatSlow {

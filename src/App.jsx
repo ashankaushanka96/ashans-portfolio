@@ -8,6 +8,7 @@ import { Projects } from "./components/ProjectsSection/Projects";
 import { Footer } from "./components/Footer/Footer";
 import Experience from './components/ExperienceSection/Experience';
 import CvSection from './components/CVSection/CvSection';
+import Divider from './components/Divider/Divider';
 
 const darkTheme = createTheme({
   palette: {
@@ -39,10 +40,15 @@ function App() {
       <div className="App">
         <NavBar />
         <Banner />
+        <Divider />
         <Skills />
+        <Divider />
         <Certifications/>
+        <Divider />
         <Experience/>
+        <Divider />
         <Projects />
+        <Divider />
         <CvSection/>
         <Footer />
       </div>

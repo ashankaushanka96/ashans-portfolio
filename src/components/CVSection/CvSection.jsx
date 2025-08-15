@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Box, Typography, Button, useTheme, useMediaQuery } from "@mui/material";
 import { Download, Visibility, FileDownload } from "@mui/icons-material";
+import Divider from "../Divider/Divider";
 
 const CvSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -132,6 +133,8 @@ const CvSection = () => {
         <Box className="absolute top-1/3 right-1/4 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-50"></Box>
         <Box className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-cyan-400 rounded-full animate-bounce opacity-30"></Box>
       </Box>
+
+
 
       <style jsx>{`
         .animate-bounce-x {

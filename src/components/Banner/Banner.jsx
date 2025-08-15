@@ -3,6 +3,7 @@ import { Container, Box, Typography, Button, useTheme, useMediaQuery } from "@mu
 import { ArrowForward, KeyboardArrowDown } from "@mui/icons-material";
 import headerImg from "../../assets/img/sre-png-4.png";
 import bannerBg from "../../assets/img/banner-bg.jpg";
+import Divider from "../Divider/Divider";
 
 export const Banner = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -280,6 +281,8 @@ export const Banner = () => {
           }}
         />
       </Box>
+
+
 
       <style jsx>{`
         @keyframes floatSlow {
