@@ -175,7 +175,7 @@ export const Banner = () => {
             {/* Description */}
             <Typography
               variant="body1"
-              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl tracking-wide leading-relaxed mb-8 sm:mb-10 text-gray-200 max-w-2xl mx-auto lg:mx-0"
+              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl tracking-wide leading-relaxed mb-8 sm:mb-10 pb-4 sm:pb-6 text-gray-200 max-w-2xl mx-auto lg:mx-0"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 fontWeight: 400,
@@ -194,9 +194,11 @@ export const Banner = () => {
               <Button
                 variant="contained"
                 size="large"
+                href="https://www.linkedin.com/in/ashan-kaushanka/"
+                target="_blank"
+                rel="noopener noreferrer"
                 endIcon={<ArrowForward className="animate-bounce-x" />}
                 className="px-8 py-4 text-lg font-bold bg-gradient-to-r from-accent via-blue-500 to-purple-600 hover:from-purple-600 hover:via-pink-600 hover:to-accent text-white transition-all duration-500 shadow-2xl hover:shadow-3xl transform hover:scale-105"
-                onClick={scrollToContact}
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   fontWeight: 700,
