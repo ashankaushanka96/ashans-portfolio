@@ -4,7 +4,7 @@ import { Box, Typography, Chip } from "@mui/material";
 
 export const ProjectCard = ({ title, short_description, imgUrl, category, status, onClick }) => (
   <Box 
-    className="relative rounded-3xl overflow-hidden cursor-pointer group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 h-full"
+    className="relative rounded-3xl overflow-hidden cursor-pointer group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 h-full flex flex-col min-h-[500px]"
     onClick={onClick}
   >
     {/* Animated Background Glow */}
@@ -22,7 +22,7 @@ export const ProjectCard = ({ title, short_description, imgUrl, category, status
     </Box>
     
     {/* Content Container */}
-    <Box className="p-4 sm:p-6 relative z-10">
+    <Box className="p-4 sm:p-6 relative z-10 flex-1 flex flex-col">
       {/* Title and Badges */}
       <Box className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
         <Typography
@@ -67,7 +67,7 @@ export const ProjectCard = ({ title, short_description, imgUrl, category, status
       {/* Description */}
       <Typography
         variant="body2"
-        className="text-sm sm:text-base text-gray-300 leading-relaxed group-hover:text-gray-200 transition-all duration-300"
+        className="text-sm sm:text-base text-gray-300 leading-relaxed group-hover:text-gray-200 transition-all duration-300 flex-1"
         sx={{ fontFamily: 'CentraNo2, sans-serif' }}
       >
         {short_description}

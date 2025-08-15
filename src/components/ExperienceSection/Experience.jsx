@@ -17,7 +17,7 @@ const Experience = () => {
       role: "Senior Site Reliability Engineer",
       company: "GTN Group",
       duration: "April 2024 - Present",
-      location: "London, UK",
+      location: "Colombo, Sri Lanka",
       responsibilities: [
         "Streamlined GitLab CI/CD pipelines, reducing deployment times and improving release efficiency.",
         "Implemented advanced Datadog monitoring and automated incident response strategies, reducing mean time to resolution (MTTR).",
@@ -32,7 +32,7 @@ const Experience = () => {
       role: "Site Reliability Engineer",
       company: "GTN Group",
       duration: "April 2021 - April 2024",
-      location: "London, UK",
+      location: "Colombo, Sri Lanka",
       responsibilities: [
         "Migrated servers from Ireland to North Virginia, optimizing AWS resources for better performance and security.",
         "Developed infrastructure as code (IaC) solutions using Terraform, Packer, and Ansible.",

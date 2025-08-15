@@ -235,9 +235,9 @@ export const Projects = () => {
           {/* Projects Grid */}
           <Grid container spacing={{ xs: 3, sm: 4, lg: 5 }}>
             {projects.map((proj, idx) => (
-              <Grid item xs={12} sm={6} lg={4} key={idx}>
+              <Grid item xs={12} sm={6} lg={4} key={idx} className="h-full">
                 <Box 
-                  className={`transition-all duration-1000 ${
+                  className={`h-full transition-all duration-1000 ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                   style={{ animationDelay: `${idx * 0.1}s` }}
