@@ -15,7 +15,7 @@ import python from "../../assets/logo/python.svg";
 import java from "../../assets/logo/java.svg";
 
 // Star-like Logo Component
-const StarLogo = ({ image, title, position, delay }) => {
+const StarLogo = ({ image, title, position, delay, isAWS = false }) => {
   return (
     <Box
       className="absolute w-8 h-8 lg:w-12 lg:h-12 opacity-0 animate-star-shine"
@@ -25,7 +25,9 @@ const StarLogo = ({ image, title, position, delay }) => {
         transform: 'translate(-50%, -50%)',
         zIndex: 1,
         animationDelay: `${delay}s`,
-        filter: 'drop-shadow(0 0 12px rgba(0, 212, 255, 0.4))',
+        filter: isAWS 
+          ? 'drop-shadow(0 0 15px rgba(255, 153, 0, 0.6)) brightness(1.3) contrast(1.2)' 
+          : 'drop-shadow(0 0 12px rgba(0, 212, 255, 0.4))',
       }}
     >
       <img 
@@ -33,6 +35,7 @@ const StarLogo = ({ image, title, position, delay }) => {
         alt={title}
         className="w-full h-full object-contain"
         title={title}
+        style={isAWS ? { filter: 'brightness(1.5) contrast(1.3)' } : {}}
       />
     </Box>
   );
@@ -40,7 +43,7 @@ const StarLogo = ({ image, title, position, delay }) => {
 
 const SREBackground = () => {
   const toolsAndPlatforms = [
-    { image: aws, title: "AWS", category: "Cloud" },
+    { image: aws, title: "AWS", category: "Cloud", isAWS: true },
     { image: gcp, title: "GCP", category: "Cloud" },
     { image: gitlab, title: "GitLab", category: "DevOps" },
     { image: terraform, title: "Terraform", category: "IaC" },
@@ -93,6 +96,7 @@ const SREBackground = () => {
           title={tool.title}
           position={starPositions[index]}
           delay={index * 0.3}
+          isAWS={tool.isAWS}
         />
       ))}
       
