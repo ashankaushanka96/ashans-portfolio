@@ -128,7 +128,7 @@ export const Banner = () => {
             {/* Main Heading */}
             <Typography
               variant="h1"
-              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl 5xl:text-7xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white"
+              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl 5xl:text-6xl 6xl:text-7xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textShadow: '0 4px 8px rgba(0,0,0,0.5)',
@@ -143,7 +143,7 @@ export const Banner = () => {
             </Typography>
             
             {/* Animated Role Text */}
-            <Box className="h-6 sm:h-8 md:h-10 lg:h-12 xl:h-16 2xl:h-20 3xl:h-24 4xl:h-28 mb-6 sm:mb-8 flex items-center justify-center lg:justify-start">
+            <Box className="h-4 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-16 3xl:h-20 4xl:h-24 5xl:h-28 mb-6 sm:mb-8 flex items-center justify-center lg:justify-start">
               <Typography
                 variant="h2"
                 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl 5xl:text-5xl font-black tracking-tight leading-tight text-accent"

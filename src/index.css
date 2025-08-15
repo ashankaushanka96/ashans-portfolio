@@ -40,6 +40,64 @@ code {
     monospace;
 }
 
+/* Mobile Font Size Overrides */
+@media (max-width: 640px) {
+  /* Force smaller font sizes on mobile */
+  .MuiTypography-h1,
+  .MuiTypography-h2 {
+    font-size: 1.25rem !important; /* 20px */
+    line-height: 1.2 !important;
+  }
+  
+  .MuiTypography-h3 {
+    font-size: 1.125rem !important; /* 18px */
+    line-height: 1.2 !important;
+  }
+  
+  .MuiTypography-body1 {
+    font-size: 1rem !important; /* 16px */
+    line-height: 1.4 !important;
+  }
+  
+  /* Specific overrides for sections */
+  #skills .MuiTypography-h2,
+  #certifications .MuiTypography-h2,
+  #experience .MuiTypography-h2,
+  #cv .MuiTypography-h2 {
+    font-size: 1.25rem !important; /* 20px */
+  }
+  
+  #skills .MuiTypography-h3,
+  #certifications .MuiTypography-h3,
+  #experience .MuiTypography-h3,
+  #cv .MuiTypography-h3 {
+    font-size: 1.125rem !important; /* 18px */
+  }
+  
+  #skills .MuiTypography-body1,
+  #certifications .MuiTypography-body1,
+  #experience .MuiTypography-body1,
+  #cv .MuiTypography-body1 {
+    font-size: 1rem !important; /* 16px */
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .MuiTypography-h1,
+  .MuiTypography-h2 {
+    font-size: 1.125rem !important; /* 18px */
+  }
+  
+  .MuiTypography-h3 {
+    font-size: 1rem !important; /* 16px */
+  }
+  
+  .MuiTypography-body1 {
+    font-size: 0.875rem !important; /* 14px */
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

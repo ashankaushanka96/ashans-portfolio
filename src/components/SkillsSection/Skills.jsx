@@ -92,7 +92,7 @@ export const Skills = () => {
           }`}>
             <Typography
               variant="h2"
-              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-bold mb-4 text-white"
+              className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl font-bold mb-4 text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
@@ -127,7 +127,7 @@ export const Skills = () => {
             <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl py-8 sm:py-12 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
               <Typography
                 variant="h3"
-                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl font-bold mb-6 sm:mb-8 text-white"
+                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-6 sm:mb-8 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
@@ -172,7 +172,7 @@ export const Skills = () => {
             <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl py-8 sm:py-12 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
               <Typography
                 variant="h3"
-                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl font-bold mb-6 sm:mb-8 text-white"
+                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-6 sm:mb-8 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
