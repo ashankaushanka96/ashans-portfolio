@@ -128,7 +128,7 @@ export const Banner = () => {
             {/* Main Heading */}
             <Typography
               variant="h1"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl 5xl:text-7xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textShadow: '0 4px 8px rgba(0,0,0,0.5)',
@@ -143,10 +143,10 @@ export const Banner = () => {
             </Typography>
             
             {/* Animated Role Text */}
-            <Box className="h-16 sm:h-20 md:h-24 lg:h-28 mb-6 sm:mb-8 flex items-center justify-center lg:justify-start">
+            <Box className="h-6 sm:h-8 md:h-10 lg:h-12 xl:h-16 2xl:h-20 3xl:h-24 4xl:h-28 mb-6 sm:mb-8 flex items-center justify-center lg:justify-start">
               <Typography
                 variant="h2"
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-accent"
+                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl 5xl:text-5xl font-black tracking-tight leading-tight text-accent"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   textShadow: '0 4px 8px rgba(0,0,0,0.5)',
@@ -175,7 +175,7 @@ export const Banner = () => {
             {/* Description */}
             <Typography
               variant="body1"
-              className="text-base sm:text-lg lg:text-xl tracking-wide leading-relaxed mb-8 sm:mb-10 text-gray-200 max-w-2xl mx-auto lg:mx-0"
+              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl tracking-wide leading-relaxed mb-8 sm:mb-10 text-gray-200 max-w-2xl mx-auto lg:mx-0"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 fontWeight: 400,

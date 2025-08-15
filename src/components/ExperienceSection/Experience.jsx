@@ -84,7 +84,7 @@ const Experience = () => {
           }`}>
             <Typography
               variant="h2"
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-white"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl font-bold mb-6 text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
@@ -98,7 +98,7 @@ const Experience = () => {
             </Typography>
             <Typography
               variant="body1"
-              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center"
+              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center"
               sx={{ 
                 fontFamily: 'CentraNo2, sans-serif',
                 textAlign: 'center !important',
