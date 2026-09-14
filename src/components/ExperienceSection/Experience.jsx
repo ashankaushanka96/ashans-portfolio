@@ -18,11 +18,11 @@ const Experience = () => {
     <Box 
       component="section" 
       id="experience" 
-      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden section-height flex items-center justify-center" 
+      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden section-height flex items-center justify-center"
       style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">
-        <Box className="space-y-8 sm:space-y-12">
+        <Box className="space-y-8 sm:space-y-12 px-6 sm:px-10 lg:px-16">
           {/* Section Header */}
           <Box className={`text-center transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
