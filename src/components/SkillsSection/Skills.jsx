@@ -3,8 +3,14 @@ import { SkillCard } from './SkillCard';
 import { ToolCard } from './ToolCard';
 import { Container, Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import Divider from "../Divider/Divider";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import { CardsCarousel } from "../common/CardsCarousel";
+
+const skillsBreakpoints = {
+  480: { slidesPerView: 2 },
+  768: { slidesPerView: 3 },
+  1024: { slidesPerView: 4 },
+  1280: { slidesPerView: 5 },
+};
 import colorSharp from "../../assets/img/color-sharp.png";
 import { skills, toolsAndPlatforms } from "../../config/skills";
 
@@ -16,25 +22,6 @@ export const Skills = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 4
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  };
 
   return (
     <Box 
@@ -83,10 +70,10 @@ export const Skills = () => {
           <Box className={`transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-10 sm:pt-2 pb-8 sm:pb-20 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 mb-8">
+            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-6 sm:pt-6 pb-6 sm:pb-8 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 mb-8">
               <Typography
                 variant="h3"
-                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-4 sm:mb-6 text-white"
+                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-2 sm:mb-3 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
@@ -99,39 +86,29 @@ export const Skills = () => {
                 Technical Skills
               </Typography>
               
-              <Box className="w-full mx-auto" style={{ maxHeight: '150px' }}>
-                <Carousel 
-                  responsive={responsive} 
-                  infinite={true} 
-                  autoPlay={true} 
-                  autoPlaySpeed={3000}
-                  className="skills-carousel"
-                  removeArrowOnDeviceType={["tablet", "mobile"]}
-                  dotListClass="custom-dot-list-style"
-                  itemClass="carousel-item-padding-40-px"
-                >
-                  {skills.map((skill, index) => (
-                    <Box key={index} className="px-2">
-                      <SkillCard 
-                        image={skill.image} 
-                        title={skill.title} 
-                        level={skill.level}
-                      />
-                    </Box>
-                  ))}
-                </Carousel>
+              <Box className="w-full mx-auto">
+                <CardsCarousel
+                  items={skills}
+                  breakpoints={skillsBreakpoints}
+                  slideMaxWidth="220px"
+                  spaceBetween={8}
+                  autoplayDelay={3000}
+                  renderItem={(skill) => (
+                    <SkillCard image={skill.image} title={skill.title} level={skill.level} />
+                  )}
+                />
               </Box>
             </Box>
           </Box>
 
           {/* Tools & Technologies Section */}
-          <Box className={`transition-all duration-1000 delay-400 mt-2 tools-section ${
+          <Box className={`transition-all duration-1000 delay-400 mt-2 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-6 sm:pt-2 pb-8 sm:pb-18 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-6 sm:pt-6 pb-6 sm:pb-8 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
               <Typography
                 variant="h3"
-                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-4 sm:mb-6 text-white"
+                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-2 sm:mb-3 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
@@ -144,27 +121,17 @@ export const Skills = () => {
                 Tools & Technologies
               </Typography>
               
-              <Box className="w-full mx-auto" style={{ maxHeight: '150px' }}>
-                <Carousel 
-                  responsive={responsive} 
-                  infinite={true} 
-                  autoPlay={true} 
-                  autoPlaySpeed={2500}
-                  className="tools-carousel"
-                  removeArrowOnDeviceType={["tablet", "mobile"]}
-                  dotListClass="custom-dot-list-style"
-                  itemClass="carousel-item-padding-40-px"
-                >
-                  {toolsAndPlatforms.map((tool, index) => (
-                    <Box key={index} className="px-2">
-                      <ToolCard 
-                        image={tool.image} 
-                        title={tool.title} 
-                        category={tool.category}
-                      />
-                    </Box>
-                  ))}
-                </Carousel>
+              <Box className="w-full mx-auto">
+                <CardsCarousel
+                  items={toolsAndPlatforms}
+                  breakpoints={skillsBreakpoints}
+                  slideMaxWidth="220px"
+                  spaceBetween={8}
+                  autoplayDelay={2500}
+                  renderItem={(tool) => (
+                    <ToolCard image={tool.image} title={tool.title} category={tool.category} />
+                  )}
+                />
               </Box>
             </Box>
           </Box>
@@ -200,32 +167,7 @@ export const Skills = () => {
         .animate-float-slow {
           animation: floatSlow 8s ease-in-out infinite;
         }
-        .custom-dot-list-style {
-          bottom: -15px;
-        }
-        
-        /* Force spacing between sections */
-        .skills-carousel {
-          margin-bottom: 4rem !important;
-        }
-        
-        .tools-section {
-          margin-top: 1rem !important;
-        }
-        .custom-dot-list-style li button {
-          background: rgba(255, 255, 255, 0.3);
-          border-radius: 50%;
-          width: 10px;
-          height: 10px;
-          margin: 0 3px;
-        }
-        .custom-dot-list-style li.react-multi-carousel-dot--active button {
-          background: #00d4ff;
-          box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-        }
-        .carousel-item-padding-40-px {
-          padding: 0 15px;
-        }
+
         /* Force text centering for all Typography components in Skills section */
         #skills .MuiTypography-root {
           text-align: center !important;

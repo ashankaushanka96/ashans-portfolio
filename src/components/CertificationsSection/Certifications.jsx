@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { CertificationCard } from "./CertificationCard";
 import Divider from "../Divider/Divider";
-import Carousel from "react-multi-carousel";
+import { CardsCarousel } from "../common/CardsCarousel";
 import { certifications } from "../../config/certifications";
 
 export const Certifications = () => {
@@ -14,25 +14,6 @@ export const Certifications = () => {
     setIsVisible(true);
   }, []);
 
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 4,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
-  
   return (
     <Box 
       component="section" 
@@ -41,7 +22,7 @@ export const Certifications = () => {
       style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl">
-        <Box className={`bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl text-center py-12 sm:py-16 px-6 sm:px-12 lg:px-20 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 ${
+        <Box className={`w-full max-w-6xl mx-auto bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl text-center py-12 sm:py-16 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           {/* Section Header */}
@@ -77,25 +58,10 @@ export const Certifications = () => {
           
           {/* Certifications Carousel */}
           <Box className="w-full">
-            <Carousel
-              responsive={responsive}
-              infinite={true}
-              autoPlay={true}
-              autoPlaySpeed={3000}
-              className="certifications-slider"
-              removeArrowOnDeviceType={["tablet", "mobile"]}
-              dotListClass="custom-dot-list-style"
-              itemClass="carousel-item-padding-40-px"
-            >
-              {certifications.map((cert, index) => (
-                <Box key={index} className="px-2 h-full">
-                  <CertificationCard 
-                    {...cert} 
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  />
-                </Box>
-              ))}
-            </Carousel>
+            <CardsCarousel
+              items={certifications}
+              renderItem={(cert) => <CertificationCard {...cert} />}
+            />
           </Box>
         </Box>
       </Container>
@@ -111,36 +77,6 @@ export const Certifications = () => {
 
 
 
-      <style>{`
-        .custom-dot-list-style {
-          bottom: -40px;
-        }
-        .custom-dot-list-style li button {
-          background: rgba(255, 255, 255, 0.3);
-          border-radius: 50%;
-          width: 12px;
-          height: 12px;
-          margin: 0 4px;
-        }
-        .custom-dot-list-style li.react-multi-carousel-dot--active button {
-          background: #00d4ff;
-          box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-        }
-        .carousel-item-padding-40-px {
-          padding: 0 20px;
-        }
-        .certifications-slider {
-          height: auto;
-        }
-        .certifications-slider .react-multi-carousel-item {
-          height: auto;
-          display: flex;
-        }
-        .certifications-slider .react-multi-carousel-item > div {
-          height: 100%;
-          width: 100%;
-        }
-      `}</style>
     </Box>
   );
 };

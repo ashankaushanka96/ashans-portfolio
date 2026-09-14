@@ -1,37 +1,39 @@
 import PropTypes from "prop-types";
 import { Box, Typography, Button, Chip } from "@mui/material";
 import { Verified, School, Category } from "@mui/icons-material";
+import { CertificateBadge } from "./CertificateBadge";
 
-export const CertificationCard = ({ title, description, imgUrl, certLink, issuer, level, category }) => {
+export const CertificationCard = ({ title, description, logo, certLink, issuer, level, category }) => {
   return (
-    <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 text-center shadow-xl hover:shadow-2xl mx-1 sm:mx-2 border border-gray-700/50 transition-all duration-500 transform hover:-translate-y-3 group h-full flex flex-col min-h-[400px] sm:min-h-[450px]">
+    <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 text-center shadow-xl hover:shadow-2xl mx-1 sm:mx-2 border border-gray-700/50 transition-all duration-500 transform hover:-translate-y-3 group flex flex-col">
       {/* Animated Background Glow */}
       <Box className="absolute inset-0 bg-gradient-to-br from-accent/10 via-purple-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl"></Box>
-      
-      <Box className="relative z-10 flex flex-col h-full">
-        {/* Image Container */}
-        <Box className="relative overflow-hidden rounded-xl mb-4 sm:mb-6 flex-shrink-0">
-          <img 
-            src={imgUrl} 
-            alt={title} 
-            className="w-full h-32 sm:h-40 object-cover rounded-xl transition-all duration-500 group-hover:scale-105 drop-shadow-lg"
-          />
-          <Box className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></Box>
+
+      <Box className="relative z-10 flex flex-col">
+        {/* Badge Container */}
+        <Box className="mb-4 sm:mb-6 flex-shrink-0">
+          <CertificateBadge title={title} logo={logo} />
         </Box>
-        
+
         {/* Content Container */}
-        <Box className="cert-content flex flex-col flex-grow">
+        <Box className="cert-content flex flex-col">
           {/* Title */}
-          <Typography
-            variant="h6"
-            className="text-base sm:text-lg font-bold mb-3 line-clamp-2 leading-tight transition-all duration-300 group-hover:text-accent flex-shrink-0"
-            sx={{ fontFamily: 'CentraNo2, sans-serif' }}
-          >
-            {title}
-          </Typography>
+          <Box className="flex items-center justify-center min-h-[52px] sm:min-h-[58px] mb-3 flex-shrink-0">
+            <Typography
+              variant="h6"
+              className="font-bold line-clamp-2 transition-all duration-300 group-hover:text-accent"
+              sx={{
+                fontFamily: 'CentraNo2, sans-serif',
+                fontSize: { xs: '1rem', sm: '1.125rem' },
+                lineHeight: 1.3,
+              }}
+            >
+              {title}
+            </Typography>
+          </Box>
 
           {/* Badges */}
-          <Box className="flex flex-wrap justify-center gap-2 mb-4 flex-shrink-0">
+          <Box className="flex flex-wrap justify-center gap-2 mb-4 min-h-[68px] flex-shrink-0">
             {issuer && (
               <Chip
                 icon={<School />}
@@ -71,10 +73,14 @@ export const CertificationCard = ({ title, description, imgUrl, certLink, issuer
           </Box>
 
           {/* Description */}
-          <Box component="ul" className="list-none p-0 m-0 mb-4 text-gray-400 text-xs sm:text-sm space-y-1 flex-grow">
+          <Box
+            component="ul"
+            className="list-none p-0 m-0 mb-4 text-gray-400 text-xs sm:text-sm space-y-1 min-h-[40px] sm:min-h-[44px] flex-shrink-0"
+            sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+          >
             {description.map((point, index) => (
-              <Box 
-                component="li" 
+              <Box
+                component="li"
                 key={index}
                 className="transition-all duration-300 hover:text-gray-300"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
@@ -88,7 +94,7 @@ export const CertificationCard = ({ title, description, imgUrl, certLink, issuer
           <Button
             variant="contained"
             onClick={() => window.open(certLink, "_blank")}
-            className="bg-gradient-to-r from-purple-600 to-accent hover:from-accent hover:to-purple-600 text-white font-semibold px-4 sm:px-6 py-2 rounded-xl transition-all duration-300 text-sm sm:text-base transform hover:scale-105 shadow-lg hover:shadow-xl flex-shrink-0 mt-auto"
+            className="bg-gradient-to-r from-purple-600 to-accent hover:from-accent hover:to-purple-600 text-white font-semibold px-4 sm:px-6 py-2 rounded-xl transition-all duration-300 text-sm sm:text-base transform hover:scale-105 shadow-lg hover:shadow-xl flex-shrink-0"
             sx={{
               fontFamily: 'CentraNo2, sans-serif',
               '&:hover': {
@@ -111,7 +117,7 @@ export const CertificationCard = ({ title, description, imgUrl, certLink, issuer
 CertificationCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.array.isRequired,
-  imgUrl: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
   certLink: PropTypes.string.isRequired,
   issuer: PropTypes.string,
   level: PropTypes.string,
