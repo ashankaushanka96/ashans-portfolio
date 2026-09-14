@@ -18,10 +18,10 @@ import {
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import logo from "../../assets/img/logonew.svg";
+import { navItems } from "../../config/navigation";
+import { socialLinks } from "../../config/social";
+import { siteConfig } from "../../config/site";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -78,21 +78,6 @@ export const NavBar = () => {
       });
     }
   };
-
-  const navItems = [
-    { id: "home", label: "Home", href: "#home" },
-    { id: "skills", label: "Skills & Tools", href: "#skills" },
-    { id: "certifications", label: "Certifications", href: "#certifications" },
-    { id: "experience", label: "Experience", href: "#experience" },
-    { id: "projects", label: "Projects", href: "#projects" },
-    { id: "cvsection", label: "Resume", href: "#cvsection" },
-  ];
-
-  const socialLinks = [
-    { icon: <LinkedInIcon />, href: "https://www.linkedin.com/in/ashan-kaushanka/", label: "LinkedIn", color: "hover:shadow-blue-500/50" },
-    { icon: <FacebookIcon />, href: "https://www.facebook.com/ashan.kaushanka/", label: "Facebook", color: "hover:shadow-blue-600/50" },
-    { icon: <GitHubIcon />, href: "https://github.com/ashankaushanka96", label: "GitHub", color: "hover:shadow-purple-500/50" },
-  ];
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -154,7 +139,7 @@ export const NavBar = () => {
                 }
               }}
             >
-              {social.icon}
+              <social.icon />
             </IconButton>
           ))}
         </Box>
@@ -233,7 +218,7 @@ export const NavBar = () => {
                             }
                           }}
                         >
-                          {social.icon}
+                          <social.icon />
                         </IconButton>
                       ))}
                     </Box>
@@ -241,7 +226,7 @@ export const NavBar = () => {
                     {/* CTA Button */}
                     <Button
                       variant="outlined"
-                      href="https://www.linkedin.com/in/ashan-kaushanka/"
+                      href={siteConfig.linkedInUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="ml-2 lg:ml-4 px-6 lg:px-8 py-2 lg:py-3 text-sm lg:text-base font-bold border-white/30 text-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"

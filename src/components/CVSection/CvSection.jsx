@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { Container, Box, Typography, Button, useTheme, useMediaQuery } from "@mui/material";
 import { Download, Visibility, FileDownload } from "@mui/icons-material";
 import Divider from "../Divider/Divider";
+import { siteConfig } from "../../config/site";
 
 const CvSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  
-  const cvPath = "assets/Ashan_Pathiranage.pdf";
+
+  const cvPath = siteConfig.cvPath;
 
   useEffect(() => {
     setIsVisible(true);

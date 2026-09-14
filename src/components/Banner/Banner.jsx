@@ -5,6 +5,7 @@ import headerImg from "../../assets/img/sre-png-4.png";
 import Divider from "../Divider/Divider";
 import SceneSelector from "../ThreeScene/SceneSelector";
 import SREBackground from "../SREBackground";
+import { siteConfig } from "../../config/site";
 
 export const Banner = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -16,12 +17,7 @@ export const Banner = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
   
-  const toRotate = [
-    "Site Reliability Engineer", 
-    "DevOps Engineer",
-    "Cloud Architect",
-    "AI/ML Enthusiast"
-  ];
+  const toRotate = siteConfig.banner.roles;
   const period = 3000;
   const typingSpeed = 100;
 
@@ -153,7 +149,7 @@ export const Banner = () => {
                 className="text-sm sm:text-base font-medium tracking-wider text-white"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
               >
-                Welcome to my Portfolio
+                {siteConfig.banner.welcomeBadge}
               </Typography>
             </Box>
             
@@ -171,7 +167,7 @@ export const Banner = () => {
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              Hi! I'm Ashan
+              {siteConfig.banner.heading}
             </Typography>
             
             {/* Animated Role Text */}
@@ -215,10 +211,7 @@ export const Banner = () => {
                 lineHeight: 1.8,
               }}
             >
-              Highly motivated Site Reliability Engineer with extensive experience in optimizing system performance, 
-              automating infrastructure, and developing innovative solutions using generative AI, machine learning (ML), 
-              and deep learning (DL). Proven expertise in designing and managing cloud architectures, particularly on AWS, 
-              and implementing robust monitoring tools to ensure system reliability and efficiency.
+              {siteConfig.banner.description}
             </Typography>
             
             {/* CTA Buttons */}
@@ -226,7 +219,7 @@ export const Banner = () => {
               <Button
                 variant="contained"
                 size="large"
-                href="https://www.linkedin.com/in/ashan-kaushanka/"
+                href={siteConfig.linkedInUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 endIcon={<ArrowForward className="animate-bounce-x" />}
@@ -242,14 +235,14 @@ export const Banner = () => {
                   }
                 }}
               >
-                Let's Connect
+                {siteConfig.banner.primaryCtaLabel}
               </Button>
-              
+
               <Button
                 variant="outlined"
                 size="large"
                 className="px-8 py-4 text-lg font-bold border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-500"
-                onClick={() => window.open('assets/Ashan_Pathiranage.pdf', '_blank')}
+                onClick={() => window.open(siteConfig.cvPath, '_blank')}
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   fontWeight: 700,
@@ -261,7 +254,7 @@ export const Banner = () => {
                   }
                 }}
               >
-                Download CV
+                {siteConfig.banner.secondaryCtaLabel}
               </Button>
             </Box>
           </Box>

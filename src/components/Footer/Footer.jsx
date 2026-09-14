@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Container, Box, Typography, IconButton, useTheme, useMediaQuery } from "@mui/material";
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import { KeyboardArrowUp, Email, Phone } from '@mui/icons-material';
 import logo from "../../assets/img/logonew.svg";
 import footerBg from "../../assets/img/footer-bg.png";
+import { footerLinks } from "../../config/navigation";
+import { socialLinks } from "../../config/social";
+import { siteConfig } from "../../config/site";
 
 export const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,30 +19,6 @@ export const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  const socialLinks = [
-    {
-      icon: <LinkedInIcon />,
-      href: "https://www.linkedin.com/in/ashan-kaushanka/",
-      label: "LinkedIn",
-      color: "hover:shadow-blue-500/50",
-      delay: "0s"
-    },
-    {
-      icon: <FacebookIcon />,
-      href: "https://www.facebook.com/ashan.kaushanka/",
-      label: "Facebook",
-      color: "hover:shadow-blue-600/50",
-      delay: "0.1s"
-    },
-    {
-      icon: <GitHubIcon />,
-      href: "https://github.com/ashankaushanka96",
-      label: "GitHub",
-      color: "hover:shadow-purple-500/50",
-      delay: "0.2s"
-    },
-  ];
 
   return (
     <Box 
@@ -88,7 +64,7 @@ export const Footer = () => {
                 className="text-gray-300 leading-relaxed mb-6"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
               >
-                Site Reliability Engineer passionate about building robust, scalable systems and driving operational excellence through automation and innovation.
+                {siteConfig.footer.description}
               </Typography>
             </Box>
 
@@ -99,16 +75,10 @@ export const Footer = () => {
                 className="text-xl font-bold mb-6 text-white"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
               >
-                Quick Links
+                {siteConfig.footer.quickLinksTitle}
               </Typography>
               <Box className="space-y-3">
-                {[
-                  { label: "Skills & Tools", href: "#skills" },
-                  { label: "Experience", href: "#experience" },
-                  { label: "Projects", href: "#projects" },
-                  { label: "Certifications", href: "#certifications" },
-                  { label: "Resume", href: "#cvsection" }
-                ].map((link, index) => (
+                {footerLinks.map((link, index) => (
                   <a
                     key={index}
                     href={link.href}
@@ -128,7 +98,7 @@ export const Footer = () => {
                 className="text-xl font-bold mb-6 text-white"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
               >
-                Connect With Me
+                {siteConfig.footer.connectTitle}
               </Typography>
               
               {/* Contact Info */}
@@ -140,7 +110,7 @@ export const Footer = () => {
                     className="text-gray-300"
                     sx={{ fontFamily: 'CentraNo2, sans-serif' }}
                   >
-                    ashankaushanka96@gmail.com
+                    {siteConfig.email}
                   </Typography>
                 </Box>
                 <Box className="flex items-center justify-center md:justify-start gap-3">
@@ -150,7 +120,7 @@ export const Footer = () => {
                     className="text-gray-300"
                     sx={{ fontFamily: 'CentraNo2, sans-serif' }}
                   >
-                    +94717584677
+                    {siteConfig.phone}
                   </Typography>
                 </Box>
               </Box>
@@ -172,7 +142,7 @@ export const Footer = () => {
                       }
                     }}
                   >
-                    {social.icon}
+                    <social.icon />
                   </IconButton>
                 ))}
               </Box>
@@ -189,15 +159,15 @@ export const Footer = () => {
               className="text-sm text-gray-400 tracking-wider"
               sx={{ fontFamily: 'CentraNo2, sans-serif' }}
             >
-              © 2024 Ashan Pathiranage. All Rights Reserved.
+              {siteConfig.footer.copyright}
             </Typography>
-            
+
             <Typography
               variant="body2"
               className="text-sm text-gray-400"
               sx={{ fontFamily: 'CentraNo2, sans-serif' }}
             >
-              Built with ❤️ using React & Material-UI
+              {siteConfig.footer.builtWith}
             </Typography>
           </Box>
         </Box>
