@@ -132,6 +132,17 @@ export const Banner = () => {
         />
       </Box>
 
+      {/* Fade Banner's own background/glow layers into the shared page
+          background color at the bottom edge, so the transition into the
+          next section is a smooth blend instead of a visible seam. */}
+      <Box
+        className="absolute inset-x-0 bottom-0 h-40 sm:h-56 lg:h-72 pointer-events-none"
+        sx={{
+          zIndex: 2,
+          background: 'linear-gradient(to bottom, transparent 0%, #070b14 100%)',
+        }}
+      />
+
       <Container maxWidth="xl" className="relative z-10">
         <Box className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Content */}
