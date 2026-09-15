@@ -53,9 +53,9 @@ export const ProjectModal = ({
           color: 'white',
           maxHeight: '95vh',
           margin: isMobile ? '8px' : '24px',
-          background: 'linear-gradient(135deg, rgba(17, 24, 39, 0.98) 0%, rgba(31, 41, 55, 0.98) 50%, rgba(17, 24, 39, 0.98) 100%)',
+          background: 'linear-gradient(135deg, rgba(7, 11, 20, 0.98) 0%, rgba(11, 18, 36, 0.98) 50%, rgba(7, 11, 20, 0.98) 100%)',
           backdropFilter: 'blur(25px)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          border: '1px solid rgba(0, 212, 255, 0.12)',
           borderRadius: '24px',
           boxShadow: '0 32px 64px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05)',
           overflow: 'hidden',
@@ -73,7 +73,7 @@ export const ProjectModal = ({
       }}
     >
       {/* Header */}
-      <DialogTitle className="relative bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 text-white border-b border-gray-700/30 p-4 sm:p-6 backdrop-blur-sm">
+      <DialogTitle className="relative bg-gradient-to-r from-[#070b14]/95 via-[#0b1224]/95 to-[#070b14]/95 text-white border-b border-white/10 p-4 sm:p-6 backdrop-blur-sm">
         {/* Animated Background */}
         <Box className="absolute inset-0 bg-gradient-to-r from-accent/10 via-purple-600/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-all duration-500"></Box>
         
@@ -120,7 +120,7 @@ export const ProjectModal = ({
           
           <IconButton
             onClick={onClose}
-            className="text-white hover:text-accent transition-all duration-300 transform hover:scale-110 hover:rotate-90 bg-gray-800/50 hover:bg-gray-700/50 backdrop-blur-sm"
+            className="text-white hover:text-accent transition-all duration-300 transform hover:scale-110 hover:rotate-90 bg-[#0b1224]/60 hover:bg-[#111a33]/60 backdrop-blur-sm"
             sx={{
               '&:hover': {
                 boxShadow: '0 0 25px rgba(0, 212, 255, 0.6)',
@@ -213,7 +213,7 @@ export const ProjectModal = ({
       </DialogContent>
       
       {/* Footer Actions */}
-      <DialogActions className="bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 p-4 sm:p-6 flex flex-col sm:flex-row justify-between gap-4 border-t border-gray-700/30 backdrop-blur-sm">
+      <DialogActions className="bg-gradient-to-r from-[#070b14]/95 via-[#0b1224]/95 to-[#070b14]/95 p-4 sm:p-6 flex flex-col sm:flex-row justify-between gap-4 border-t border-white/10 backdrop-blur-sm">
         <Box className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           {demoUrl && (
             <Button

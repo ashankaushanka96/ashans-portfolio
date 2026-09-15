@@ -22,30 +22,38 @@ export const Footer = () => {
   };
 
   return (
-    <Box 
-      component="footer" 
+    <Box
+      component="footer"
       className="pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden"
-      sx={{
-        backgroundImage: `url(${footerBg})`,
-        backgroundPosition: 'center center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        position: 'relative',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: `
-            radial-gradient(70% 90% at 50% 0%, rgba(124, 58, 237, 0.16) 0%, transparent 65%),
-            linear-gradient(180deg, rgba(7, 11, 20, 0.55) 0%, rgba(9, 14, 27, 0.88) 45%, rgba(6, 10, 18, 0.96) 100%)
-          `,
-          zIndex: 1,
-        }
-      }}
+      sx={{ position: 'relative' }}
     >
+      {/* Background image + overlay live on their own layer, faded in at the
+          top edge so the transition from the previous section is a smooth
+          blend into the shared page background instead of a hard seam. */}
+      <Box
+        className="absolute inset-0 -z-10"
+        sx={{
+          backgroundImage: `url(${footerBg})`,
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%)',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: `
+              radial-gradient(70% 90% at 50% 0%, rgba(124, 58, 237, 0.16) 0%, transparent 65%),
+              linear-gradient(180deg, rgba(7, 11, 20, 0.55) 0%, rgba(9, 14, 27, 0.88) 45%, rgba(6, 10, 18, 0.96) 100%)
+            `,
+          }
+        }}
+      />
+
       <Container maxWidth="xl" className="relative z-10">
         <Box className={`transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
