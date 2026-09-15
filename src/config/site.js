@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Ashan Pathiranage",
   email: "ashankaushanka96@gmail.com",
   phone: "+94717584677",
-  cvPath: "assets/AshanKaushankaResume.pdf",
+  cvPath: "resume/AshanKaushankaResume.pdf",
   linkedInUrl: "https://www.linkedin.com/in/ashan-kaushanka/",
 
   banner: {
