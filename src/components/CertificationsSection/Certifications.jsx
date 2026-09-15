@@ -7,12 +7,9 @@ import { certifications } from "../../config/certifications";
 import { useColorMode } from "../../contexts/ColorModeContext";
 
 const certificationsBreakpoints = {
-  0: { slidesPerView: 1.15, spaceBetween: -60 },
-  400: { slidesPerView: 1.3, spaceBetween: -50 },
-  480: { slidesPerView: 2, spaceBetween: -20 },
-  768: { slidesPerView: 3, spaceBetween: 20 },
-  1024: { slidesPerView: 4, spaceBetween: 20 },
-  1280: { slidesPerView: 5, spaceBetween: 20 },
+  0: { slidesPerView: 1.4, spaceBetween: 20 },
+  640: { slidesPerView: 2.2, spaceBetween: 30 },
+  1024: { slidesPerView: 3, spaceBetween: 40 },
 };
 
 export const Certifications = () => {
@@ -34,7 +31,7 @@ export const Certifications = () => {
       style={{ scrollMarginTop: 'var(--nav-height, 96px)', minHeight: 'calc(100vh - 88px)' }}
     >
       <Container maxWidth="xl">
-        <Box className={`w-full mx-auto text-center py-8 sm:py-10 px-6 sm:px-12 lg:px-16 transition-all duration-500 ${
+        <Box className={`w-full max-w-6xl mx-auto text-center py-8 sm:py-10 transition-all duration-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           {/* Section Header */}
@@ -78,6 +75,7 @@ export const Certifications = () => {
               renderItem={(cert) => <CertificationCard {...cert} />}
               breakpoints={certificationsBreakpoints}
               spaceBetween={20}
+              effect="coverflow"
               pagination
             />
           </Box>

@@ -2,13 +2,22 @@ import { useId } from "react";
 import PropTypes from "prop-types";
 import { Box } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Mousewheel, Pagination } from "swiper/modules";
-import { applyDepthStyles } from "./carouselDepthEffect";
+import { Autoplay, Mousewheel, Pagination, EffectCoverflow } from "swiper/modules";
+import { applyDepthStyles, applyWheelStyles } from "./carouselDepthEffect";
 import "swiper/css";
+import "swiper/css/effect-coverflow";
 
 const DEFAULT_BREAKPOINTS = {
   640: { slidesPerView: 2 },
   1024: { slidesPerView: 3 },
+};
+
+const COVERFLOW_EFFECT = {
+  rotate: 35,
+  stretch: 0,
+  depth: 180,
+  modifier: 1,
+  slideShadows: false,
 };
 
 const getMaxSlidesPerView = (breakpoints, baseSlidesPerView) => {
@@ -30,21 +39,34 @@ export const CardsCarousel = ({
   breakpoints = DEFAULT_BREAKPOINTS,
   slideMaxWidth,
   pagination = false,
+  effect = "flat",
 }) => {
+  const isCoverflow = effect === "coverflow";
   const maxSlidesPerView = getMaxSlidesPerView(breakpoints, 1);
   const loopItems = buildLoopItems(items, maxSlidesPerView * 2);
-  const paginationClass = `cards-pagination-${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
+  const instanceId = useId().replace(/[^a-zA-Z0-9]/g, "");
+  const carouselClass = `cards-carousel-${instanceId}`;
+  const paginationClass = `cards-pagination-${instanceId}`;
+  const applyStyles = isCoverflow ? applyWheelStyles : applyDepthStyles;
+
+  const modules = [Autoplay, Mousewheel];
+  if (pagination) modules.push(Pagination);
+  if (isCoverflow) modules.push(EffectCoverflow);
 
   return (
     <>
       <Swiper
-        modules={pagination ? [Autoplay, Mousewheel, Pagination] : [Autoplay, Mousewheel]}
+        modules={modules}
+        effect={isCoverflow ? "coverflow" : undefined}
+        coverflowEffect={isCoverflow ? COVERFLOW_EFFECT : undefined}
         grabCursor
         allowTouchMove
         simulateTouch
         centeredSlides
         loop
         watchSlidesProgress
+        slideToClickedSlide={isCoverflow}
+        speed={isCoverflow ? 600 : 300}
         spaceBetween={spaceBetween}
         slidesPerView={1}
         breakpoints={breakpoints}
@@ -56,18 +78,22 @@ export const CardsCarousel = ({
           bulletClass: "cards-bullet",
           bulletActiveClass: "cards-bullet-active",
         } : false}
-        onInit={applyDepthStyles}
-        onProgress={applyDepthStyles}
-        onResize={applyDepthStyles}
+        onInit={applyStyles}
+        onProgress={applyStyles}
+        onResize={applyStyles}
         onSetTransition={(swiper, duration) => {
           swiper.slides.forEach((slideEl) => {
             slideEl.style.transitionDuration = `${duration}ms`;
+            const inner = slideEl.querySelector(".carousel-card-inner");
+            if (inner) inner.style.transitionDuration = `${duration}ms`;
           });
         }}
-        className="cards-carousel"
+        className={`cards-carousel ${carouselClass}`}
       >
         {loopItems.map((item, index) => (
-          <SwiperSlide key={index}>{renderItem(item, index)}</SwiperSlide>
+          <SwiperSlide key={index}>
+            <Box className="carousel-card-inner">{renderItem(item, index)}</Box>
+          </SwiperSlide>
         ))}
       </Swiper>
 
@@ -76,19 +102,24 @@ export const CardsCarousel = ({
       )}
 
       <style>{`
-        .cards-carousel {
+        .${carouselClass} {
           padding: 0.125rem 0;
+          ${isCoverflow ? "overflow: visible;" : ""}
         }
-        .cards-carousel .swiper-slide {
+        .${carouselClass} .swiper-slide {
           display: flex;
           justify-content: center;
           height: auto;
           transition-property: transform, opacity;
           transition-timing-function: ease;
         }
-        .cards-carousel .swiper-slide > * {
+        .${carouselClass} .swiper-slide > * {
           width: 100%;
           ${slideMaxWidth ? `max-width: ${slideMaxWidth};` : ""}
+        }
+        .${carouselClass} .carousel-card-inner {
+          transition-property: transform;
+          transition-timing-function: ease;
         }
         .cards-bullet {
           width: 6px;
@@ -121,4 +152,5 @@ CardsCarousel.propTypes = {
   breakpoints: PropTypes.object,
   slideMaxWidth: PropTypes.string,
   pagination: PropTypes.bool,
+  effect: PropTypes.oneOf(["flat", "coverflow"]),
 };
