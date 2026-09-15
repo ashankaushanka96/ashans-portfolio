@@ -88,6 +88,7 @@ export const Projects = () => {
         description={selectedProject?.description || []}
         images={selectedProject?.images || []}
         repoUrl={selectedProject?.repoUrl}
+        demoUrl={selectedProject?.demoUrl}
         category={selectedProject?.category}
         status={selectedProject?.status}
       />

@@ -24,6 +24,7 @@ export const ProjectModal = ({
   description = [],
   images = [],
   repoUrl,
+  demoUrl,
   category,
   status
 }) => {
@@ -214,6 +215,24 @@ export const ProjectModal = ({
       {/* Footer Actions */}
       <DialogActions className="bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 p-4 sm:p-6 flex flex-col sm:flex-row justify-between gap-4 border-t border-gray-700/30 backdrop-blur-sm">
         <Box className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          {demoUrl && (
+            <Button
+              variant="contained"
+              href={demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-accent to-blue-600 hover:from-blue-600 hover:to-accent text-white font-semibold px-6 py-3 rounded-xl flex items-center gap-3 text-sm sm:text-base w-full sm:w-auto transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              sx={{
+                fontFamily: 'CentraNo2, sans-serif',
+                '&:hover': {
+                  boxShadow: '0 12px 30px rgba(0, 212, 255, 0.5)',
+                }
+              }}
+            >
+              <FaExternalLinkAlt size={16} />
+              <span>View Demo</span>
+            </Button>
+          )}
           {repoUrl && (
             <Button
               variant="contained"
@@ -268,6 +287,7 @@ ProjectModal.propTypes = {
   description: PropTypes.arrayOf(PropTypes.string),
   images: PropTypes.arrayOf(PropTypes.string),
   repoUrl: PropTypes.string,
+  demoUrl: PropTypes.string,
   category: PropTypes.string,
   status: PropTypes.string,
 };

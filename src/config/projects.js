@@ -8,13 +8,27 @@ import projImg7 from "../assets/projects/screenshots/ComponentWatcher.png";
 import projImg8 from "../assets/projects/screenshots/ComponentInventory.png";
 import projImg9 from "../assets/projects/screenshots/InstanceScheduler.png";
 import projImg10 from "../assets/projects/screenshots/OperationsDashboard.png";
-import projImg10_1 from "../assets/projects/screenshots/ComponentsSection.png";
-import projImg10_2 from "../assets/projects/screenshots/EC2DetailsSection.png";
-import projImg10_3 from "../assets/projects/screenshots/EC2SchedulesSection.png";
-import projImg10_4 from "../assets/projects/screenshots/Route53Section.png";
-import projImg10_5 from "../assets/projects/screenshots/ServerStartStopSection.png";
 
 export const projects = [
+  {
+    title: "Operations Dashboard",
+    imgUrl: projImg10,
+    description: [
+      "Component Management Section: Comprehensive component tracking system displaying IP addresses, versions, deployment paths, last execution times, and deployment history with advanced filtering capabilities by name, IP, version, and status.",
+      "EC2 Instance Management: Real-time AWS EC2 instance monitoring and management interface with full filtering support, instance details, performance metrics, and bulk operations for efficient infrastructure management.",
+      "EC2 Scheduling System: Advanced scheduling interface for viewing, creating, and managing EC2 start/stop schedules with cron expression support, timezone handling, and schedule conflict detection.",
+      "Route53 DNS Management: Complete DNS record management system with primary/secondary failover capabilities, health checks, and automated DNS propagation monitoring for high availability.",
+      "Developer Self-Service Portal: Secure web interface allowing developers to start/stop development servers without AWS console access, featuring role-based permissions, audit logging, and approval workflows.",
+      "Real-time Monitoring Dashboard: Live system health monitoring with customizable alerts, performance metrics visualization, and automated incident response capabilities for proactive system management.",
+    ],
+    short_description:
+      "Enterprise-grade full-stack operations dashboard built with FastAPI backend and React frontend, providing comprehensive management of system components, EC2 inventory and scheduling, Route53 DNS management, and secure server start/stop functionality for development teams.",
+    images: [],
+    demoUrl: "https://ashankaushanka96.github.io/atlas-dashboard/home",
+    repoUrl: "https://github.com/ashankaushanka96/operations-dashboard",
+    category: "Full-Stack",
+    status: "Completed",
+  },
   {
     title: "AI Bruno (Ongoing)",
     imgUrl: projImg1,
@@ -171,24 +185,6 @@ export const projects = [
     images: [projImg9],
     repoUrl: "https://github.com/ashankaushanka96/instance-scheduler",
     category: "Cloud",
-    status: "Completed",
-  },
-  {
-    title: "Operations Dashboard",
-    imgUrl: projImg10,
-    description: [
-      "Component Management Section: Comprehensive component tracking system displaying IP addresses, versions, deployment paths, last execution times, and deployment history with advanced filtering capabilities by name, IP, version, and status.",
-      "EC2 Instance Management: Real-time AWS EC2 instance monitoring and management interface with full filtering support, instance details, performance metrics, and bulk operations for efficient infrastructure management.",
-      "EC2 Scheduling System: Advanced scheduling interface for viewing, creating, and managing EC2 start/stop schedules with cron expression support, timezone handling, and schedule conflict detection.",
-      "Route53 DNS Management: Complete DNS record management system with primary/secondary failover capabilities, health checks, and automated DNS propagation monitoring for high availability.",
-      "Developer Self-Service Portal: Secure web interface allowing developers to start/stop development servers without AWS console access, featuring role-based permissions, audit logging, and approval workflows.",
-      "Real-time Monitoring Dashboard: Live system health monitoring with customizable alerts, performance metrics visualization, and automated incident response capabilities for proactive system management.",
-    ],
-    short_description:
-      "Enterprise-grade full-stack operations dashboard built with FastAPI backend and React frontend, providing comprehensive management of system components, EC2 inventory and scheduling, Route53 DNS management, and secure server start/stop functionality for development teams.",
-    images: [projImg10_1, projImg10_2, projImg10_3, projImg10_4, projImg10_5],
-    repoUrl: "https://github.com/ashankaushanka96/operations-dashboard",
-    category: "Full-Stack",
     status: "Completed",
   },
 ];
