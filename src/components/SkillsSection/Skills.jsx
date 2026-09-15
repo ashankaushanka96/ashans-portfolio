@@ -103,6 +103,7 @@ export const Skills = () => {
                   slideMaxWidth="220px"
                   spaceBetween={8}
                   autoplayDelay={3000}
+                  pagination
                   renderItem={(skill) => (
                     <SkillCard value={skill.value} title={skill.title} level={skill.level} />
                   )}
@@ -142,6 +143,7 @@ export const Skills = () => {
                   slideMaxWidth="220px"
                   spaceBetween={8}
                   autoplayDelay={2500}
+                  pagination
                   renderItem={(tool) => (
                     <ToolCard image={tool.image} title={tool.title} category={tool.category} />
                   )}
