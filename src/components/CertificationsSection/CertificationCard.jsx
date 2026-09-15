@@ -5,27 +5,27 @@ import { CertificateBadge } from "./CertificateBadge";
 
 export const CertificationCard = ({ title, description, logo, certLink, issuer, level, category }) => {
   return (
-    <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 text-center shadow-xl hover:shadow-2xl mx-1 sm:mx-2 border border-gray-700/50 transition-all duration-500 transform hover:-translate-y-3 group flex flex-col">
+    <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl p-3 sm:p-4 text-center shadow-xl hover:shadow-2xl mx-1 sm:mx-2 border border-gray-700/50 transition-all duration-500 transform hover:-translate-y-2 group flex flex-col">
       {/* Animated Background Glow */}
       <Box className="absolute inset-0 bg-gradient-to-br from-accent/10 via-purple-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl"></Box>
 
       <Box className="relative z-10 flex flex-col">
         {/* Badge Container */}
-        <Box className="mb-4 sm:mb-6 flex-shrink-0">
+        <Box className="mb-2 sm:mb-3 flex-shrink-0" sx={{ maxWidth: { xs: '65%', sm: '58%' }, mx: 'auto', width: '100%' }}>
           <CertificateBadge title={title} logo={logo} />
         </Box>
 
         {/* Content Container */}
         <Box className="cert-content flex flex-col">
           {/* Title */}
-          <Box className="flex items-center justify-center min-h-[52px] sm:min-h-[58px] mb-3 flex-shrink-0">
+          <Box className="flex items-center justify-center min-h-[38px] sm:min-h-[42px] mb-2 flex-shrink-0">
             <Typography
               variant="h6"
               className="font-bold line-clamp-2 transition-all duration-300 group-hover:text-accent"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
-                fontSize: { xs: '1rem', sm: '1.125rem' },
-                lineHeight: 1.3,
+                fontSize: { xs: '0.8125rem', sm: '0.9375rem' },
+                lineHeight: 1.25,
               }}
             >
               {title}
@@ -33,7 +33,7 @@ export const CertificationCard = ({ title, description, logo, certLink, issuer, 
           </Box>
 
           {/* Badges */}
-          <Box className="flex flex-wrap justify-center gap-2 mb-4 min-h-[68px] flex-shrink-0">
+          <Box className="flex flex-wrap justify-center gap-2 mb-2 min-h-[50px] flex-shrink-0">
             {issuer && (
               <Chip
                 icon={<School />}
@@ -75,7 +75,7 @@ export const CertificationCard = ({ title, description, logo, certLink, issuer, 
           {/* Description */}
           <Box
             component="ul"
-            className="list-none p-0 m-0 mb-4 text-gray-400 text-xs sm:text-sm space-y-1 min-h-[40px] sm:min-h-[44px] flex-shrink-0"
+            className="list-none p-0 m-0 mb-2 text-gray-400 text-xs sm:text-sm space-y-1 min-h-[32px] sm:min-h-[36px] flex-shrink-0"
             sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
           >
             {description.map((point, index) => (
@@ -94,7 +94,7 @@ export const CertificationCard = ({ title, description, logo, certLink, issuer, 
           <Button
             variant="contained"
             onClick={() => window.open(certLink, "_blank")}
-            className="bg-gradient-to-r from-purple-600 to-accent hover:from-accent hover:to-purple-600 text-white font-semibold px-4 sm:px-6 py-2 rounded-xl transition-all duration-300 text-sm sm:text-base transform hover:scale-105 shadow-lg hover:shadow-xl flex-shrink-0"
+            className="bg-gradient-to-r from-purple-600 to-accent hover:from-accent hover:to-purple-600 text-white font-semibold px-4 sm:px-6 py-1.5 rounded-xl transition-all duration-300 text-xs sm:text-sm transform hover:scale-105 shadow-lg hover:shadow-xl flex-shrink-0"
             sx={{
               fontFamily: 'CentraNo2, sans-serif',
               '&:hover': {

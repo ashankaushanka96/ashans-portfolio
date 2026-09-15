@@ -18,18 +18,18 @@ export const Certifications = () => {
     <Box 
       component="section" 
       id="certifications" 
-      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center justify-center"
+      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden flex items-start justify-center"
       style={{ scrollMarginTop: '96px', minHeight: 'calc(100vh - 88px)' }}
     >
       <Container maxWidth="xl">
-        <Box className={`w-full max-w-6xl mx-auto bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl text-center py-12 sm:py-16 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 ${
+        <Box className={`w-full max-w-6xl mx-auto bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl text-center py-5 sm:py-6 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           {/* Section Header */}
-          <Box className="mb-8 sm:mb-12">
+          <Box className="mb-3 sm:mb-4">
             <Typography
               variant="h2"
-              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl 5xl:text-6xl font-bold mb-6 text-white"
+              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-bold mb-1 text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
@@ -43,8 +43,8 @@ export const Certifications = () => {
             </Typography>
             <Typography
               variant="body1"
-              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center"
-              sx={{ 
+              className="text-xs sm:text-sm text-gray-300 max-w-3xl mx-auto leading-snug text-center"
+              sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textAlign: 'center !important',
                 display: 'block',
@@ -55,7 +55,7 @@ export const Certifications = () => {
               Validated expertise through industry-recognized certifications that demonstrate my commitment to continuous learning and professional development.
             </Typography>
           </Box>
-          
+
           {/* Certifications Carousel */}
           <Box className="w-full">
             <CardsCarousel
