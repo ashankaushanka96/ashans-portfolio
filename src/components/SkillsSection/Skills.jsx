@@ -7,7 +7,8 @@ import { CardsCarousel } from "../common/CardsCarousel";
 import { useColorMode } from "../../contexts/ColorModeContext";
 
 const skillsBreakpoints = {
-  480: { slidesPerView: 2 },
+  0: { slidesPerView: 3 },
+  480: { slidesPerView: 3 },
   768: { slidesPerView: 3 },
   1024: { slidesPerView: 4 },
   1280: { slidesPerView: 5 },
