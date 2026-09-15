@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Mousewheel } from "swiper/modules";
 import "swiper/css";
 
 const DEFAULT_BREAKPOINTS = {
@@ -43,8 +43,10 @@ export const CardsCarousel = ({
   return (
     <>
       <Swiper
-        modules={[Autoplay]}
+        modules={[Autoplay, Mousewheel]}
         grabCursor
+        allowTouchMove
+        simulateTouch
         centeredSlides
         loop
         watchSlidesProgress
@@ -52,6 +54,7 @@ export const CardsCarousel = ({
         slidesPerView={1}
         breakpoints={breakpoints}
         autoplay={{ delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true }}
+        mousewheel={{ forceToAxis: true, sensitivity: 1, releaseOnEdges: true }}
         onInit={applyDepthStyles}
         onProgress={applyDepthStyles}
         onResize={applyDepthStyles}
