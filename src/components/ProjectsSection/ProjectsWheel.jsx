@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Mousewheel, Pagination } from "swiper/modules";
+import { EffectCoverflow, Mousewheel, Pagination, Autoplay } from "swiper/modules";
 import { Box, Typography, Chip, IconButton } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import "swiper/css";
@@ -37,7 +37,7 @@ export const ProjectsWheel = ({ projects, onSelectProject }) => {
 
         <Box className="w-full" sx={{ perspective: "1200px" }}>
           <Swiper
-            modules={[EffectCoverflow, Mousewheel, Pagination]}
+            modules={[EffectCoverflow, Mousewheel, Pagination, Autoplay]}
             effect="coverflow"
             grabCursor
             centeredSlides
@@ -47,6 +47,7 @@ export const ProjectsWheel = ({ projects, onSelectProject }) => {
             spaceBetween={20}
             speed={600}
             slideToClickedSlide
+            autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
             mousewheel={{ forceToAxis: true, sensitivity: 1, releaseOnEdges: true }}
             pagination={{
               el: ".proj-pagination",
