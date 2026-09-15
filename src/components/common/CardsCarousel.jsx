@@ -69,7 +69,7 @@ export const CardsCarousel = ({
 
       <style>{`
         .cards-carousel {
-          padding: 0.5rem 0;
+          padding: 0.125rem 0;
         }
         .cards-carousel .swiper-slide {
           display: flex;
