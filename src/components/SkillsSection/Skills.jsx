@@ -11,7 +11,6 @@ const skillsBreakpoints = {
   1024: { slidesPerView: 4 },
   1280: { slidesPerView: 5 },
 };
-import colorSharp from "../../assets/skills/background-glow.png";
 import { skills, toolsAndPlatforms } from "../../config/skills";
 
 export const Skills = () => {
@@ -70,7 +69,7 @@ export const Skills = () => {
           <Box className={`transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-2 pb-2 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl transition-all duration-500 mb-2">
+            <Box className="mb-2">
               <Typography
                 variant="h3"
                 className="text-xs sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg 3xl:text-lg 4xl:text-xl font-bold mb-1 text-white"
@@ -85,7 +84,7 @@ export const Skills = () => {
               >
                 Technical Skills
               </Typography>
-              
+
               <Box className="w-full mx-auto">
                 <CardsCarousel
                   items={skills}
@@ -105,7 +104,7 @@ export const Skills = () => {
           <Box className={`transition-all duration-1000 delay-400 mt-2 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-2 pb-2 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl transition-all duration-500">
+            <Box>
               <Typography
                 variant="h3"
                 className="text-xs sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg 3xl:text-lg 4xl:text-xl font-bold mb-1 text-white"
@@ -120,7 +119,7 @@ export const Skills = () => {
               >
                 Tools & Technologies
               </Typography>
-              
+
               <Box className="w-full mx-auto">
                 <CardsCarousel
                   items={toolsAndPlatforms}
@@ -137,16 +136,6 @@ export const Skills = () => {
           </Box>
         </Box>
       </Container>
-      
-      {/* Background Image with Animation */}
-      <img 
-        className="absolute top-1/4 bottom-0 w-1/2 sm:w-2/5 -z-10 animate-float-slow opacity-20" 
-        src={colorSharp} 
-        alt="Background" 
-        style={{
-          animation: 'floatSlow 8s ease-in-out infinite',
-        }}
-      />
 
       {/* Animated Background Elements */}
       <Box className="absolute inset-0 -z-10">
@@ -160,14 +149,6 @@ export const Skills = () => {
 
 
       <style>{`
-        @keyframes floatSlow {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(1deg); }
-        }
-        .animate-float-slow {
-          animation: floatSlow 8s ease-in-out infinite;
-        }
-
         /* Force text centering for all Typography components in Skills section */
         #skills .MuiTypography-root {
           text-align: center !important;
