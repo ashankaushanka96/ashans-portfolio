@@ -2,8 +2,19 @@ import awsLogo from "../assets/logo/certifications/aws-solutions-architect-assoc
 import redhatLogo from "../assets/logo/certifications/redhat.svg";
 import pythonLogo from "../assets/logo/python.svg";
 import reactLogo from "../assets/logo/certifications/react.svg";
+import ckaLogo from "../assets/logo/certifications/cka.png";
 
 export const certifications = [
+  {
+    title: "Certified Kubernetes Administrator (CKA)",
+    description: ["Credential ID: LF-d8tg2awomg", "Issued: Aug 2026"],
+    logo: ckaLogo,
+    certLink:
+      "https://www.credly.com/badges/b4ba04ad-714d-4bba-8ba0-ed0c845e3631/linked_in_profile",
+    issuer: "The Linux Foundation",
+    level: "Professional",
+    category: "Kubernetes",
+  },
   {
     title: "AWS Certified Solution Architect Associate",
     description: ["Credential ID: AWS04794799", "Issued: Dec 2024"],
