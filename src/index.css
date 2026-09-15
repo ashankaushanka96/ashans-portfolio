@@ -224,6 +224,14 @@ section {
   padding: 0 !important;
 }
 
+/* Banner needs guaranteed clearance below the fixed navbar so its content
+   (e.g. the welcome badge) never renders underneath it on short/mobile
+   viewports; the blanket reset above would otherwise zero this out. */
+#home {
+  padding-top: var(--nav-height, 96px) !important;
+  padding-bottom: 4rem !important;
+}
+
 /* Ensure consistent spacing between sections (excluding divider) */
 .App > div:not(.divider-component) {
   margin: 0 !important;

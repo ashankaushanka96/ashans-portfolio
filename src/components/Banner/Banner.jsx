@@ -64,8 +64,8 @@ export const Banner = () => {
     <Box 
       component="section" 
       id="home"
-      className="relative section-height-lg flex items-center justify-center pt-20 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
-      style={{ scrollMarginTop: '20px' }}
+      className="relative section-height-lg flex items-start sm:items-center justify-center pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      style={{ scrollMarginTop: 'var(--nav-height, 96px)', paddingTop: 'var(--nav-height, 96px)' }}
     >
       {/* 3D Background Centerpiece */}
       <Box className="absolute inset-0 z-0 pointer-events-none">
