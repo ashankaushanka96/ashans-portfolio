@@ -1,19 +1,19 @@
-import meter1 from "../assets/img/meter1.svg";
-import meter2 from "../assets/img/meter2.svg";
-import meter3 from "../assets/img/meter3.svg";
-import aws from "../assets/logo/aws.svg";
-import gcp from "../assets/logo/gcp.svg";
-import gitlab from "../assets/logo/gitlab.svg";
-import terraform from "../assets/logo/terraform.svg";
-import kubernetes from "../assets/logo/kubernetes.svg";
-import docker from "../assets/logo/docker.svg";
-import ansible from "../assets/logo/ansible.svg";
-import jenkins from "../assets/logo/jenkins.svg";
-import bamboo from "../assets/logo/bamboo.svg";
-import packer from "../assets/logo/packer.svg";
-import datadog from "../assets/logo/datadog.svg";
-import python from "../assets/logo/python.svg";
-import java from "../assets/logo/java.svg";
+import meter1 from "../assets/skills/meter-expert.svg";
+import meter2 from "../assets/skills/meter-intermediate.svg";
+import meter3 from "../assets/skills/meter-advanced.svg";
+import aws from "../assets/logos/tools/aws.svg";
+import gcp from "../assets/logos/tools/gcp.svg";
+import gitlab from "../assets/logos/tools/gitlab.svg";
+import terraform from "../assets/logos/tools/terraform.svg";
+import kubernetes from "../assets/logos/tools/kubernetes.svg";
+import docker from "../assets/logos/tools/docker.svg";
+import ansible from "../assets/logos/tools/ansible.svg";
+import jenkins from "../assets/logos/tools/jenkins.svg";
+import bamboo from "../assets/logos/tools/bamboo.svg";
+import packer from "../assets/logos/tools/packer.svg";
+import datadog from "../assets/logos/tools/datadog.svg";
+import python from "../assets/logos/tools/python.svg";
+import java from "../assets/logos/tools/java.svg";
 
 export const skills = [
   { image: meter1, title: "Cloud Architecture", level: "Expert" },

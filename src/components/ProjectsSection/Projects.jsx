@@ -4,7 +4,7 @@ import { Container, Box, Typography, Grid, useTheme, useMediaQuery } from "@mui/
 import { ProjectCard } from "./ProjectCard";
 import { ProjectModal } from "./ProjectModal";
 import Divider from "../Divider/Divider";
-import colorSharp2 from "../../assets/img/color-sharp2.png";
+import colorSharp2 from "../../assets/shared/background-glow-secondary.png";
 import { projects } from "../../config/projects";
 
 export const Projects = () => {

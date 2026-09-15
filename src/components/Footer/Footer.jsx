@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Box, Typography, IconButton, useTheme, useMediaQuery } from "@mui/material";
 import { KeyboardArrowUp, Email, Phone } from '@mui/icons-material';
 import { Logo } from "../common/Logo";
-import footerBg from "../../assets/img/footer-bg.png";
+import footerBg from "../../assets/footer/background.png";
 import { footerLinks } from "../../config/navigation";
 import { socialLinks } from "../../config/social";
 import { siteConfig } from "../../config/site";

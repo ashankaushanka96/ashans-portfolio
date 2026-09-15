@@ -11,7 +11,7 @@ const skillsBreakpoints = {
   1024: { slidesPerView: 4 },
   1280: { slidesPerView: 5 },
 };
-import colorSharp from "../../assets/img/color-sharp.png";
+import colorSharp from "../../assets/skills/background-glow.png";
 import { skills, toolsAndPlatforms } from "../../config/skills";
 
 export const Skills = () => {

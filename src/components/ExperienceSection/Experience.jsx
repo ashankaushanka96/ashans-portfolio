@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import ExperienceCard from "./ExperienceCard";
 import Divider from "../Divider/Divider";
-import colorSharp from "../../assets/img/color-sharp2.png";
+import colorSharp from "../../assets/shared/background-glow-secondary.png";
 import { experiences } from "../../config/experience";
 
 const Experience = () => {

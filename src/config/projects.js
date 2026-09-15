@@ -1,18 +1,18 @@
-import projImg1 from "../assets/img/project-images/bruno-project.png";
-import projImg2 from "../assets/img/project-images/server-migration-project.png";
-import projImg3 from "../assets/img/project-images/datadog.png";
-import projImg4 from "../assets/img/project-images/gitlab-project.png";
-import projImg5 from "../assets/img/project-images/monitoring-tool.png";
-import projImg6 from "../assets/img/project-images/FTPFileDownloader.png";
-import projImg7 from "../assets/img/project-images/ComponentWatcher.png";
-import projImg8 from "../assets/img/project-images/ComponentInventory.png";
-import projImg9 from "../assets/img/project-images/InstanceScheduler.png";
-import projImg10 from "../assets/img/project-images/OperationsDashboard.png";
-import projImg10_1 from "../assets/img/project-images/ComponentsSection.png";
-import projImg10_2 from "../assets/img/project-images/EC2DetailsSection.png";
-import projImg10_3 from "../assets/img/project-images/EC2SchedulesSection.png";
-import projImg10_4 from "../assets/img/project-images/Route53Section.png";
-import projImg10_5 from "../assets/img/project-images/ServerStartStopSection.png";
+import projImg1 from "../assets/projects/screenshots/bruno-project.png";
+import projImg2 from "../assets/projects/screenshots/server-migration-project.png";
+import projImg3 from "../assets/projects/screenshots/datadog.png";
+import projImg4 from "../assets/projects/screenshots/gitlab-project.png";
+import projImg5 from "../assets/projects/screenshots/monitoring-tool.png";
+import projImg6 from "../assets/projects/screenshots/FTPFileDownloader.png";
+import projImg7 from "../assets/projects/screenshots/ComponentWatcher.png";
+import projImg8 from "../assets/projects/screenshots/ComponentInventory.png";
+import projImg9 from "../assets/projects/screenshots/InstanceScheduler.png";
+import projImg10 from "../assets/projects/screenshots/OperationsDashboard.png";
+import projImg10_1 from "../assets/projects/screenshots/ComponentsSection.png";
+import projImg10_2 from "../assets/projects/screenshots/EC2DetailsSection.png";
+import projImg10_3 from "../assets/projects/screenshots/EC2SchedulesSection.png";
+import projImg10_4 from "../assets/projects/screenshots/Route53Section.png";
+import projImg10_5 from "../assets/projects/screenshots/ServerStartStopSection.png";
 
 export const projects = [
   {

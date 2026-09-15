@@ -1,8 +1,8 @@
-import awsLogo from "../assets/logo/certifications/aws-solutions-architect-associate.svg";
-import redhatLogo from "../assets/logo/certifications/redhat.svg";
-import pythonLogo from "../assets/logo/python.svg";
-import reactLogo from "../assets/logo/certifications/react.svg";
-import ckaLogo from "../assets/logo/certifications/cka.png";
+import awsLogo from "../assets/logos/certifications/aws-solutions-architect-associate.svg";
+import redhatLogo from "../assets/logos/certifications/redhat.svg";
+import pythonLogo from "../assets/logos/tools/python.svg";
+import reactLogo from "../assets/logos/certifications/react.svg";
+import ckaLogo from "../assets/logos/certifications/cka.png";
 
 export const certifications = [
   {

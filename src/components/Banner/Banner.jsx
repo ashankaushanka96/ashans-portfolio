@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Box, Typography, Button, useTheme, useMediaQuery } from "@mui/material";
 import { ArrowForward, KeyboardArrowDown } from "@mui/icons-material";
-import headerImg from "../../assets/img/sre-png-4.png";
+import headerImg from "../../assets/banner/hero-illustration.png";
 import Divider from "../Divider/Divider";
 import SceneSelector from "../ThreeScene/SceneSelector";
 import SREBackground from "../SREBackground";
