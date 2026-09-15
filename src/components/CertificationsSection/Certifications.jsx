@@ -19,7 +19,7 @@ export const Certifications = () => {
       component="section" 
       id="certifications" 
       className="relative px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center justify-center"
-      style={{ scrollMarginTop: '80px', minHeight: 'min(80vh, 820px)' }}
+      style={{ scrollMarginTop: '96px', minHeight: 'min(80vh, 820px)' }}
     >
       <Container maxWidth="xl">
         <Box className={`w-full max-w-6xl mx-auto bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl text-center py-12 sm:py-16 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 ${

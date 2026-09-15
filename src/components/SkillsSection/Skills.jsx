@@ -28,10 +28,10 @@ export const Skills = () => {
       component="section" 
       id="skills" 
       className="relative px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center justify-center"
-      style={{ scrollMarginTop: '80px', minHeight: 'min(80vh, 700px)' }}
+      style={{ scrollMarginTop: '96px', minHeight: 'min(80vh, 700px)' }}
     >
-      <Container maxWidth="xl" className="h-full flex items-center justify-center">
-        <Box className="space-y-2 sm:space-y-3 w-full max-w-6xl mx-auto text-center">
+      <Container maxWidth="xl" className="flex items-center justify-center">
+        <Box className="space-y-2 sm:space-y-3 w-full max-w-6xl mx-auto text-center pt-5 sm:pt-6 pb-4 sm:pb-5">
           {/* Section Header */}
           <Box className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'

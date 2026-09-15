@@ -71,7 +71,7 @@ export const NavBar = () => {
     // Smooth scroll to section
     const element = document.getElementById(value);
     if (element) {
-      const offsetTop = element.offsetTop - 80; // Account for navbar height
+      const offsetTop = element.offsetTop - 96; // Account for navbar height (tallest, unscrolled state)
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'

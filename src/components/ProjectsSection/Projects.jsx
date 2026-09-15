@@ -34,7 +34,7 @@ export const Projects = () => {
       component="section" 
       id="projects" 
       className="relative px-4 sm:px-6 lg:px-8 overflow-hidden section-height flex items-center justify-center"
-      style={{ scrollMarginTop: '80px' }}
+      style={{ scrollMarginTop: '96px' }}
     >
       <Container maxWidth="xl">
         <Box className="space-y-2 sm:space-y-3 px-6 sm:px-10 lg:px-16">

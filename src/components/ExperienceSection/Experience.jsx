@@ -19,7 +19,7 @@ const Experience = () => {
       component="section" 
       id="experience" 
       className="relative px-4 sm:px-6 lg:px-8 overflow-hidden section-height flex items-center justify-center"
-      style={{ scrollMarginTop: '80px' }}
+      style={{ scrollMarginTop: '96px' }}
     >
       <Container maxWidth="xl">
         <Box className="space-y-8 sm:space-y-12 px-6 sm:px-10 lg:px-16">
