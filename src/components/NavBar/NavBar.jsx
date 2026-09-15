@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import logo from "../../assets/img/logonew.svg";
+import { Logo } from "../common/Logo";
 import { navItems } from "../../config/navigation";
 import { socialLinks } from "../../config/social";
 import { siteConfig } from "../../config/site";
@@ -168,8 +168,8 @@ export const NavBar = () => {
             {/* Logo */}
             <Fade in={isVisible} timeout={1000}>
               <Box className="flex items-center">
-                <a href="/ashans-portfolio/" className="w-12 sm:w-16 transition-all duration-300 hover:scale-110 hover:rotate-3">
-                  <img src={logo} alt="Logo" className="w-full h-auto drop-shadow-lg" />
+                <a href="/ashans-portfolio/" className="transition-all duration-300 hover:scale-105">
+                  <Logo />
                 </a>
               </Box>
             </Fade>

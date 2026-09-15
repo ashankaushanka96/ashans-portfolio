@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Box, Typography, IconButton, useTheme, useMediaQuery } from "@mui/material";
 import { KeyboardArrowUp, Email, Phone } from '@mui/icons-material';
-import logo from "../../assets/img/logonew.svg";
+import { Logo } from "../common/Logo";
 import footerBg from "../../assets/img/footer-bg.png";
 import { footerLinks } from "../../config/navigation";
 import { socialLinks } from "../../config/social";
@@ -56,10 +56,9 @@ export const Footer = () => {
             {/* Logo & Description */}
             <Box className="text-center md:text-left">
               <Box className="mb-6">
-                <img 
-                  src={logo} 
-                  alt="Ashan Pathiranage" 
-                  className="w-24 sm:w-32 mx-auto md:mx-0 transition-all duration-300 hover:scale-110 hover:rotate-3 drop-shadow-lg" 
+                <Logo
+                  className="justify-center md:justify-start"
+                  markClassName="w-12 h-12 sm:w-14 sm:h-14"
                 />
               </Box>
               <Typography
