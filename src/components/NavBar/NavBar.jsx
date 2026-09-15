@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { 
   AppBar, 
   Toolbar, 
@@ -28,7 +28,8 @@ export const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  
+  const appBarRef = useRef(null);
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -71,7 +72,8 @@ export const NavBar = () => {
     // Smooth scroll to section
     const element = document.getElementById(value);
     if (element) {
-      const offsetTop = element.offsetTop - 96; // Account for navbar height (tallest, unscrolled state)
+      const navHeight = appBarRef.current?.offsetHeight ?? 96;
+      const offsetTop = element.offsetTop - navHeight;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -149,8 +151,9 @@ export const NavBar = () => {
 
   return (
     <>
-      <AppBar 
-        position="fixed" 
+      <AppBar
+        ref={appBarRef}
+        position="fixed"
         className={`transition-all duration-700 backdrop-blur-md ${
           scrolled ? "py-2 shadow-2xl" : "py-4"
         }`}
