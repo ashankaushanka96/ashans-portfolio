@@ -27,8 +27,8 @@ export const Skills = () => {
     <Box 
       component="section" 
       id="skills" 
-      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden section-height flex items-center justify-center" 
-      style={{ scrollMarginTop: '80px' }}
+      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center justify-center"
+      style={{ scrollMarginTop: '80px', minHeight: 'min(80vh, 760px)' }}
     >
       <Container maxWidth="xl" className="h-full flex items-center justify-center">
         <Box className="space-y-1 sm:space-y-2 w-full max-w-6xl mx-auto text-center">
