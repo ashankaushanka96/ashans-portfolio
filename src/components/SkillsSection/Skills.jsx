@@ -31,14 +31,14 @@ export const Skills = () => {
       style={{ scrollMarginTop: '80px' }}
     >
       <Container maxWidth="xl" className="h-full flex items-center justify-center">
-        <Box className="space-y-2 sm:space-y-3 w-full max-w-6xl mx-auto text-center">
+        <Box className="space-y-1 sm:space-y-2 w-full max-w-6xl mx-auto text-center">
           {/* Section Header */}
           <Box className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <Typography
               variant="h2"
-              className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl font-bold mb-2 text-white"
+              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-2xl 4xl:text-3xl font-bold mb-1 text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
@@ -70,10 +70,10 @@ export const Skills = () => {
           <Box className={`transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-3 sm:pt-4 pb-3 sm:pb-4 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 mb-3">
+            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-2 pb-2 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 mb-2">
               <Typography
                 variant="h3"
-                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-1 text-white"
+                className="text-xs sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg 3xl:text-lg 4xl:text-xl font-bold mb-1 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
@@ -105,10 +105,10 @@ export const Skills = () => {
           <Box className={`transition-all duration-1000 delay-400 mt-2 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-3 sm:pt-4 pb-3 sm:pb-4 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-2 pb-2 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
               <Typography
                 variant="h3"
-                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold mb-1 text-white"
+                className="text-xs sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg 3xl:text-lg 4xl:text-xl font-bold mb-1 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
