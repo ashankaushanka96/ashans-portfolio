@@ -68,13 +68,7 @@ export const Banner = () => {
       style={{ scrollMarginTop: '20px' }}
     >
       {/* 3D Background Centerpiece */}
-      <Box
-        className="absolute inset-0 z-0 pointer-events-none"
-        sx={{
-          maskImage: 'linear-gradient(to bottom, black 0%, black 78%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 78%, transparent 100%)',
-        }}
-      >
+      <Box className="absolute inset-0 z-0 pointer-events-none">
         {/* 3D Scene Container */}
         <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] xl:w-[800px] xl:h-[800px] 2xl:w-[900px] 2xl:h-[900px] opacity-40 lg:opacity-50 scene-container">
           <SceneSelector />
