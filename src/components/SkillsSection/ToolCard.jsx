@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography, Chip } from '@mui/material';
 
 export const ToolCard = ({ image, title, category }) => (
-  <Box className="flex flex-col items-center p-1.5 sm:p-2 group h-[156px] sm:h-[180px]">
+  <Box className="flex flex-col items-center p-1.5 sm:p-2 group h-[152px] sm:h-[176px]">
           <Box className="relative mb-1.5">
       {/* Glow effect */}
       <Box className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-accent/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100"></Box>
@@ -18,7 +18,7 @@ export const ToolCard = ({ image, title, category }) => (
     </Box>
 
     {/* Title */}
-    <Box className="flex items-center justify-center min-h-[30px] sm:min-h-[34px] mb-1">
+    <Box className="flex items-center justify-center min-h-[28px] sm:min-h-[30px] mb-1">
       <Typography
         variant="h6"
         className="font-semibold text-white text-center line-clamp-2 transition-all duration-300 group-hover:text-purple-400 group-hover:scale-105"
