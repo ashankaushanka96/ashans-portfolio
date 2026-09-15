@@ -1,6 +1,3 @@
-import meter1 from "../assets/skills/meter-expert.svg";
-import meter2 from "../assets/skills/meter-intermediate.svg";
-import meter3 from "../assets/skills/meter-advanced.svg";
 import aws from "../assets/logos/tools/aws.svg";
 import gcp from "../assets/logos/tools/gcp.svg";
 import gitlab from "../assets/logos/tools/gitlab.svg";
@@ -16,14 +13,14 @@ import python from "../assets/logos/tools/python.svg";
 import java from "../assets/logos/tools/java.svg";
 
 export const skills = [
-  { image: meter1, title: "Cloud Architecture", level: "Expert" },
-  { image: meter3, title: "Infrastructure Automation", level: "Advanced" },
-  { image: meter3, title: "CI/CD Pipelines", level: "Advanced" },
-  { image: meter3, title: "Monitoring & Incident Management", level: "Advanced" },
-  { image: meter3, title: "Programming & Frameworks", level: "Advanced" },
-  { image: meter2, title: "Generative AI & Machine Learning", level: "Intermediate" },
-  { image: meter3, title: "Database Management", level: "Advanced" },
-  { image: meter2, title: "Network Administration", level: "Intermediate" },
+  { value: 95, title: "Cloud Architecture", level: "Expert" },
+  { value: 90, title: "Infrastructure Automation", level: "Advanced" },
+  { value: 90, title: "CI/CD Pipelines", level: "Advanced" },
+  { value: 90, title: "Monitoring & Incident Management", level: "Advanced" },
+  { value: 90, title: "Programming & Frameworks", level: "Advanced" },
+  { value: 80, title: "Generative AI & Machine Learning", level: "Intermediate" },
+  { value: 90, title: "Database Management", level: "Advanced" },
+  { value: 80, title: "Network Administration", level: "Intermediate" },
 ];
 
 export const toolsAndPlatforms = [

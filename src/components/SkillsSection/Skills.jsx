@@ -82,10 +82,13 @@ export const Skills = () => {
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   fontWeight: 900,
-                  background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
+                  background: isDark
+                    ? 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)'
+                    : 'linear-gradient(135deg, #0f172a 0%, #00a8d4 50%, #0f172a 100%)',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
+                  textShadow: isDark ? '0 4px 8px rgba(0,0,0,0.5)' : 'none',
                   textAlign: 'center',
                 }}
               >
@@ -100,7 +103,7 @@ export const Skills = () => {
                   spaceBetween={8}
                   autoplayDelay={3000}
                   renderItem={(skill) => (
-                    <SkillCard image={skill.image} title={skill.title} level={skill.level} />
+                    <SkillCard value={skill.value} title={skill.title} level={skill.level} />
                   )}
                 />
               </Box>
@@ -118,10 +121,13 @@ export const Skills = () => {
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   fontWeight: 900,
-                  background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
+                  background: isDark
+                    ? 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)'
+                    : 'linear-gradient(135deg, #0f172a 0%, #00a8d4 50%, #0f172a 100%)',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
+                  textShadow: isDark ? '0 4px 8px rgba(0,0,0,0.5)' : 'none',
                   textAlign: 'center',
                 }}
               >
