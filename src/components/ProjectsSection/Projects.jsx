@@ -1,7 +1,7 @@
 // src/components/ProjectsSection/Projects.jsx
 import React, { useState, useEffect } from "react";
-import { Container, Box, Typography, Grid, useTheme, useMediaQuery } from "@mui/material";
-import { ProjectCard } from "./ProjectCard";
+import { Container, Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+import { ProjectsWheel } from "./ProjectsWheel";
 import { ProjectModal } from "./ProjectModal";
 import Divider from "../Divider/Divider";
 import colorSharp2 from "../../assets/shared/background-glow-secondary.png";
@@ -30,19 +30,19 @@ export const Projects = () => {
   };
 
   return (
-    <Box 
-      component="section" 
-      id="projects" 
-      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden section-height flex items-center justify-center"
-      style={{ scrollMarginTop: '96px' }}
+    <Box
+      component="section"
+      id="projects"
+      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center justify-center"
+      style={{ scrollMarginTop: '96px', minHeight: 'calc(100vh - 88px)' }}
     >
-      <Container maxWidth="xl">
-        <Box className="space-y-2 sm:space-y-3 px-6 sm:px-10 lg:px-16">
+      <Container maxWidth="xl" className="flex items-center justify-center">
+        <Box className="space-y-3 sm:space-y-4 w-full max-w-6xl mx-auto text-center py-6 sm:py-8">
           {/* Section Header */}
           <Box className="text-center mb-0">
             <Typography
               variant="h2"
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-white"
+              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-bold mb-1 text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
@@ -56,8 +56,8 @@ export const Projects = () => {
             </Typography>
             <Typography
               variant="body1"
-              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center"
-              sx={{ 
+              className="text-xs sm:text-sm text-gray-300 max-w-3xl mx-auto leading-snug text-center"
+              sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textAlign: 'center !important',
                 display: 'block',
@@ -68,29 +68,15 @@ export const Projects = () => {
               Explore my portfolio of innovative solutions and technical implementations. Click on any project to learn more about the technologies used and the challenges solved.
             </Typography>
           </Box>
-          
-          {/* Projects Grid */}
-          <Grid container spacing={{ xs: 3, sm: 4, lg: 5 }}>
-            {projects.map((proj, idx) => (
-              <Grid item xs={12} sm={6} lg={4} key={idx} className="h-full">
-                <Box 
-                  className={`h-full transition-all duration-1000 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                  }`}
-                  style={{ animationDelay: `${idx * 0.1}s` }}
-                >
-                  <ProjectCard
-                    title={proj.title}
-                    short_description={proj.short_description}
-                    imgUrl={proj.imgUrl}
-                    category={proj.category}
-                    status={proj.status}
-                    onClick={() => handleCardClick(proj)}
-                  />
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
+
+          {/* Projects Wheel */}
+          <Box
+            className={`transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <ProjectsWheel projects={projects} onSelectProject={handleCardClick} />
+          </Box>
         </Box>
       </Container>
 
