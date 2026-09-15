@@ -35,8 +35,27 @@ export const NavBar = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   useEffect(() => {
+    const updateNavHeightVar = () => {
+      if (appBarRef.current) {
+        document.documentElement.style.setProperty('--nav-height', `${appBarRef.current.offsetHeight}px`);
+      }
+    };
+
+    // The navbar's height itself animates (py-2/py-4 transition) when `scrolled`
+    // flips, so measure now for the pre-transition size and again once the
+    // 700ms transition (see className below) has settled on its final size.
+    updateNavHeightVar();
+    const settleTimeout = setTimeout(updateNavHeightVar, 750);
+    window.addEventListener('resize', updateNavHeightVar);
+    return () => {
+      clearTimeout(settleTimeout);
+      window.removeEventListener('resize', updateNavHeightVar);
+    };
+  }, [scrolled]);
+
+  useEffect(() => {
     setIsVisible(true);
-    
+
     const onScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true);
