@@ -22,11 +22,11 @@ export const Certifications = () => {
       style={{ scrollMarginTop: '96px', minHeight: 'calc(100vh - 88px)' }}
     >
       <Container maxWidth="xl">
-        <Box className={`w-full max-w-6xl mx-auto bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl text-center py-5 sm:py-6 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 ${
+        <Box className={`w-full max-w-6xl mx-auto bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl text-center py-8 sm:py-10 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           {/* Section Header */}
-          <Box className="mb-3 sm:mb-4">
+          <Box className="mb-4 sm:mb-6">
             <Typography
               variant="h2"
               className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-bold mb-1 text-white"
