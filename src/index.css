@@ -206,6 +206,13 @@ section {
   scroll-snap-stop: always;
 }
 
+/* Footer isn't a <section> but still needs to be a valid snap point —
+   otherwise mandatory scroll-snap has nowhere to rest past the last
+   section and pulls the page back instead of letting it scroll here. */
+footer {
+  scroll-snap-align: start;
+}
+
 /* Ensure consistent spacing between sections (excluding divider) */
 .App > div:not(.divider-component) {
   margin: 0 !important;
