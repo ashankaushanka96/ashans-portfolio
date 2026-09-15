@@ -31,7 +31,7 @@ const SceneSelector = ({ className = "" }) => {
       <CurrentSceneComponent baseColor={baseColor} />
       
       {/* Scene Selector Controls */}
-      <Box className="absolute top-4 right-4 z-10 flex flex-col gap-2">
+      <Box className="absolute bottom-4 right-4 z-10 flex flex-col gap-2">
         {Object.entries(scenes).map(([key, scene]) => (
           <Tooltip key={key} title={scene.tooltip} placement="left">
             <IconButton
