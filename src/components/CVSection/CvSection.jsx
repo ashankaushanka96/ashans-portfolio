@@ -59,7 +59,7 @@ const CvSection = () => {
           </Box>
 
           {/* CV Preview */}
-          <Box className="w-full h-40 sm:h-56 lg:h-64 border border-gray-600/50 rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm shadow-xl">
+          <Box className="w-full h-64 sm:h-80 lg:h-[420px] border border-gray-600/50 rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm shadow-xl">
             <Box className="relative w-full h-full">
               <iframe
                 src={cvPath}
@@ -106,18 +106,6 @@ const CvSection = () => {
             >
               Download PDF
             </Button>
-          </Box>
-
-          {/* Additional Info */}
-          <Box className="mt-3 sm:mt-4 p-3 sm:p-4 bg-gradient-to-r from-accent/10 to-purple-600/10 rounded-2xl border border-accent/20">
-            <Typography
-              variant="body2"
-              className="text-xs sm:text-sm text-gray-300"
-              sx={{ fontFamily: 'CentraNo2, sans-serif' }}
-            >
-              💡 <strong>Pro Tip:</strong> For the best viewing experience, download the PDF and open it in a PDF reader.
-              The resume includes detailed information about my technical skills, work experience, and project achievements.
-            </Typography>
           </Box>
         </Box>
       </Container>
