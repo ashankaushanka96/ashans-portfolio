@@ -63,40 +63,6 @@ export const Banner = () => {
       id="home"
       className="relative section-height-lg flex items-center justify-center pt-20 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
       style={{ scrollMarginTop: '20px' }}
-      sx={{
-        background: `
-          radial-gradient(circle at 18% 22%, rgba(124, 58, 237, 0.22) 0%, transparent 55%),
-          radial-gradient(circle at 82% 16%, rgba(0, 212, 255, 0.18) 0%, transparent 55%),
-          radial-gradient(circle at 50% 78%, rgba(147, 51, 234, 0.12) 0%, transparent 60%),
-          linear-gradient(180deg, rgba(14, 22, 42, 0.92) 0%, rgba(10, 16, 32, 0.6) 55%, rgba(7, 11, 20, 0) 100%)
-        `,
-        position: 'relative',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: `
-            linear-gradient(45deg, transparent 30%, rgba(0, 212, 255, 0.1) 50%, transparent 70%),
-            linear-gradient(-45deg, transparent 30%, rgba(147, 51, 234, 0.1) 50%, transparent 70%)
-          `,
-          backgroundSize: '200% 200%',
-          animation: 'gradientShift 8s ease-in-out infinite',
-          zIndex: 1,
-        },
-        '&::after': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 70%)',
-          zIndex: 1,
-        }
-      }}
     >
       {/* 3D Background Centerpiece */}
       <Box
@@ -131,17 +97,6 @@ export const Banner = () => {
           }}
         />
       </Box>
-
-      {/* Fade Banner's own background/glow layers into the shared page
-          background color at the bottom edge, so the transition into the
-          next section is a smooth blend instead of a visible seam. */}
-      <Box
-        className="absolute inset-x-0 bottom-0 h-40 sm:h-56 lg:h-72 pointer-events-none"
-        sx={{
-          zIndex: 2,
-          background: 'linear-gradient(to bottom, transparent 0%, #070b14 100%)',
-        }}
-      />
 
       <Container maxWidth="xl" className="relative z-10">
         <Box className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -341,10 +296,6 @@ export const Banner = () => {
         @keyframes sceneFadeIn {
           from { opacity: 0; transform: scale(0.8) translate(-50%, -50%); }
           to { opacity: 1; transform: scale(1) translate(-50%, -50%); }
-        }
-        @keyframes gradientShift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
         }
         .animate-bounce-x {
           animation: bounce-x 1s infinite;
