@@ -9,6 +9,7 @@ import { Footer } from "./components/Footer/Footer";
 import Experience from './components/ExperienceSection/Experience';
 import CvSection from './components/CVSection/CvSection';
 import Divider from './components/Divider/Divider';
+import { PageBackground } from './components/common/PageBackground';
 
 const darkTheme = createTheme({
   palette: {
@@ -20,8 +21,8 @@ const darkTheme = createTheme({
       main: '#ffffff',
     },
     background: {
-      default: '#121212',
-      paper: '#1e1e1e',
+      default: '#070b14',
+      paper: '#0f1626',
     },
     text: {
       primary: '#ffffff',
@@ -37,6 +38,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
+      <PageBackground />
       <div className="App">
         <NavBar />
         <Banner />

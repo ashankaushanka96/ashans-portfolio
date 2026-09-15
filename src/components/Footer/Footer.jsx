@@ -37,7 +37,10 @@ export const Footer = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%)',
+          background: `
+            radial-gradient(70% 90% at 50% 0%, rgba(124, 58, 237, 0.16) 0%, transparent 65%),
+            linear-gradient(180deg, rgba(7, 11, 20, 0.55) 0%, rgba(9, 14, 27, 0.88) 45%, rgba(6, 10, 18, 0.96) 100%)
+          `,
           zIndex: 1,
         }
       }}

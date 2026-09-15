@@ -58,32 +58,28 @@ const SREBackground = () => {
     { image: java, title: "Java", category: "Programming" },
   ];
 
-  // Star-like positions in free spaces only - avoiding content areas
+  // The banner's text stacks to a single full-width column below the `lg`
+  // breakpoint, so these icons are confined to thin bands hugging the very
+  // top and bottom edges — the only zone clear of text at every screen size.
+  // The top band sits below the fixed navbar (which overlaps the banner's
+  // own top ~10%), not right at y:0.
   const starPositions = [
-    // Top corners - far from content
-    { x: '8%', y: '12%' },
-    { x: '92%', y: '8%' },
-    
-    // Top edges - avoiding center content
-    { x: '25%', y: '15%' },
-    { x: '75%', y: '12%' },
-    
-    // Side edges - far from text areas
-    { x: '5%', y: '35%' },
-    { x: '95%', y: '40%' },
-    { x: '3%', y: '65%' },
-    { x: '97%', y: '70%' },
-    
-    // Bottom corners - avoiding footer content
-    { x: '12%', y: '88%' },
-    { x: '88%', y: '92%' },
-    
-    // Bottom edges - avoiding scroll indicator
-    { x: '30%', y: '85%' },
-    { x: '70%', y: '88%' },
-    
-    // Far side areas - completely away from content
-    { x: '15%', y: '75%' },
+    // Top edge band
+    { x: '6%', y: '12%' },
+    { x: '20%', y: '15%' },
+    { x: '35%', y: '11%' },
+    { x: '50%', y: '14%' },
+    { x: '65%', y: '11%' },
+    { x: '80%', y: '15%' },
+    { x: '94%', y: '12%' },
+
+    // Bottom edge band
+    { x: '10%', y: '95%' },
+    { x: '26%', y: '92%' },
+    { x: '42%', y: '96%' },
+    { x: '58%', y: '92%' },
+    { x: '74%', y: '96%' },
+    { x: '90%', y: '93%' },
   ];
 
   return (
@@ -101,18 +97,18 @@ const SREBackground = () => {
       ))}
       
       {/* SRE Text Elements */}
-      <Box className="absolute top-1/3 left-1/6 text-xs text-white/5 font-mono animate-float-slow" style={{ animationDelay: '3s' }}>
+      <Box className="absolute top-1/3 left-[16.66%] text-xs text-white/5 font-mono animate-float-slow" style={{ animationDelay: '3s' }}>
         SRE
       </Box>
-      <Box className="absolute bottom-1/3 right-1/6 text-xs text-white/5 font-mono animate-float" style={{ animationDelay: '1.8s' }}>
+      <Box className="absolute bottom-1/3 right-[16.66%] text-xs text-white/5 font-mono animate-float" style={{ animationDelay: '1.8s' }}>
         DevOps
       </Box>
-      <Box className="absolute top-2/3 left-1/8 text-xs text-white/5 font-mono animate-float-slow" style={{ animationDelay: '2.2s' }}>
+      <Box className="absolute top-2/3 left-[12.5%] text-xs text-white/5 font-mono animate-float-slow" style={{ animationDelay: '2.2s' }}>
         Monitoring
       </Box>
 
       {/* Circuit-like patterns */}
-      <Box className="absolute top-1/4 right-1/6 w-32 h-32 opacity-3">
+      <Box className="absolute top-1/4 right-[16.66%] w-32 h-32 opacity-3">
         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" className="w-full h-full text-accent">
           <path d="M10 50h20M70 50h20M50 10v20M50 70v20" strokeWidth="1"/>
           <circle cx="30" cy="50" r="3" fill="currentColor"/>
@@ -123,7 +119,7 @@ const SREBackground = () => {
       </Box>
 
       {/* Network nodes */}
-      <Box className="absolute bottom-1/4 left-1/6 w-24 h-24 opacity-4">
+      <Box className="absolute bottom-1/4 left-[16.66%] w-24 h-24 opacity-4">
         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" className="w-full h-full text-purple-400">
           <circle cx="20" cy="20" r="8" fill="currentColor" opacity="0.3"/>
           <circle cx="80" cy="20" r="8" fill="currentColor" opacity="0.3"/>

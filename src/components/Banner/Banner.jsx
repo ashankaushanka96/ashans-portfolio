@@ -67,10 +67,10 @@ export const Banner = () => {
       style={{ scrollMarginTop: '20px' }}
       sx={{
         background: `
-          radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-          radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%),
-          linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%)
+          radial-gradient(circle at 18% 22%, rgba(124, 58, 237, 0.22) 0%, transparent 55%),
+          radial-gradient(circle at 82% 16%, rgba(0, 212, 255, 0.18) 0%, transparent 55%),
+          radial-gradient(circle at 50% 78%, rgba(147, 51, 234, 0.12) 0%, transparent 60%),
+          linear-gradient(180deg, rgba(14, 22, 42, 0.92) 0%, rgba(10, 16, 32, 0.6) 55%, rgba(7, 11, 20, 0) 100%)
         `,
         position: 'relative',
         '&::before': {
@@ -107,22 +107,30 @@ export const Banner = () => {
           <SceneSelector />
         </Box>
         
-        {/* SRE-themed background elements */}
-        <SREBackground />
-        
-        {/* Additional floating particles for depth */}
-        <Box className="absolute top-20 left-10 w-4 h-4 bg-accent rounded-full animate-pulse opacity-40"></Box>
-        <Box className="absolute top-40 right-20 w-2 h-2 bg-purple-400 rounded-full animate-ping opacity-30"></Box>
-        <Box className="absolute bottom-40 left-20 w-6 h-6 bg-blue-400 rounded-full animate-bounce opacity-35"></Box>
-        <Box className="absolute top-60 left-1/4 w-2 h-2 bg-pink-400 rounded-full animate-pulse opacity-45"></Box>
-        <Box className="absolute top-80 right-1/3 w-4 h-4 bg-cyan-400 rounded-full animate-bounce opacity-30"></Box>
-        <Box className="absolute bottom-60 right-10 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-35"></Box>
-        
-        {/* Additional animated elements */}
-        <Box className="absolute top-1/4 left-1/4 w-8 h-8 bg-gradient-to-r from-accent to-purple-500 rounded-full animate-pulse opacity-20" style={{ animationDelay: '1s' }}></Box>
-        <Box className="absolute bottom-1/4 right-1/4 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-bounce opacity-15" style={{ animationDelay: '2s' }}></Box>
-        <Box className="absolute top-1/3 right-1/3 w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full animate-ping opacity-25" style={{ animationDelay: '0.5s' }}></Box>
-        
+        {/*
+          Everything below only makes sense once the banner is a real two-column
+          layout (text confined to the left half, from `lg` up). Below that, the
+          content stacks into a single full-width column, so any fixed/fractional
+          position here can end up directly behind text — hide it until `lg`.
+        */}
+        <Box className="hidden lg:block">
+          {/* SRE-themed background elements */}
+          <SREBackground />
+
+          {/* Additional floating particles for depth */}
+          <Box className="absolute top-20 left-10 w-4 h-4 bg-accent rounded-full animate-pulse opacity-40"></Box>
+          <Box className="absolute top-40 right-20 w-2 h-2 bg-purple-400 rounded-full animate-ping opacity-30"></Box>
+          <Box className="absolute bottom-40 left-20 w-6 h-6 bg-blue-400 rounded-full animate-bounce opacity-35"></Box>
+          <Box className="absolute top-60 left-1/4 w-2 h-2 bg-pink-400 rounded-full animate-pulse opacity-45"></Box>
+          <Box className="absolute top-80 right-1/3 w-4 h-4 bg-cyan-400 rounded-full animate-bounce opacity-30"></Box>
+          <Box className="absolute bottom-60 right-10 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-35"></Box>
+
+          {/* Additional animated elements */}
+          <Box className="absolute top-1/4 left-1/4 w-8 h-8 bg-gradient-to-r from-accent to-purple-500 rounded-full animate-pulse opacity-20" style={{ animationDelay: '1s' }}></Box>
+          <Box className="absolute bottom-1/4 right-1/4 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-bounce opacity-15" style={{ animationDelay: '2s' }}></Box>
+          <Box className="absolute top-1/3 right-1/3 w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full animate-ping opacity-25" style={{ animationDelay: '0.5s' }}></Box>
+        </Box>
+
         {/* Grid pattern overlay */}
         <Box 
           className="absolute inset-0 opacity-5"

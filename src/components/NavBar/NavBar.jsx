@@ -152,12 +152,12 @@ export const NavBar = () => {
       <AppBar 
         position="fixed" 
         className={`transition-all duration-700 backdrop-blur-md ${
-          scrolled ? "bg-black/90 py-2 shadow-2xl" : "bg-transparent py-4"
+          scrolled ? "py-2 shadow-2xl" : "py-4"
         }`}
         elevation={0}
         sx={{
-          background: scrolled 
-            ? 'linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%)' 
+          background: scrolled
+            ? 'linear-gradient(135deg, rgba(10, 16, 32, 0.88) 0%, rgba(13, 20, 38, 0.78) 100%)'
             : 'transparent',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
           borderBottom: scrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
