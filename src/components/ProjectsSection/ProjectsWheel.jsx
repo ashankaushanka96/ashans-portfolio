@@ -47,7 +47,7 @@ export const ProjectsWheel = ({ projects, onSelectProject }) => {
             spaceBetween={20}
             speed={600}
             slideToClickedSlide
-            mousewheel={{ forceToAxis: true, sensitivity: 1, releaseOnEdges: true }}
+            mousewheel={{ forceToAxis: true, sensitivity: 1, releaseOnEdges: false }}
             pagination={{
               el: ".proj-pagination",
               clickable: true,
