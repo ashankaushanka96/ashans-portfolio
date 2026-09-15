@@ -69,17 +69,23 @@ export const NavBar = () => {
     event?.preventDefault();
     setActiveLink(value);
     setMobileOpen(false);
+    // Force the navbar into its final (scrolled) height *before* measuring it —
+    // otherwise a click from the very top reads the taller unscrolled height,
+    // the navbar then shrinks mid-scroll once scrollY passes 50, and the
+    // section lands short with a sliver of the previous section showing above it.
+    setScrolled(true);
 
-    // Smooth scroll to section
-    const element = document.getElementById(value);
-    if (element) {
-      const navHeight = appBarRef.current?.offsetHeight ?? 96;
-      const offsetTop = element.offsetTop - navHeight;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
-    }
+    requestAnimationFrame(() => {
+      const element = document.getElementById(value);
+      if (element) {
+        const navHeight = appBarRef.current?.offsetHeight ?? 88;
+        const offsetTop = element.offsetTop - navHeight;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
   };
 
   const handleDrawerToggle = () => {
