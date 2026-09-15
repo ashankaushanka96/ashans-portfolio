@@ -84,9 +84,9 @@ const ConnectingLine = ({ start, end, isHovered }) => {
 };
 
 // Main Floating Cubes Scene
-const FloatingCubes = ({ className = "" }) => {
+const FloatingCubes = ({ className = "", baseColor = "#ffffff" }) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   // Generate random cube positions and properties
   const cubes = Array.from({ length: 15 }, (_, i) => ({
     position: [
@@ -99,7 +99,7 @@ const FloatingCubes = ({ className = "" }) => {
       Math.random() * Math.PI,
       Math.random() * Math.PI
     ],
-    color: ['#00d4ff', '#ffffff', '#ff6b6b', '#4ecdc4', '#45b7d1'][Math.floor(Math.random() * 5)],
+    color: ['#00d4ff', baseColor, '#ff6b6b', '#4ecdc4', '#45b7d1'][Math.floor(Math.random() * 5)],
     index: i
   }));
 
@@ -111,10 +111,10 @@ const FloatingCubes = ({ className = "" }) => {
       >
         {/* Ambient light */}
         <ambientLight intensity={0.4} />
-        
+
         {/* Point lights for dynamic lighting */}
         <pointLight position={[10, 10, 10]} intensity={0.6} color="#00d4ff" />
-        <pointLight position={[-10, -10, -10]} intensity={0.4} color="#ffffff" />
+        <pointLight position={[-10, -10, -10]} intensity={0.4} color={baseColor} />
         <pointLight position={[0, 10, 0]} intensity={0.3} color="#ff6b6b" />
         
         {/* Floating Cubes */}

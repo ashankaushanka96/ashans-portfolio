@@ -5,7 +5,7 @@ import { CertificateBadge } from "./CertificateBadge";
 
 export const CertificationCard = ({ title, description, logo, certLink, issuer, level, category }) => {
   return (
-    <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl p-4 sm:p-5 text-center shadow-xl hover:shadow-2xl mx-1 sm:mx-2 border border-gray-700/50 transition-all duration-500 transform hover:-translate-y-2 group flex flex-col">
+    <Box className="bg-gradient-to-br from-white via-slate-50 to-white dark:from-gray-900/90 dark:via-gray-800/90 dark:to-gray-900/90 backdrop-blur-sm rounded-2xl p-4 sm:p-5 text-center shadow-xl hover:shadow-2xl mx-1 sm:mx-2 border border-slate-200 dark:border-gray-700/50 transition-all duration-500 transform hover:-translate-y-2 group flex flex-col">
       {/* Animated Background Glow */}
       <Box className="absolute inset-0 bg-gradient-to-br from-accent/10 via-purple-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl"></Box>
 
@@ -21,7 +21,7 @@ export const CertificationCard = ({ title, description, logo, certLink, issuer, 
           <Box className="flex items-center justify-center min-h-[54px] sm:min-h-[60px] mb-3 flex-shrink-0">
             <Typography
               variant="h6"
-              className="font-bold line-clamp-2 transition-all duration-300 group-hover:text-accent"
+              className="font-bold line-clamp-2 transition-all duration-300 text-slate-900 dark:text-white group-hover:text-accent"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 fontSize: { xs: '0.9375rem', sm: '1.0625rem' },
@@ -39,7 +39,7 @@ export const CertificationCard = ({ title, description, logo, certLink, issuer, 
                 icon={<School />}
                 label={issuer}
                 size="small"
-                className="text-xs font-medium bg-gradient-to-r from-blue-500/20 to-cyan-600/20 text-blue-300 border border-blue-500/30"
+                className="text-xs font-medium bg-gradient-to-r from-blue-500/20 to-cyan-600/20 text-blue-700 dark:text-blue-300 border border-blue-500/30"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   '& .MuiChip-label': { px: 1 }
@@ -51,7 +51,7 @@ export const CertificationCard = ({ title, description, logo, certLink, issuer, 
                 icon={<Verified />}
                 label={level}
                 size="small"
-                className="text-xs font-medium bg-gradient-to-r from-green-500/20 to-emerald-600/20 text-green-300 border border-green-500/30"
+                className="text-xs font-medium bg-gradient-to-r from-green-500/20 to-emerald-600/20 text-green-700 dark:text-green-300 border border-green-500/30"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   '& .MuiChip-label': { px: 1 }
@@ -63,7 +63,7 @@ export const CertificationCard = ({ title, description, logo, certLink, issuer, 
                 icon={<Category />}
                 label={category}
                 size="small"
-                className="text-xs font-medium bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-300 border border-purple-500/30"
+                className="text-xs font-medium bg-gradient-to-r from-purple-500/20 to-pink-600/20 text-purple-700 dark:text-purple-300 border border-purple-500/30"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
                   '& .MuiChip-label': { px: 1 }
@@ -75,14 +75,14 @@ export const CertificationCard = ({ title, description, logo, certLink, issuer, 
           {/* Description */}
           <Box
             component="ul"
-            className="list-none p-0 m-0 mb-3 text-gray-400 text-xs sm:text-sm space-y-1 min-h-[38px] sm:min-h-[42px] flex-shrink-0"
+            className="list-none p-0 m-0 mb-3 text-slate-600 dark:text-gray-400 text-xs sm:text-sm space-y-1 min-h-[38px] sm:min-h-[42px] flex-shrink-0"
             sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
           >
             {description.map((point, index) => (
               <Box
                 component="li"
                 key={index}
-                className="transition-all duration-300 hover:text-gray-300"
+                className="transition-all duration-300 hover:text-slate-800 dark:hover:text-gray-300"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
               >
                 {point}

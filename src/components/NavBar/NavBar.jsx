@@ -18,11 +18,14 @@ import {
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { Logo } from "../common/Logo";
 import { navItems } from "../../config/navigation";
 import { socialLinks } from "../../config/social";
 import { siteConfig } from "../../config/site";
 import { smoothScrollToElement } from "../../utils/smoothScroll";
+import { useColorMode } from "../../contexts/ColorModeContext";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -30,6 +33,8 @@ export const NavBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const appBarRef = useRef(null);
+  const { mode, toggleMode } = useColorMode();
+  const isDark = mode === 'dark';
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -107,17 +112,24 @@ export const NavBar = () => {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} className="text-center h-full flex flex-col">
+    <Box onClick={handleDrawerToggle} className="text-center h-full flex flex-col bg-white dark:bg-transparent">
       {/* Close Button */}
-      <Box className="flex justify-end p-4">
+      <Box className="flex justify-between items-center p-4">
+        <IconButton
+          onClick={(e) => { e.stopPropagation(); toggleMode(); }}
+          className="text-slate-700 dark:text-white hover:bg-slate-900/10 dark:hover:bg-white/10 rounded-full transition-all duration-300"
+          aria-label="Toggle color mode"
+        >
+          {isDark ? <LightModeIcon /> : <DarkModeIcon />}
+        </IconButton>
         <IconButton
           onClick={handleDrawerToggle}
-          className="text-white hover:bg-white/10 rounded-full transition-all duration-300"
+          className="text-slate-700 dark:text-white hover:bg-slate-900/10 dark:hover:bg-white/10 rounded-full transition-all duration-300"
         >
           <CloseIcon />
         </IconButton>
       </Box>
-      
+
       {/* Navigation Items */}
       <List className="flex-1 flex flex-col justify-center">
         {navItems.map((item, index) => (
@@ -127,9 +139,9 @@ export const NavBar = () => {
                 <a
                   href={item.href}
                   className={`block px-6 py-4 text-lg font-medium transition-all duration-500 transform hover:scale-105 rounded-xl ${
-                    activeLink === item.id 
-                      ? "text-white bg-gradient-to-r from-accent/20 to-purple-600/20 border border-accent/30 shadow-lg" 
-                      : "text-white/80 hover:text-white hover:bg-white/10 border border-transparent"
+                    activeLink === item.id
+                      ? "text-slate-900 dark:text-white bg-gradient-to-r from-accent/20 to-purple-600/20 border border-accent/30 shadow-lg"
+                      : "text-slate-600 dark:text-white/80 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/5 dark:hover:bg-white/10 border border-transparent"
                   }`}
                   onClick={(e) => onUpdateActiveLink(e, item.id)}
                   style={{ animationDelay: `${index * 0.1}s` }}
@@ -141,10 +153,10 @@ export const NavBar = () => {
           </ListItem>
         ))}
       </List>
-      
+
       {/* Social Links */}
       <Box className="p-6">
-        <Typography variant="body2" className="text-white/60 mb-4 text-sm">
+        <Typography variant="body2" className="text-slate-500 dark:text-white/60 mb-4 text-sm">
           Connect with me
         </Typography>
         <Box className="flex justify-center space-x-4">
@@ -154,7 +166,7 @@ export const NavBar = () => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-12 h-12 bg-white/10 border border-white/20 rounded-full hover:bg-white/20 hover:border-white/40 transition-all duration-300 transform hover:scale-110 hover:rotate-12 backdrop-blur-sm ${social.color}`}
+              className={`w-12 h-12 bg-slate-900/5 border border-slate-900/10 hover:bg-slate-900/10 hover:border-slate-900/20 dark:bg-white/10 dark:border-white/20 dark:hover:bg-white/20 dark:hover:border-white/40 rounded-full transition-all duration-300 transform hover:scale-110 hover:rotate-12 backdrop-blur-sm ${social.color}`}
               aria-label={social.label}
               sx={{
                 '&:hover': {
@@ -181,10 +193,15 @@ export const NavBar = () => {
         elevation={0}
         sx={{
           background: scrolled
-            ? 'linear-gradient(135deg, rgba(7, 11, 20, 0.98) 0%, rgba(10, 16, 32, 0.97) 100%)'
+            ? isDark
+              ? 'linear-gradient(135deg, rgba(7, 11, 20, 0.98) 0%, rgba(10, 16, 32, 0.97) 100%)'
+              : 'linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(244, 246, 251, 0.96) 100%)'
             : 'transparent',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
+          borderBottom: scrolled
+            ? isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(15,23,42,0.08)'
+            : 'none',
+          boxShadow: scrolled && !isDark ? '0 4px 20px rgba(15, 23, 42, 0.08)' : 'none',
         }}
       >
         <Container maxWidth="xl">
@@ -209,9 +226,9 @@ export const NavBar = () => {
                         key={item.id}
                         href={item.href}
                         className={`text-base lg:text-lg font-medium tracking-wider transition-all duration-300 relative group ${
-                          activeLink === item.id 
-                            ? "text-white" 
-                            : "text-white/80 hover:text-white"
+                          activeLink === item.id
+                            ? "text-slate-900 dark:text-white"
+                            : "text-slate-600 dark:text-white/80 hover:text-slate-900 dark:hover:text-white"
                         }`}
                         onClick={(e) => onUpdateActiveLink(e, item.id)}
                         style={{ animationDelay: `${index * 0.1}s` }}
@@ -226,6 +243,15 @@ export const NavBar = () => {
 
                   {/* Social Links & CTA */}
                   <Box className="flex items-center space-x-3 lg:space-x-4 ml-6 lg:ml-8">
+                    {/* Mode Toggle */}
+                    <IconButton
+                      onClick={toggleMode}
+                      className="w-9 h-9 lg:w-10 lg:h-10 bg-slate-900/5 border border-slate-900/10 hover:bg-slate-900/10 hover:border-slate-900/20 dark:bg-white/10 dark:border-white/20 dark:hover:bg-white/20 dark:hover:border-white/40 rounded-full transition-all duration-300 transform hover:scale-110 backdrop-blur-sm text-slate-700 dark:text-white"
+                      aria-label="Toggle color mode"
+                    >
+                      {isDark ? <LightModeIcon fontSize="small" /> : <DarkModeIcon fontSize="small" />}
+                    </IconButton>
+
                     {/* Social Icons */}
                     <Box className="flex space-x-2 lg:space-x-3">
                       {socialLinks.map((social, index) => (
@@ -234,7 +260,7 @@ export const NavBar = () => {
                           href={social.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`w-9 h-9 lg:w-10 lg:h-10 bg-white/10 border border-white/20 rounded-full hover:bg-white/20 hover:border-white/40 transition-all duration-300 transform hover:scale-110 hover:rotate-12 backdrop-blur-sm ${social.color}`}
+                          className={`w-9 h-9 lg:w-10 lg:h-10 bg-slate-900/5 border border-slate-900/10 hover:bg-slate-900/10 hover:border-slate-900/20 dark:bg-white/10 dark:border-white/20 dark:hover:bg-white/20 dark:hover:border-white/40 rounded-full transition-all duration-300 transform hover:scale-110 hover:rotate-12 backdrop-blur-sm ${social.color}`}
                           aria-label={social.label}
                           sx={{
                             '&:hover': {
@@ -246,21 +272,25 @@ export const NavBar = () => {
                         </IconButton>
                       ))}
                     </Box>
-                    
+
                     {/* CTA Button */}
                     <Button
                       variant="outlined"
                       href={siteConfig.linkedInUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-2 lg:ml-4 px-6 lg:px-8 py-2 lg:py-3 text-sm lg:text-base font-bold border-white/30 text-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
+                      className="ml-2 lg:ml-4 px-6 lg:px-8 py-2 lg:py-3 text-sm lg:text-base font-bold border-slate-900/20 dark:border-white/30 text-slate-900 dark:text-white hover:text-white dark:hover:text-primary transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
                       sx={{
-                        background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+                        background: isDark
+                          ? 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)'
+                          : 'linear-gradient(135deg, rgba(15,23,42,0.05) 0%, rgba(15,23,42,0.02) 100%)',
                         backdropFilter: 'blur(10px)',
                         borderRadius: '25px',
                         '&:hover': {
-                          background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%)',
-                          boxShadow: '0 8px 25px rgba(255,255,255,0.3)',
+                          background: isDark
+                            ? 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%)'
+                            : 'linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.85) 100%)',
+                          boxShadow: isDark ? '0 8px 25px rgba(255,255,255,0.3)' : '0 8px 25px rgba(15,23,42,0.25)',
                         }
                       }}
                     >
@@ -279,7 +309,7 @@ export const NavBar = () => {
                   aria-label="open drawer"
                   edge="start"
                   onClick={handleDrawerToggle}
-                  className="text-white p-2 transition-all duration-300 hover:bg-white/10 rounded-full"
+                  className="text-slate-900 dark:text-white p-2 transition-all duration-300 hover:bg-slate-900/10 dark:hover:bg-white/10 rounded-full"
                   sx={{
                     '&:hover': {
                       transform: 'rotate(90deg)',
@@ -305,12 +335,14 @@ export const NavBar = () => {
         sx={{
           display: { xs: 'block', md: 'none' },
           '& .MuiDrawer-paper': { 
-            boxSizing: 'border-box', 
+            boxSizing: 'border-box',
             width: 320,
-            background: 'linear-gradient(135deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.95) 100%)',
+            background: isDark
+              ? 'linear-gradient(135deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.95) 100%)'
+              : 'linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(244,246,251,0.98) 100%)',
             backdropFilter: 'blur(20px)',
             border: 'none',
-            boxShadow: '0 0 50px rgba(0,0,0,0.8)',
+            boxShadow: isDark ? '0 0 50px rgba(0,0,0,0.8)' : '0 0 50px rgba(15,23,42,0.15)',
           },
         }}
       >

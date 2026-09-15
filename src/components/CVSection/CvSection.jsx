@@ -3,11 +3,14 @@ import { Container, Box, Typography, Button, useTheme, useMediaQuery } from "@mu
 import { Download, Visibility, FileDownload } from "@mui/icons-material";
 import Divider from "../Divider/Divider";
 import { siteConfig } from "../../config/site";
+import { useColorMode } from "../../contexts/ColorModeContext";
 
 const CvSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { mode } = useColorMode();
+  const isDark = mode === 'dark';
 
   const cvPath = siteConfig.cvPath;
 
@@ -33,22 +36,24 @@ const CvSection = () => {
           <Box className="mb-2 sm:mb-3 flex-shrink-0">
             <Typography
               variant="h2"
-              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-black tracking-tight mb-1 text-white"
+              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-black tracking-tight mb-1 text-slate-900 dark:text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 fontWeight: 900,
-                background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
+                background: isDark
+                  ? 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)'
+                  : 'linear-gradient(135deg, #0f172a 0%, #00a8d4 50%, #0f172a 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                textShadow: '0 4px 8px rgba(0,0,0,0.5)',
+                textShadow: isDark ? '0 4px 8px rgba(0,0,0,0.5)' : 'none',
               }}
             >
               My Resume
             </Typography>
             <Typography
               variant="body1"
-              className="text-xs sm:text-sm text-gray-300 max-w-3xl mx-auto leading-snug text-center"
+              className="text-xs sm:text-sm text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-snug text-center"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textAlign: 'center !important',
@@ -62,7 +67,7 @@ const CvSection = () => {
           </Box>
 
           {/* CV Preview */}
-          <Box className="w-full flex-1 min-h-0 border border-gray-600/50 rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm shadow-xl">
+          <Box className="w-full flex-1 min-h-0 border border-slate-200 dark:border-gray-600/50 rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-white via-slate-50 to-white dark:from-gray-800/50 dark:to-gray-900/50 backdrop-blur-sm shadow-xl">
             <Box className="relative w-full h-full">
               <iframe
                 src={cvPath}
@@ -70,7 +75,7 @@ const CvSection = () => {
                 className="w-full h-full border-0"
               />
               {/* Overlay for better UX */}
-              <Box className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></Box>
+              <Box className="absolute inset-0 bg-gradient-to-t from-black/0 dark:from-black/20 via-transparent to-transparent pointer-events-none"></Box>
             </Box>
           </Box>
 
@@ -98,12 +103,12 @@ const CvSection = () => {
               href={cvPath}
               download
               startIcon={<FileDownload className="animate-bounce-x" />}
-              className="border-2 border-white/30 text-white font-bold px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm hover:bg-white/10"
+              className="border-2 border-slate-300 dark:border-white/30 text-slate-700 dark:text-white font-bold px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm hover:bg-slate-900/5 dark:hover:bg-white/10"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 '&:hover': {
-                  borderColor: 'white',
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  borderColor: isDark ? 'white' : '#0f172a',
+                  backgroundColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(15, 23, 42, 0.05)',
                 }
               }}
             >

@@ -3,11 +3,14 @@ import { Container, Box, Typography, useTheme, useMediaQuery } from "@mui/materi
 import ExperienceCarousel from "./ExperienceCarousel";
 import colorSharp from "../../assets/shared/background-glow-secondary.png";
 import { experiences } from "../../config/experience";
+import { useColorMode } from "../../contexts/ColorModeContext";
 
 const Experience = () => {
   const [isVisible, setIsVisible] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { mode } = useColorMode();
+  const isDark = mode === 'dark';
 
   useEffect(() => {
     setIsVisible(true);
@@ -31,22 +34,24 @@ const Experience = () => {
           }`}>
             <Typography
               variant="h2"
-              className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-black tracking-tight mb-0.5 sm:mb-1 text-white"
+              className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-black tracking-tight mb-0.5 sm:mb-1 text-slate-900 dark:text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 fontWeight: 900,
-                background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
+                background: isDark
+                  ? 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)'
+                  : 'linear-gradient(135deg, #0f172a 0%, #00a8d4 50%, #0f172a 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                textShadow: '0 4px 8px rgba(0,0,0,0.5)',
+                textShadow: isDark ? '0 4px 8px rgba(0,0,0,0.5)' : 'none',
               }}
             >
               Professional Experience
             </Typography>
             <Typography
               variant="body1"
-              className="text-xs sm:text-sm text-gray-300 max-w-3xl mx-auto leading-snug text-center"
+              className="text-xs sm:text-sm text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-snug text-center"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textAlign: 'center !important',

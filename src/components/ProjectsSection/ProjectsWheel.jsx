@@ -28,7 +28,7 @@ export const ProjectsWheel = ({ projects, onSelectProject }) => {
       <Box className="relative flex items-center justify-center">
         <IconButton
           onClick={() => swiperRef.current?.slidePrev()}
-          className="!absolute left-0 z-20 !text-white/70 hover:!text-accent !bg-white/5 hover:!bg-white/10 backdrop-blur-sm"
+          className="!absolute left-0 z-20 !text-slate-600 dark:!text-white/70 hover:!text-accent !bg-slate-900/5 dark:!bg-white/5 hover:!bg-slate-900/10 dark:hover:!bg-white/10 backdrop-blur-sm"
           sx={{ display: { xs: "none", sm: "flex" } }}
           aria-label="Rotate wheel left"
         >
@@ -89,8 +89,8 @@ export const ProjectsWheel = ({ projects, onSelectProject }) => {
           >
             {projects.map((proj, index) => (
               <SwiperSlide key={index}>
-                <Box className="wheel-card rounded-3xl overflow-hidden bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm border border-gray-700/50 shadow-xl cursor-pointer">
-                  <Box className="relative w-full aspect-[16/10] overflow-hidden bg-white/10">
+                <Box className="wheel-card rounded-3xl overflow-hidden bg-gradient-to-br from-white via-slate-50 to-white dark:from-gray-800/60 dark:to-gray-900/60 backdrop-blur-sm border border-slate-200 dark:border-gray-700/50 shadow-xl cursor-pointer">
+                  <Box className="relative w-full aspect-[16/10] overflow-hidden bg-slate-900/10 dark:bg-white/10">
                     <Box className="absolute inset-3 flex items-center justify-center">
                       <img
                         src={proj.imgUrl}
@@ -103,7 +103,7 @@ export const ProjectsWheel = ({ projects, onSelectProject }) => {
                   <Box className="px-3 sm:px-4 py-2 sm:py-3 text-center space-y-1.5">
                     <Typography
                       variant="body1"
-                      className="font-bold text-white truncate text-base sm:text-lg"
+                      className="font-bold text-slate-900 dark:text-white truncate text-base sm:text-lg"
                       sx={{ fontFamily: "CentraNo2, sans-serif" }}
                     >
                       {proj.title}
@@ -113,7 +113,7 @@ export const ProjectsWheel = ({ projects, onSelectProject }) => {
                         <Chip
                           label={proj.category}
                           size="small"
-                          className="text-xs font-medium bg-gradient-to-r from-purple-500/20 to-accent/20 text-purple-300 border border-purple-500/30"
+                          className="text-xs font-medium bg-gradient-to-r from-purple-500/20 to-accent/20 text-purple-700 dark:text-purple-300 border border-purple-500/30"
                           sx={{ fontFamily: "CentraNo2, sans-serif" }}
                         />
                       )}
@@ -123,10 +123,10 @@ export const ProjectsWheel = ({ projects, onSelectProject }) => {
                           size="small"
                           className={`text-xs font-medium ${
                             proj.status === "Completed"
-                              ? "bg-gradient-to-r from-green-500/20 to-emerald-600/20 text-green-300 border border-green-500/30"
+                              ? "bg-gradient-to-r from-green-500/20 to-emerald-600/20 text-green-700 dark:text-green-300 border border-green-500/30"
                               : proj.status === "In Progress"
-                              ? "bg-gradient-to-r from-yellow-500/20 to-orange-600/20 text-yellow-300 border border-yellow-500/30"
-                              : "bg-gradient-to-r from-blue-500/20 to-cyan-600/20 text-blue-300 border border-blue-500/30"
+                              ? "bg-gradient-to-r from-yellow-500/20 to-orange-600/20 text-yellow-700 dark:text-yellow-300 border border-yellow-500/30"
+                              : "bg-gradient-to-r from-blue-500/20 to-cyan-600/20 text-blue-700 dark:text-blue-300 border border-blue-500/30"
                           }`}
                           sx={{ fontFamily: "CentraNo2, sans-serif" }}
                         />
@@ -141,7 +141,7 @@ export const ProjectsWheel = ({ projects, onSelectProject }) => {
 
         <IconButton
           onClick={() => swiperRef.current?.slideNext()}
-          className="!absolute right-0 z-20 !text-white/70 hover:!text-accent !bg-white/5 hover:!bg-white/10 backdrop-blur-sm"
+          className="!absolute right-0 z-20 !text-slate-600 dark:!text-white/70 hover:!text-accent !bg-slate-900/5 dark:!bg-white/5 hover:!bg-slate-900/10 dark:hover:!bg-white/10 backdrop-blur-sm"
           sx={{ display: { xs: "none", sm: "flex" } }}
           aria-label="Rotate wheel right"
         >
@@ -155,14 +155,14 @@ export const ProjectsWheel = ({ projects, onSelectProject }) => {
       <Box className="max-w-2xl mx-auto mt-5 sm:mt-6 text-center px-4">
         <Typography
           variant="h6"
-          className="font-bold text-white text-base sm:text-lg md:text-xl"
+          className="font-bold text-slate-900 dark:text-white text-base sm:text-lg md:text-xl"
           sx={{ fontFamily: "CentraNo2, sans-serif", mb: 1.5 }}
         >
           {activeProject.title}
         </Typography>
         <Typography
           variant="body2"
-          className="text-sm sm:text-base text-gray-300 leading-snug"
+          className="text-sm sm:text-base text-slate-600 dark:text-gray-300 leading-snug"
           sx={{
             fontFamily: "CentraNo2, sans-serif",
             display: "-webkit-box",
@@ -208,10 +208,13 @@ export const ProjectsWheel = ({ projects, onSelectProject }) => {
           width: 6px;
           height: 6px;
           border-radius: 9999px;
-          background: rgba(255, 255, 255, 0.25);
+          background: rgba(15, 23, 42, 0.2);
           cursor: pointer;
           transition: all 0.3s ease;
           display: block;
+        }
+        html.dark .proj-bullet {
+          background: rgba(255, 255, 255, 0.25);
         }
         .proj-bullet-active {
           background: #00d4ff;

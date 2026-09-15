@@ -71,10 +71,13 @@ const ExperienceCarousel = ({ items }) => {
           width: 6px;
           height: 6px;
           border-radius: 9999px;
-          background: rgba(255, 255, 255, 0.25);
+          background: rgba(15, 23, 42, 0.2);
           cursor: pointer;
           transition: all 0.3s ease;
           display: block;
+        }
+        html.dark .exp-bullet {
+          background: rgba(255, 255, 255, 0.25);
         }
         .exp-bullet-active {
           background: #00d4ff;

@@ -40,7 +40,7 @@ export const Logo = ({ className = "", markClassName = "w-9 h-9 sm:w-11 sm:h-11"
     {showText && (
       <div className={`flex flex-col leading-tight ${align === "center" ? "items-center text-center" : "items-start text-left"}`}>
         <span
-          className="text-xs sm:text-sm font-bold tracking-wide text-white whitespace-nowrap"
+          className="text-xs sm:text-sm font-bold tracking-wide text-slate-900 dark:text-white whitespace-nowrap"
           style={{ fontFamily: "CentraNo2, sans-serif" }}
         >
           ASHAN KAUSHANKA

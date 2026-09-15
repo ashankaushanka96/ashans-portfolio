@@ -16,6 +16,7 @@ import {
 import { Close as CloseIcon, Launch as LaunchIcon, GitHub as GitHubIcon } from "@mui/icons-material";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import PropTypes from "prop-types";
+import { useColorMode } from "../../contexts/ColorModeContext";
 
 export const ProjectModal = ({
   open,
@@ -31,6 +32,11 @@ export const ProjectModal = ({
   const [isVisible, setIsVisible] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { mode } = useColorMode();
+  const isDark = mode === 'dark';
+  const stripBg = isDark
+    ? "from-[#070b14]/95 via-[#0b1224]/95 to-[#070b14]/95"
+    : "from-white/95 via-slate-50/95 to-white/95";
 
   useEffect(() => {
     if (open) {
@@ -50,20 +56,24 @@ export const ProjectModal = ({
       PaperProps={{
         style: {
           backgroundColor: 'transparent',
-          color: 'white',
+          color: isDark ? 'white' : '#0f172a',
           maxHeight: '95vh',
           margin: isMobile ? '8px' : '24px',
-          background: 'linear-gradient(135deg, rgba(7, 11, 20, 0.98) 0%, rgba(11, 18, 36, 0.98) 50%, rgba(7, 11, 20, 0.98) 100%)',
+          background: isDark
+            ? 'linear-gradient(135deg, rgba(7, 11, 20, 0.98) 0%, rgba(11, 18, 36, 0.98) 50%, rgba(7, 11, 20, 0.98) 100%)'
+            : 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 50%, rgba(255, 255, 255, 0.98) 100%)',
           backdropFilter: 'blur(25px)',
-          border: '1px solid rgba(0, 212, 255, 0.12)',
+          border: isDark ? '1px solid rgba(0, 212, 255, 0.12)' : '1px solid rgba(0, 168, 212, 0.2)',
           borderRadius: '24px',
-          boxShadow: '0 32px 64px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05)',
+          boxShadow: isDark
+            ? '0 32px 64px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05)'
+            : '0 32px 64px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(15, 23, 42, 0.03)',
           overflow: 'hidden',
         }
       }}
       sx={{
         '& .MuiBackdrop-root': {
-          backgroundColor: 'rgba(0, 0, 0, 0.85)',
+          backgroundColor: isDark ? 'rgba(0, 0, 0, 0.85)' : 'rgba(15, 23, 42, 0.35)',
           backdropFilter: 'blur(15px)',
         },
         '& .MuiDialog-paper': {
@@ -73,7 +83,7 @@ export const ProjectModal = ({
       }}
     >
       {/* Header */}
-      <DialogTitle className="relative bg-gradient-to-r from-[#070b14]/95 via-[#0b1224]/95 to-[#070b14]/95 text-white border-b border-white/10 p-4 sm:p-6 backdrop-blur-sm">
+      <DialogTitle className={`relative bg-gradient-to-r ${stripBg} text-slate-900 dark:text-white border-b border-slate-200 dark:border-white/10 p-4 sm:p-6 backdrop-blur-sm`}>
         {/* Animated Background */}
         <Box className="absolute inset-0 bg-gradient-to-r from-accent/10 via-purple-600/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-all duration-500"></Box>
         
@@ -81,7 +91,7 @@ export const ProjectModal = ({
           <Box className="flex-1">
             <Typography 
               variant="h4" 
-              className="font-bold text-xl sm:text-2xl lg:text-3xl bg-gradient-to-r from-white via-accent to-white bg-clip-text text-transparent mb-2"
+              className="font-bold text-xl sm:text-2xl lg:text-3xl bg-gradient-to-r from-slate-900 via-accent to-slate-900 dark:from-white dark:via-accent dark:to-white bg-clip-text text-transparent mb-2"
               sx={{ fontFamily: 'CentraNo2, sans-serif' }}
             >
               {title}
@@ -93,7 +103,7 @@ export const ProjectModal = ({
                 <Chip
                   label={category}
                   size="small"
-                  className="text-xs font-medium bg-gradient-to-r from-purple-500/20 to-accent/20 text-purple-300 border border-purple-500/30 backdrop-blur-sm"
+                  className="text-xs font-medium bg-gradient-to-r from-purple-500/20 to-accent/20 text-purple-700 dark:text-purple-300 border border-purple-500/30 backdrop-blur-sm"
                   sx={{
                     fontFamily: 'CentraNo2, sans-serif',
                     '& .MuiChip-label': { px: 1.5, py: 0.5 }
@@ -105,9 +115,9 @@ export const ProjectModal = ({
                   label={status}
                   size="small"
                   className={`text-xs font-medium backdrop-blur-sm ${
-                    status === 'Completed' ? 'bg-gradient-to-r from-green-500/20 to-emerald-600/20 text-green-300 border border-green-500/30' :
-                    status === 'In Progress' ? 'bg-gradient-to-r from-yellow-500/20 to-orange-600/20 text-yellow-300 border border-yellow-500/30' :
-                    'bg-gradient-to-r from-blue-500/20 to-cyan-600/20 text-blue-300 border border-blue-500/30'
+                    status === 'Completed' ? 'bg-gradient-to-r from-green-500/20 to-emerald-600/20 text-green-700 dark:text-green-300 border border-green-500/30' :
+                    status === 'In Progress' ? 'bg-gradient-to-r from-yellow-500/20 to-orange-600/20 text-yellow-700 dark:text-yellow-300 border border-yellow-500/30' :
+                    'bg-gradient-to-r from-blue-500/20 to-cyan-600/20 text-blue-700 dark:text-blue-300 border border-blue-500/30'
                   }`}
                   sx={{
                     fontFamily: 'CentraNo2, sans-serif',
@@ -120,7 +130,7 @@ export const ProjectModal = ({
           
           <IconButton
             onClick={onClose}
-            className="text-white hover:text-accent transition-all duration-300 transform hover:scale-110 hover:rotate-90 bg-[#0b1224]/60 hover:bg-[#111a33]/60 backdrop-blur-sm"
+            className="text-slate-700 dark:text-white hover:text-accent transition-all duration-300 transform hover:scale-110 hover:rotate-90 bg-slate-900/5 dark:bg-[#0b1224]/60 hover:bg-slate-900/10 dark:hover:bg-[#111a33]/60 backdrop-blur-sm"
             sx={{
               '&:hover': {
                 boxShadow: '0 0 25px rgba(0, 212, 255, 0.6)',
@@ -133,15 +143,15 @@ export const ProjectModal = ({
       </DialogTitle>
       
       {/* Content */}
-      <DialogContent className="bg-transparent text-white p-4 sm:p-6 overflow-y-auto">
+      <DialogContent className="bg-transparent text-slate-900 dark:text-white p-4 sm:p-6 overflow-y-auto">
         <Box className={`opacity-0 ${isVisible ? 'opacity-100' : ''} transition-all duration-700 delay-200`}>
           
           {/* Description Section */}
           {description && description.length > 0 && (
             <Box className="mb-6 sm:mb-8">
               <Typography 
-                variant="h6" 
-                className="text-white mb-4 text-lg sm:text-xl bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent font-semibold"
+                variant="h6"
+                className="text-slate-900 dark:text-white mb-4 text-lg sm:text-xl bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent font-semibold"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
               >
                 Project Overview
@@ -151,7 +161,7 @@ export const ProjectModal = ({
                   <Box 
                     component="li" 
                     key={i} 
-                    className={`text-sm sm:text-base lg:text-lg leading-relaxed text-gray-300 transition-all duration-500 transform ${
+                    className={`text-sm sm:text-base lg:text-lg leading-relaxed text-slate-600 dark:text-gray-300 transition-all duration-500 transform ${
                       isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
                     }`}
                     style={{ 
@@ -162,7 +172,7 @@ export const ProjectModal = ({
                   >
                     <Box className="flex items-start gap-3">
                       <Box className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0 animate-pulse"></Box>
-                      <span className="hover:text-white transition-colors duration-300">{point}</span>
+                      <span className="hover:text-slate-900 dark:hover:text-white transition-colors duration-300">{point}</span>
                     </Box>
                   </Box>
                 ))}
@@ -174,8 +184,8 @@ export const ProjectModal = ({
           {images && images.length > 0 && (
             <Box className="space-y-4 sm:space-y-6">
               <Typography 
-                variant="h6" 
-                className="text-white mb-4 text-lg sm:text-xl bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent font-semibold"
+                variant="h6"
+                className="text-slate-900 dark:text-white mb-4 text-lg sm:text-xl bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent font-semibold"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
               >
                 Project Screenshots
@@ -192,7 +202,7 @@ export const ProjectModal = ({
                       transitionDelay: `${idx * 0.2}s`
                     }}
                   >
-                    <Box className="relative group cursor-pointer overflow-hidden rounded-xl border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500">
+                    <Box className="relative group cursor-pointer overflow-hidden rounded-xl border border-slate-200 dark:border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500">
                       <img
                         src={src}
                         alt={`${title} screenshot ${idx + 1}`}
@@ -213,7 +223,7 @@ export const ProjectModal = ({
       </DialogContent>
       
       {/* Footer Actions */}
-      <DialogActions className="bg-gradient-to-r from-[#070b14]/95 via-[#0b1224]/95 to-[#070b14]/95 p-4 sm:p-6 flex flex-col sm:flex-row justify-between gap-4 border-t border-white/10 backdrop-blur-sm">
+      <DialogActions className={`bg-gradient-to-r ${stripBg} p-4 sm:p-6 flex flex-col sm:flex-row justify-between gap-4 border-t border-slate-200 dark:border-white/10 backdrop-blur-sm`}>
         <Box className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           {demoUrl && (
             <Button
@@ -256,10 +266,12 @@ export const ProjectModal = ({
         <Button
           variant="outlined"
           onClick={onClose}
-          className="border-gray-400/50 text-gray-400 hover:border-accent hover:text-accent w-full sm:w-auto px-6 py-3 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm rounded-xl"
+          className="border-slate-300 dark:border-gray-400/50 text-slate-500 dark:text-gray-400 hover:border-accent hover:text-accent w-full sm:w-auto px-6 py-3 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm rounded-xl"
           sx={{
             fontFamily: 'CentraNo2, sans-serif',
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+            background: isDark
+              ? 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)'
+              : 'linear-gradient(135deg, rgba(15,23,42,0.03) 0%, rgba(15,23,42,0.01) 100%)',
             '&:hover': {
               background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%)',
               boxShadow: '0 0 25px rgba(0, 212, 255, 0.4)',

@@ -7,11 +7,14 @@ import { footerLinks } from "../../config/navigation";
 import { socialLinks } from "../../config/social";
 import { siteConfig } from "../../config/site";
 import { smoothScrollTo } from "../../utils/smoothScroll";
+import { useColorMode } from "../../contexts/ColorModeContext";
 
 export const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { mode } = useColorMode();
+  const isDark = mode === 'dark';
 
   useEffect(() => {
     setIsVisible(true);
@@ -46,10 +49,11 @@ export const Footer = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: `
-              radial-gradient(70% 90% at 50% 0%, rgba(124, 58, 237, 0.16) 0%, transparent 65%),
-              linear-gradient(180deg, rgba(7, 11, 20, 0.55) 0%, rgba(9, 14, 27, 0.88) 45%, rgba(6, 10, 18, 0.96) 100%)
-            `,
+            background: isDark
+              ? `radial-gradient(70% 90% at 50% 0%, rgba(124, 58, 237, 0.16) 0%, transparent 65%),
+                 linear-gradient(180deg, rgba(7, 11, 20, 0.55) 0%, rgba(9, 14, 27, 0.88) 45%, rgba(6, 10, 18, 0.96) 100%)`
+              : `radial-gradient(70% 90% at 50% 0%, rgba(124, 58, 237, 0.08) 0%, transparent 65%),
+                 linear-gradient(180deg, rgba(244, 246, 251, 0.5) 0%, rgba(255, 255, 255, 0.88) 45%, rgba(244, 246, 251, 0.97) 100%)`,
           }
         }}
       />
@@ -72,7 +76,7 @@ export const Footer = () => {
               </Box>
               <Typography
                 variant="body1"
-                className="text-gray-300 leading-relaxed mb-6"
+                className="text-slate-600 dark:text-gray-300 leading-relaxed mb-6"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
               >
                 {siteConfig.footer.description}
@@ -83,7 +87,7 @@ export const Footer = () => {
             <Box className="text-center md:text-left">
               <Typography
                 variant="h6"
-                className="text-xl font-bold mb-6 text-white"
+                className="text-xl font-bold mb-6 text-slate-900 dark:text-white"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
               >
                 {siteConfig.footer.quickLinksTitle}
@@ -93,7 +97,7 @@ export const Footer = () => {
                   <a
                     key={index}
                     href={link.href}
-                    className="block text-gray-300 hover:text-accent transition-all duration-300 transform hover:translate-x-2"
+                    className="block text-slate-600 dark:text-gray-300 hover:text-accent transition-all duration-300 transform hover:translate-x-2"
                     sx={{ fontFamily: 'CentraNo2, sans-serif' }}
                   >
                     {link.label}
@@ -106,7 +110,7 @@ export const Footer = () => {
             <Box className="text-center md:text-left">
               <Typography
                 variant="h6"
-                className="text-xl font-bold mb-6 text-white"
+                className="text-xl font-bold mb-6 text-slate-900 dark:text-white"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
               >
                 {siteConfig.footer.connectTitle}
@@ -118,7 +122,7 @@ export const Footer = () => {
                   <Email className="text-accent text-lg" />
                   <Typography
                     variant="body2"
-                    className="text-gray-300"
+                    className="text-slate-600 dark:text-gray-300"
                     sx={{ fontFamily: 'CentraNo2, sans-serif' }}
                   >
                     {siteConfig.email}
@@ -128,7 +132,7 @@ export const Footer = () => {
                   <Phone className="text-accent text-lg" />
                   <Typography
                     variant="body2"
-                    className="text-gray-300"
+                    className="text-slate-600 dark:text-gray-300"
                     sx={{ fontFamily: 'CentraNo2, sans-serif' }}
                   >
                     {siteConfig.phone}
@@ -144,7 +148,7 @@ export const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-12 h-12 bg-white/10 border border-white/20 rounded-full hover:bg-white/20 hover:border-white/40 transition-all duration-300 transform hover:scale-110 hover:rotate-12 backdrop-blur-sm ${social.color}`}
+                    className={`w-12 h-12 bg-slate-900/5 dark:bg-white/10 border border-slate-300 dark:border-white/20 rounded-full hover:bg-slate-900/10 dark:hover:bg-white/20 hover:border-slate-400 dark:hover:border-white/40 transition-all duration-300 transform hover:scale-110 hover:rotate-12 backdrop-blur-sm ${social.color}`}
                     aria-label={social.label}
                     style={{ animationDelay: social.delay }}
                     sx={{
@@ -161,13 +165,13 @@ export const Footer = () => {
           </Box>
 
           {/* Divider */}
-          <Box className="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-8"></Box>
+          <Box className="w-full h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-gray-600 to-transparent mb-8"></Box>
 
           {/* Bottom Section */}
           <Box className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <Typography
               variant="body2"
-              className="text-sm text-gray-400 tracking-wider"
+              className="text-sm text-slate-500 dark:text-gray-400 tracking-wider"
               sx={{ fontFamily: 'CentraNo2, sans-serif' }}
             >
               {siteConfig.footer.copyright}
@@ -175,7 +179,7 @@ export const Footer = () => {
 
             <Typography
               variant="body2"
-              className="text-sm text-gray-400"
+              className="text-sm text-slate-500 dark:text-gray-400"
               sx={{ fontFamily: 'CentraNo2, sans-serif' }}
             >
               {siteConfig.footer.builtWith}

@@ -97,13 +97,13 @@ const SREBackground = () => {
       ))}
       
       {/* SRE Text Elements */}
-      <Box className="absolute top-1/3 left-[16.66%] text-xs text-white/5 font-mono animate-float-slow" style={{ animationDelay: '3s' }}>
+      <Box className="absolute top-1/3 left-[16.66%] text-xs text-slate-900/5 dark:text-white/5 font-mono animate-float-slow" style={{ animationDelay: '3s' }}>
         SRE
       </Box>
-      <Box className="absolute bottom-1/3 right-[16.66%] text-xs text-white/5 font-mono animate-float" style={{ animationDelay: '1.8s' }}>
+      <Box className="absolute bottom-1/3 right-[16.66%] text-xs text-slate-900/5 dark:text-white/5 font-mono animate-float" style={{ animationDelay: '1.8s' }}>
         DevOps
       </Box>
-      <Box className="absolute top-2/3 left-[12.5%] text-xs text-white/5 font-mono animate-float-slow" style={{ animationDelay: '2.2s' }}>
+      <Box className="absolute top-2/3 left-[12.5%] text-xs text-slate-900/5 dark:text-white/5 font-mono animate-float-slow" style={{ animationDelay: '2.2s' }}>
         Monitoring
       </Box>
 

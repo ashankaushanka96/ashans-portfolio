@@ -7,16 +7,19 @@ import SceneSelector from "../ThreeScene/SceneSelector";
 import SREBackground from "../SREBackground";
 import { siteConfig } from "../../config/site";
 import { smoothScrollToElement } from "../../utils/smoothScroll";
+import { useColorMode } from "../../contexts/ColorModeContext";
 
 export const Banner = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
-  
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
+  const { mode } = useColorMode();
+  const isDark = mode === 'dark';
   
   const toRotate = siteConfig.banner.roles;
   const period = 3000;
@@ -89,10 +92,10 @@ export const Banner = () => {
         </Box>
 
         {/* Grid pattern overlay */}
-        <Box 
+        <Box
           className="absolute inset-0 opacity-5"
           sx={{
-            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)',
+            backgroundImage: `radial-gradient(circle at 1px 1px, ${isDark ? 'rgba(255,255,255,0.3)' : 'rgba(15,23,42,0.3)'} 1px, transparent 0)`,
             backgroundSize: '50px 50px'
           }}
         />
@@ -107,11 +110,11 @@ export const Banner = () => {
             }`}
           >
             {/* Welcome Badge */}
-            <Box className="inline-flex items-center px-4 py-2 mb-6 sm:mb-8 bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-blue-600/20 border border-white/20 rounded-full backdrop-blur-sm animate-float">
+            <Box className="inline-flex items-center px-4 py-2 mb-6 sm:mb-8 bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-blue-600/20 border border-slate-900/15 dark:border-white/20 rounded-full backdrop-blur-sm animate-float">
               <Box className="w-2 h-2 bg-accent rounded-full mr-3 animate-pulse"></Box>
               <Typography
                 component="span"
-                className="text-sm sm:text-base font-medium tracking-wider text-white"
+                className="text-sm sm:text-base font-medium tracking-wider text-slate-900 dark:text-white"
                 sx={{ fontFamily: 'CentraNo2, sans-serif' }}
               >
                 {siteConfig.banner.welcomeBadge}
@@ -121,12 +124,14 @@ export const Banner = () => {
             {/* Main Heading */}
             <Typography
               variant="h1"
-              className="text-lg sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl 5xl:text-9xl font-black tracking-tight leading-none mb-4 sm:mb-6 text-white banner-main-heading"
+              className="text-lg sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl 5xl:text-9xl font-black tracking-tight leading-none mb-4 sm:mb-6 banner-main-heading"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
-                textShadow: '0 4px 8px rgba(0,0,0,0.5)',
+                textShadow: isDark ? '0 4px 8px rgba(0,0,0,0.5)' : 'none',
                 fontWeight: 900,
-                background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
+                background: isDark
+                  ? 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)'
+                  : 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -142,7 +147,7 @@ export const Banner = () => {
                 className="text-xs sm:text-sm md:text-base lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl 4xl:text-7xl 5xl:text-8xl font-black tracking-tight leading-tight text-accent banner-typing-text"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
-                  textShadow: '0 4px 8px rgba(0,0,0,0.5)',
+                  textShadow: isDark ? '0 4px 8px rgba(0,0,0,0.5)' : 'none',
                   fontWeight: 900,
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #00d4ff 100%)',
                   backgroundClip: 'text',
@@ -168,11 +173,11 @@ export const Banner = () => {
             {/* Description */}
             <Typography
               variant="body1"
-              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl tracking-wide leading-relaxed mb-8 sm:mb-10 pb-4 sm:pb-6 text-gray-200 max-w-2xl mx-auto lg:mx-0"
+              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl tracking-wide leading-relaxed mb-8 sm:mb-10 pb-4 sm:pb-6 text-slate-600 dark:text-gray-200 max-w-2xl mx-auto lg:mx-0"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 fontWeight: 400,
-                textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                textShadow: isDark ? '0 2px 4px rgba(0,0,0,0.3)' : 'none',
                 lineHeight: 1.8,
               }}
             >
@@ -206,7 +211,7 @@ export const Banner = () => {
               <Button
                 variant="outlined"
                 size="large"
-                className="px-8 py-4 text-lg font-bold border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-500"
+                className="px-8 py-4 text-lg font-bold border-2 border-slate-900/25 dark:border-white/30 text-slate-900 dark:text-white hover:bg-slate-900/5 dark:hover:bg-white/10 backdrop-blur-sm transition-all duration-500"
                 onClick={() => window.open(siteConfig.cvPath, '_blank')}
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
@@ -214,8 +219,8 @@ export const Banner = () => {
                   borderRadius: '50px',
                   textTransform: 'none',
                   '&:hover': {
-                    borderColor: 'white',
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    borderColor: isDark ? 'white' : '#0f172a',
+                    backgroundColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(15, 23, 42, 0.05)',
                   }
                 }}
               >
@@ -235,7 +240,7 @@ export const Banner = () => {
               <Box className="absolute inset-0 bg-gradient-to-r from-accent/30 to-purple-600/30 rounded-full blur-3xl animate-pulse scale-110"></Box>
               
               {/* Image container with glass effect */}
-              <Box className="relative bg-white/5 backdrop-blur-sm rounded-3xl p-4 border border-white/10 shadow-2xl">
+              <Box className="relative bg-slate-900/5 dark:bg-white/5 backdrop-blur-sm rounded-3xl p-4 border border-slate-900/10 dark:border-white/10 shadow-2xl">
                 <img 
                   src={headerImg} 
                   alt="Ashan Pathiranage - SRE Engineer"
@@ -270,7 +275,7 @@ export const Banner = () => {
       {/* Scroll indicator */}
       <Box className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <KeyboardArrowDown 
-          className="text-white/60 text-4xl cursor-pointer hover:text-accent transition-colors duration-300"
+          className="text-slate-500 dark:text-white/60 text-4xl cursor-pointer hover:text-accent transition-colors duration-300"
           onClick={() => {
             const nextSection = document.querySelector('#about') || document.querySelector('#skills');
             smoothScrollToElement(nextSection);

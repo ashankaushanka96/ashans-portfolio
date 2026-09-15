@@ -4,7 +4,7 @@ import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Wireframe Globe Component
-const WireframeGlobe = ({ isHovered, setIsHovered }) => {
+const WireframeGlobe = ({ isHovered, setIsHovered, baseColor }) => {
   const meshRef = useRef();
   const [rotationSpeed, setRotationSpeed] = useState(0.005);
   
@@ -32,7 +32,7 @@ const WireframeGlobe = ({ isHovered, setIsHovered }) => {
       <mesh onPointerEnter={handlePointerEnter} onPointerLeave={handlePointerLeave}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshBasicMaterial 
-          color={isHovered ? '#00d4ff' : '#ffffff'}
+          color={isHovered ? '#00d4ff' : baseColor}
           transparent
           opacity={isHovered ? 0.8 : 0.4}
           wireframe={true}
@@ -43,7 +43,7 @@ const WireframeGlobe = ({ isHovered, setIsHovered }) => {
       <mesh onPointerEnter={handlePointerEnter} onPointerLeave={handlePointerLeave}>
         <ringGeometry args={[2.5, 2.7, 64]} />
         <meshBasicMaterial 
-          color={isHovered ? '#00d4ff' : '#ffffff'} 
+          color={isHovered ? '#00d4ff' : baseColor} 
           transparent 
           opacity={isHovered ? 0.3 : 0.1}
           side={THREE.DoubleSide}
@@ -53,7 +53,7 @@ const WireframeGlobe = ({ isHovered, setIsHovered }) => {
       <mesh onPointerEnter={handlePointerEnter} onPointerLeave={handlePointerLeave}>
         <ringGeometry args={[2.3, 2.5, 64]} />
         <meshBasicMaterial 
-          color={isHovered ? '#00d4ff' : '#ffffff'} 
+          color={isHovered ? '#00d4ff' : baseColor} 
           transparent 
           opacity={isHovered ? 0.2 : 0.05}
           side={THREE.DoubleSide}
@@ -62,14 +62,14 @@ const WireframeGlobe = ({ isHovered, setIsHovered }) => {
       
       {/* Floating particles around the globe */}
       {[...Array(20)].map((_, i) => (
-        <FloatingParticle key={i} index={i} isHovered={isHovered} />
+        <FloatingParticle key={i} index={i} isHovered={isHovered} baseColor={baseColor} />
       ))}
     </group>
   );
 };
 
 // Floating Particle Component
-const FloatingParticle = ({ index, isHovered }) => {
+const FloatingParticle = ({ index, isHovered, baseColor }) => {
   const particleRef = useRef();
   const speed = 0.5 + Math.random() * 0.5;
   const radius = 3 + Math.random() * 2;
@@ -94,7 +94,7 @@ const FloatingParticle = ({ index, isHovered }) => {
     <mesh ref={particleRef}>
       <sphereGeometry args={[0.05, 8, 8]} />
       <meshBasicMaterial 
-        color={isHovered ? '#00d4ff' : '#ffffff'} 
+        color={isHovered ? '#00d4ff' : baseColor} 
         transparent 
         opacity={isHovered ? 0.8 : 0.4}
       />
@@ -103,7 +103,7 @@ const FloatingParticle = ({ index, isHovered }) => {
 };
 
 // Main ThreeScene Component
-const ThreeScene = ({ className = "" }) => {
+const ThreeScene = ({ className = "", baseColor = "#ffffff" }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -114,13 +114,13 @@ const ThreeScene = ({ className = "" }) => {
       >
         {/* Ambient light for overall illumination */}
         <ambientLight intensity={0.3} />
-        
+
         {/* Point light for highlights */}
         <pointLight position={[10, 10, 10]} intensity={0.5} color="#00d4ff" />
-        <pointLight position={[-10, -10, -10]} intensity={0.3} color="#ffffff" />
-        
+        <pointLight position={[-10, -10, -10]} intensity={0.3} color={baseColor} />
+
         {/* Wireframe Globe */}
-        <WireframeGlobe isHovered={isHovered} setIsHovered={setIsHovered} />
+        <WireframeGlobe isHovered={isHovered} setIsHovered={setIsHovered} baseColor={baseColor} />
         
         {/* Orbit Controls for drag interaction */}
         <OrbitControls

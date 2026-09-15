@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { NavBar } from "./components/NavBar/NavBar";
@@ -10,23 +11,24 @@ import Experience from './components/ExperienceSection/Experience';
 import CvSection from './components/CVSection/CvSection';
 import Divider from './components/Divider/Divider';
 import { PageBackground } from './components/common/PageBackground';
+import { ColorModeProvider, useColorMode } from './contexts/ColorModeContext';
 
-const darkTheme = createTheme({
+const buildTheme = (mode) => createTheme({
   palette: {
-    mode: 'dark',
+    mode,
     primary: {
       main: '#00d4ff',
     },
     secondary: {
-      main: '#ffffff',
+      main: mode === 'dark' ? '#ffffff' : '#0f172a',
     },
     background: {
-      default: '#070b14',
-      paper: '#0f1626',
+      default: mode === 'dark' ? '#070b14' : '#f4f6fb',
+      paper: mode === 'dark' ? '#0f1626' : '#ffffff',
     },
     text: {
-      primary: '#ffffff',
-      secondary: 'rgba(255, 255, 255, 0.7)',
+      primary: mode === 'dark' ? '#ffffff' : '#0f172a',
+      secondary: mode === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(15, 23, 42, 0.65)',
     },
   },
   typography: {
@@ -34,9 +36,12 @@ const darkTheme = createTheme({
   },
 });
 
-function App() {
+function ThemedApp() {
+  const { mode } = useColorMode();
+  const theme = useMemo(() => buildTheme(mode), [mode]);
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <PageBackground />
       <div className="App">
@@ -64,6 +69,14 @@ function App() {
         <Footer />
       </div>
     </ThemeProvider>
+  );
+}
+
+function App() {
+  return (
+    <ColorModeProvider>
+      <ThemedApp />
+    </ColorModeProvider>
   );
 }
 
