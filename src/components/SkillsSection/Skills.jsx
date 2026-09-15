@@ -70,7 +70,7 @@ export const Skills = () => {
           <Box className={`transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-2 pb-2 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-1 mb-2">
+            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-2 pb-2 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl transition-all duration-500 mb-2">
               <Typography
                 variant="h3"
                 className="text-xs sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg 3xl:text-lg 4xl:text-xl font-bold mb-1 text-white"
@@ -105,7 +105,7 @@ export const Skills = () => {
           <Box className={`transition-all duration-1000 delay-400 mt-2 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-2 pb-2 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-1">
+            <Box className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-3xl pt-2 pb-2 px-6 sm:px-12 lg:px-16 border border-gray-700/50 shadow-2xl transition-all duration-500">
               <Typography
                 variant="h3"
                 className="text-xs sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg 3xl:text-lg 4xl:text-xl font-bold mb-1 text-white"
