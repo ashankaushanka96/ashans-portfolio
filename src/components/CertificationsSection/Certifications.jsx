@@ -7,11 +7,12 @@ import { certifications } from "../../config/certifications";
 import { useColorMode } from "../../contexts/ColorModeContext";
 
 const certificationsBreakpoints = {
-  0: { slidesPerView: 1 },
-  480: { slidesPerView: 2 },
-  768: { slidesPerView: 3 },
-  1024: { slidesPerView: 4 },
-  1280: { slidesPerView: 5 },
+  0: { slidesPerView: 1.15, spaceBetween: -60 },
+  400: { slidesPerView: 1.3, spaceBetween: -50 },
+  480: { slidesPerView: 2, spaceBetween: -20 },
+  768: { slidesPerView: 3, spaceBetween: 20 },
+  1024: { slidesPerView: 4, spaceBetween: 20 },
+  1280: { slidesPerView: 5, spaceBetween: 20 },
 };
 
 export const Certifications = () => {
