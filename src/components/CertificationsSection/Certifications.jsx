@@ -18,7 +18,7 @@ export const Certifications = () => {
     <Box 
       component="section" 
       id="certifications" 
-      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden flex items-start justify-center"
+      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center justify-center"
       style={{ scrollMarginTop: '96px', minHeight: 'calc(100vh - 88px)' }}
     >
       <Container maxWidth="xl">

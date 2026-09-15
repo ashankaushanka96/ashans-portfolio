@@ -11,21 +11,21 @@ export const CertificationCard = ({ title, description, logo, certLink, issuer, 
 
       <Box className="relative z-10 flex flex-col">
         {/* Badge Container */}
-        <Box className="mb-2 sm:mb-3 flex-shrink-0" sx={{ maxWidth: { xs: '65%', sm: '58%' }, mx: 'auto', width: '100%' }}>
+        <Box className="mb-3 sm:mb-4 flex-shrink-0" sx={{ maxWidth: { xs: '85%', sm: '78%' }, mx: 'auto', width: '100%' }}>
           <CertificateBadge title={title} logo={logo} />
         </Box>
 
         {/* Content Container */}
         <Box className="cert-content flex flex-col">
           {/* Title */}
-          <Box className="flex items-center justify-center min-h-[38px] sm:min-h-[42px] mb-2 flex-shrink-0">
+          <Box className="flex items-center justify-center min-h-[46px] sm:min-h-[52px] mb-2 flex-shrink-0">
             <Typography
               variant="h6"
               className="font-bold line-clamp-2 transition-all duration-300 group-hover:text-accent"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
-                fontSize: { xs: '0.8125rem', sm: '0.9375rem' },
-                lineHeight: 1.25,
+                fontSize: { xs: '0.9375rem', sm: '1.0625rem' },
+                lineHeight: 1.3,
               }}
             >
               {title}
