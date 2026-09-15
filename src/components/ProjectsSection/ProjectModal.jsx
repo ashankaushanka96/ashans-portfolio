@@ -13,7 +13,7 @@ import {
   useTheme,
   useMediaQuery
 } from "@mui/material";
-import { Close as CloseIcon, Launch as LaunchIcon, GitHub as GitHubIcon } from "@mui/icons-material";
+import { Launch as LaunchIcon, GitHub as GitHubIcon } from "@mui/icons-material";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import PropTypes from "prop-types";
 import { useColorMode } from "../../contexts/ColorModeContext";
@@ -57,7 +57,7 @@ export const ProjectModal = ({
         style: {
           backgroundColor: 'transparent',
           color: isDark ? 'white' : '#0f172a',
-          maxHeight: '95vh',
+          maxHeight: isMobile ? '90dvh' : '95vh',
           margin: isMobile ? '8px' : '24px',
           background: isDark
             ? 'linear-gradient(135deg, rgba(7, 11, 20, 0.98) 0%, rgba(11, 18, 36, 0.98) 50%, rgba(7, 11, 20, 0.98) 100%)'
@@ -87,58 +87,44 @@ export const ProjectModal = ({
         {/* Animated Background */}
         <Box className="absolute inset-0 bg-gradient-to-r from-accent/10 via-purple-600/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-all duration-500"></Box>
         
-        <Box className="relative z-10 flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
-          <Box className="flex-1">
-            <Typography 
-              variant="h4" 
-              className="font-bold text-xl sm:text-2xl lg:text-3xl bg-gradient-to-r from-slate-900 via-accent to-slate-900 dark:from-white dark:via-accent dark:to-white bg-clip-text text-transparent mb-2"
-              sx={{ fontFamily: 'CentraNo2, sans-serif' }}
-            >
-              {title}
-            </Typography>
-            
-            {/* Category and Status Badges */}
-            <Box className="flex flex-wrap gap-2">
-              {category && (
-                <Chip
-                  label={category}
-                  size="small"
-                  className="text-xs font-medium bg-gradient-to-r from-purple-500/20 to-accent/20 text-purple-700 dark:text-purple-300 border border-purple-500/30 backdrop-blur-sm"
-                  sx={{
-                    fontFamily: 'CentraNo2, sans-serif',
-                    '& .MuiChip-label': { px: 1.5, py: 0.5 }
-                  }}
-                />
-              )}
-              {status && (
-                <Chip
-                  label={status}
-                  size="small"
-                  className={`text-xs font-medium backdrop-blur-sm ${
-                    status === 'Completed' ? 'bg-gradient-to-r from-green-500/20 to-emerald-600/20 text-green-700 dark:text-green-300 border border-green-500/30' :
-                    status === 'In Progress' ? 'bg-gradient-to-r from-yellow-500/20 to-orange-600/20 text-yellow-700 dark:text-yellow-300 border border-yellow-500/30' :
-                    'bg-gradient-to-r from-blue-500/20 to-cyan-600/20 text-blue-700 dark:text-blue-300 border border-blue-500/30'
-                  }`}
-                  sx={{
-                    fontFamily: 'CentraNo2, sans-serif',
-                    '& .MuiChip-label': { px: 1.5, py: 0.5 }
-                  }}
-                />
-              )}
-            </Box>
-          </Box>
-          
-          <IconButton
-            onClick={onClose}
-            className="text-slate-700 dark:text-white hover:text-accent transition-all duration-300 transform hover:scale-110 hover:rotate-90 bg-slate-900/5 dark:bg-[#0b1224]/60 hover:bg-slate-900/10 dark:hover:bg-[#111a33]/60 backdrop-blur-sm"
-            sx={{
-              '&:hover': {
-                boxShadow: '0 0 25px rgba(0, 212, 255, 0.6)',
-              }
-            }}
+        <Box className="relative z-10">
+          <Typography
+            variant="h4"
+            className="font-bold text-xl sm:text-2xl lg:text-3xl bg-gradient-to-r from-slate-900 via-accent to-slate-900 dark:from-white dark:via-accent dark:to-white bg-clip-text text-transparent mb-2"
+            sx={{ fontFamily: 'CentraNo2, sans-serif' }}
           >
-            <CloseIcon />
-          </IconButton>
+            {title}
+          </Typography>
+
+          {/* Category and Status Badges */}
+          <Box className="flex flex-wrap gap-2">
+            {category && (
+              <Chip
+                label={category}
+                size="small"
+                className="text-xs font-medium bg-gradient-to-r from-purple-500/20 to-accent/20 text-purple-700 dark:text-purple-300 border border-purple-500/30 backdrop-blur-sm"
+                sx={{
+                  fontFamily: 'CentraNo2, sans-serif',
+                  '& .MuiChip-label': { px: 1.5, py: 0.5 }
+                }}
+              />
+            )}
+            {status && (
+              <Chip
+                label={status}
+                size="small"
+                className={`text-xs font-medium backdrop-blur-sm ${
+                  status === 'Completed' ? 'bg-gradient-to-r from-green-500/20 to-emerald-600/20 text-green-700 dark:text-green-300 border border-green-500/30' :
+                  status === 'In Progress' ? 'bg-gradient-to-r from-yellow-500/20 to-orange-600/20 text-yellow-700 dark:text-yellow-300 border border-yellow-500/30' :
+                  'bg-gradient-to-r from-blue-500/20 to-cyan-600/20 text-blue-700 dark:text-blue-300 border border-blue-500/30'
+                }`}
+                sx={{
+                  fontFamily: 'CentraNo2, sans-serif',
+                  '& .MuiChip-label': { px: 1.5, py: 0.5 }
+                }}
+              />
+            )}
+          </Box>
         </Box>
       </DialogTitle>
       
