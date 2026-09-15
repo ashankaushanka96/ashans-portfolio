@@ -75,6 +75,8 @@ const Experience = () => {
         alt="background"
         style={{
           animation: 'floatSlow 8s ease-in-out infinite',
+          maskImage: 'radial-gradient(ellipse 60% 60% at center, black 30%, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 60% 60% at center, black 30%, transparent 75%)',
         }}
       />
 
