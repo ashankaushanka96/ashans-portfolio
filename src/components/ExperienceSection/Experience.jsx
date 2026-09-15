@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import ExperienceCard from "./ExperienceCard";
-import Divider from "../Divider/Divider";
+import ExperienceCarousel from "./ExperienceCarousel";
 import colorSharp from "../../assets/shared/background-glow-secondary.png";
 import { experiences } from "../../config/experience";
 
@@ -15,21 +14,24 @@ const Experience = () => {
   }, []);
 
   return (
-    <Box 
-      component="section" 
-      id="experience" 
-      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden section-height flex items-center justify-center"
-      style={{ scrollMarginTop: '96px' }}
+    <Box
+      component="section"
+      id="experience"
+      className="relative px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center justify-center"
+      style={{ scrollMarginTop: '96px', minHeight: 'calc(100vh - 88px)' }}
     >
-      <Container maxWidth="xl">
-        <Box className="space-y-8 sm:space-y-12 px-6 sm:px-10 lg:px-16">
+      <Container maxWidth="xl" className="flex items-center justify-center h-full">
+        <Box
+          className="w-full max-w-5xl mx-auto flex flex-col"
+          style={{ height: 'calc(100vh - 88px - 2rem)', maxHeight: 'calc(100vh - 88px - 2rem)' }}
+        >
           {/* Section Header */}
-          <Box className={`text-center transition-all duration-1000 ${
+          <Box className={`text-center flex-shrink-0 mb-1.5 sm:mb-3 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <Typography
               variant="h2"
-              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl 5xl:text-6xl font-bold mb-6 text-white"
+              className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-bold mb-0.5 sm:mb-1 text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
@@ -43,11 +45,11 @@ const Experience = () => {
             </Typography>
             <Typography
               variant="body1"
-              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center"
-              sx={{ 
+              className="text-xs sm:text-sm text-gray-300 max-w-3xl mx-auto leading-snug text-center"
+              sx={{
                 fontFamily: 'CentraNo2, sans-serif',
                 textAlign: 'center !important',
-                display: 'block',
+                display: { xs: 'none', sm: 'block' },
                 width: '100%',
                 margin: '0 auto',
               }}
@@ -55,32 +57,16 @@ const Experience = () => {
               My journey through various roles, each contributing to my growth as a Site Reliability Engineer and technology professional.
             </Typography>
           </Box>
-          
-          {/* Experience Timeline */}
-          <Box className="space-y-6 sm:space-y-8">
-            {experiences.map((exp, index) => (
-              <Box 
-                key={index} 
-                className={`transition-all duration-1000 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <ExperienceCard
-                  role={exp.role}
-                  company={exp.company}
-                  duration={exp.duration}
-                  location={exp.location}
-                  responsibilities={exp.responsibilities}
-                  technologies={exp.technologies}
-                  achievements={exp.achievements}
-                />
-              </Box>
-            ))}
+
+          {/* Experience Carousel */}
+          <Box className={`flex-1 min-h-0 transition-all duration-1000 delay-200 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            <ExperienceCarousel items={experiences} />
           </Box>
         </Box>
       </Container>
-      
+
       {/* Background Image with Animation */}
       <img
         className="absolute top-1/3 right-0 bottom-0 w-1/2 sm:w-2/5 -z-10 animate-float-slow opacity-20"

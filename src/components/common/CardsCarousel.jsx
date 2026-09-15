@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Mousewheel } from "swiper/modules";
+import { applyDepthStyles } from "./carouselDepthEffect";
 import "swiper/css";
 
 const DEFAULT_BREAKPOINTS = {
@@ -17,16 +18,6 @@ const buildLoopItems = (items, minRequired) => {
   if (items.length === 0 || items.length >= minRequired) return items;
   const repeats = Math.ceil(minRequired / items.length);
   return Array.from({ length: repeats }, () => items).flat();
-};
-
-const applyDepthStyles = (swiper) => {
-  swiper.slides.forEach((slideEl) => {
-    const distance = Math.min(Math.abs(slideEl.progress || 0), 3);
-    const scale = Math.max(1 - distance * 0.18, 0.55);
-    const opacity = Math.max(1 - distance * 0.3, 0.35);
-    slideEl.style.transform = `scale(${scale})`;
-    slideEl.style.opacity = opacity;
-  });
 };
 
 export const CardsCarousel = ({
