@@ -65,10 +65,11 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onUpdateActiveLink = (value) => {
+  const onUpdateActiveLink = (event, value) => {
+    event?.preventDefault();
     setActiveLink(value);
     setMobileOpen(false);
-    
+
     // Smooth scroll to section
     const element = document.getElementById(value);
     if (element) {
@@ -110,7 +111,7 @@ export const NavBar = () => {
                       ? "text-white bg-gradient-to-r from-accent/20 to-purple-600/20 border border-accent/30 shadow-lg" 
                       : "text-white/80 hover:text-white hover:bg-white/10 border border-transparent"
                   }`}
-                  onClick={() => onUpdateActiveLink(item.id)}
+                  onClick={(e) => onUpdateActiveLink(e, item.id)}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {item.label}
@@ -192,7 +193,7 @@ export const NavBar = () => {
                             ? "text-white" 
                             : "text-white/80 hover:text-white"
                         }`}
-                        onClick={() => onUpdateActiveLink(item.id)}
+                        onClick={(e) => onUpdateActiveLink(e, item.id)}
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
                         {item.label}
