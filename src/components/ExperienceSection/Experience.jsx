@@ -74,16 +74,20 @@ const Experience = () => {
       </Container>
 
       {/* Background Image with Animation */}
-      <img
-        className="absolute top-1/3 right-0 bottom-0 w-1/2 sm:w-2/5 -z-10 animate-float-slow opacity-20"
-        src={colorSharp}
-        alt="background"
+      <Box
+        className="absolute top-1/3 right-0 bottom-0 w-1/2 sm:w-2/5 -z-10 overflow-hidden"
         style={{
-          animation: 'floatSlow 8s ease-in-out infinite',
           maskImage: 'radial-gradient(ellipse 60% 60% at center, black 30%, transparent 75%)',
           WebkitMaskImage: 'radial-gradient(ellipse 60% 60% at center, black 30%, transparent 75%)',
         }}
-      />
+      >
+        <img
+          className="w-full h-full object-cover animate-float-slow opacity-20"
+          src={colorSharp}
+          alt="background"
+          style={{ animation: 'floatSlow 8s ease-in-out infinite' }}
+        />
+      </Box>
 
       {/* Animated Background Elements */}
       <Box className="absolute inset-0 -z-10">
