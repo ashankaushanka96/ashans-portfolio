@@ -22,12 +22,15 @@ const CvSection = () => {
       className="px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center justify-center"
       style={{ scrollMarginTop: 'var(--nav-height, 96px)', minHeight: 'calc(100vh - 88px)' }}
     >
-      <Container maxWidth="xl" className="flex items-center justify-center">
-        <Box className={`w-full max-w-4xl mx-auto text-center py-6 sm:py-8 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+      <Container maxWidth="xl" className="flex items-center justify-center h-full">
+        <Box
+          className={`w-full max-w-4xl mx-auto text-center flex flex-col transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+          style={{ height: 'calc(100vh - 88px - 3rem)', maxHeight: 'calc(100vh - 88px - 3rem)' }}
+        >
           {/* Section Header */}
-          <Box className="mb-2 sm:mb-3">
+          <Box className="mb-2 sm:mb-3 flex-shrink-0">
             <Typography
               variant="h2"
               className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-black tracking-tight mb-1 text-white"
@@ -59,7 +62,7 @@ const CvSection = () => {
           </Box>
 
           {/* CV Preview */}
-          <Box className="w-full h-64 sm:h-80 lg:h-[420px] border border-gray-600/50 rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm shadow-xl">
+          <Box className="w-full flex-1 min-h-0 border border-gray-600/50 rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm shadow-xl">
             <Box className="relative w-full h-full">
               <iframe
                 src={cvPath}
@@ -72,7 +75,7 @@ const CvSection = () => {
           </Box>
 
           {/* Action Buttons */}
-          <Box className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center items-center">
+          <Box className="flex-shrink-0 flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center items-center">
             <Button
               variant="contained"
               href={cvPath}
