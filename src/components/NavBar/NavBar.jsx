@@ -162,7 +162,7 @@ export const NavBar = () => {
         elevation={0}
         sx={{
           background: scrolled
-            ? 'linear-gradient(135deg, rgba(10, 16, 32, 0.88) 0%, rgba(13, 20, 38, 0.78) 100%)'
+            ? 'linear-gradient(135deg, rgba(7, 11, 20, 0.98) 0%, rgba(10, 16, 32, 0.97) 100%)'
             : 'transparent',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
           borderBottom: scrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
