@@ -6,6 +6,7 @@ import Divider from "../Divider/Divider";
 import SceneSelector from "../ThreeScene/SceneSelector";
 import SREBackground from "../SREBackground";
 import { siteConfig } from "../../config/site";
+import { smoothScrollToElement } from "../../utils/smoothScroll";
 
 export const Banner = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -53,10 +54,7 @@ export const Banner = () => {
   }, [currentTextIndex, isTyping, toRotate.length]);
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById('connect');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    smoothScrollToElement(document.getElementById('connect'));
   };
 
   return (
@@ -313,9 +311,7 @@ export const Banner = () => {
           className="text-white/60 text-4xl cursor-pointer hover:text-accent transition-colors duration-300"
           onClick={() => {
             const nextSection = document.querySelector('#about') || document.querySelector('#skills');
-            if (nextSection) {
-              nextSection.scrollIntoView({ behavior: 'smooth' });
-            }
+            smoothScrollToElement(nextSection);
           }}
         />
       </Box>

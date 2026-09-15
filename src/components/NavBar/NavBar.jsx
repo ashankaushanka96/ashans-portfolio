@@ -22,6 +22,7 @@ import { Logo } from "../common/Logo";
 import { navItems } from "../../config/navigation";
 import { socialLinks } from "../../config/social";
 import { siteConfig } from "../../config/site";
+import { smoothScrollToElement } from "../../utils/smoothScroll";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -77,14 +78,8 @@ export const NavBar = () => {
 
     requestAnimationFrame(() => {
       const element = document.getElementById(value);
-      if (element) {
-        const navHeight = appBarRef.current?.offsetHeight ?? 88;
-        const offsetTop = element.offsetTop - navHeight;
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
-      }
+      const navHeight = appBarRef.current?.offsetHeight ?? 88;
+      smoothScrollToElement(element, navHeight);
     });
   };
 

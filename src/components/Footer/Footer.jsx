@@ -6,6 +6,7 @@ import footerBg from "../../assets/footer/background.png";
 import { footerLinks } from "../../config/navigation";
 import { socialLinks } from "../../config/social";
 import { siteConfig } from "../../config/site";
+import { smoothScrollTo } from "../../utils/smoothScroll";
 
 export const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,7 +18,7 @@ export const Footer = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollTo(0);
   };
 
   return (
