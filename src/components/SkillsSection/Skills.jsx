@@ -37,9 +37,10 @@ export const Skills = () => {
           }`}>
             <Typography
               variant="h2"
-              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-2xl 4xl:text-3xl font-bold mb-1 text-white"
+              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-2xl 4xl:text-3xl font-black tracking-tight mb-1 text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
+                fontWeight: 900,
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
@@ -72,9 +73,10 @@ export const Skills = () => {
             <Box className="mb-2">
               <Typography
                 variant="h3"
-                className="text-xs sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg 3xl:text-lg 4xl:text-xl font-bold mb-1 text-white"
+                className="text-xs sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg 3xl:text-lg 4xl:text-xl font-black tracking-tight mb-1 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
+                  fontWeight: 900,
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
@@ -107,9 +109,10 @@ export const Skills = () => {
             <Box>
               <Typography
                 variant="h3"
-                className="text-xs sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg 3xl:text-lg 4xl:text-xl font-bold mb-1 text-white"
+                className="text-xs sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg 3xl:text-lg 4xl:text-xl font-black tracking-tight mb-1 text-white"
                 sx={{
                   fontFamily: 'CentraNo2, sans-serif',
+                  fontWeight: 900,
                   background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',

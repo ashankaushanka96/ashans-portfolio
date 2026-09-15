@@ -33,9 +33,10 @@ const CvSection = () => {
               <Box className="mb-8 sm:mb-12">
                 <Typography
                   variant="h2"
-                  className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl 5xl:text-6xl font-bold mb-6 text-white"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl 5xl:text-6xl font-black tracking-tight mb-6 text-white"
                   sx={{
                     fontFamily: 'CentraNo2, sans-serif',
+                    fontWeight: 900,
                     background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',

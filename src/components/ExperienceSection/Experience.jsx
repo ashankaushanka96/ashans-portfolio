@@ -31,9 +31,10 @@ const Experience = () => {
           }`}>
             <Typography
               variant="h2"
-              className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-bold mb-0.5 sm:mb-1 text-white"
+              className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl font-black tracking-tight mb-0.5 sm:mb-1 text-white"
               sx={{
                 fontFamily: 'CentraNo2, sans-serif',
+                fontWeight: 900,
                 background: 'linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
