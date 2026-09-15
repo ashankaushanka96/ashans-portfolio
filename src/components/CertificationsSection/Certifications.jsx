@@ -6,6 +6,14 @@ import { CardsCarousel } from "../common/CardsCarousel";
 import { certifications } from "../../config/certifications";
 import { useColorMode } from "../../contexts/ColorModeContext";
 
+const certificationsBreakpoints = {
+  0: { slidesPerView: 1 },
+  480: { slidesPerView: 2 },
+  768: { slidesPerView: 3 },
+  1024: { slidesPerView: 4 },
+  1280: { slidesPerView: 5 },
+};
+
 export const Certifications = () => {
   const [isVisible, setIsVisible] = useState(false);
   const theme = useTheme();
@@ -25,7 +33,7 @@ export const Certifications = () => {
       style={{ scrollMarginTop: 'var(--nav-height, 96px)', minHeight: 'calc(100vh - 88px)' }}
     >
       <Container maxWidth="xl">
-        <Box className={`w-full max-w-6xl mx-auto text-center py-8 sm:py-10 px-6 sm:px-12 lg:px-16 transition-all duration-500 ${
+        <Box className={`w-full mx-auto text-center py-8 sm:py-10 px-6 sm:px-12 lg:px-16 transition-all duration-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           {/* Section Header */}
@@ -67,6 +75,9 @@ export const Certifications = () => {
             <CardsCarousel
               items={certifications}
               renderItem={(cert) => <CertificationCard {...cert} />}
+              breakpoints={certificationsBreakpoints}
+              spaceBetween={20}
+              pagination
             />
           </Box>
         </Box>
