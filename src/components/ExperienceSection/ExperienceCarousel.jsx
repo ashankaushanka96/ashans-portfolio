@@ -33,7 +33,7 @@ const ExperienceCarousel = ({ items }) => {
           speed={600}
           grabCursor
           touchReleaseOnEdges
-          mousewheel={{ forceToAxis: true, sensitivity: 1, releaseOnEdges: false }}
+          mousewheel={{ forceToAxis: true, sensitivity: 1, releaseOnEdges: true }}
           onInit={applyPeekStyles}
           onProgress={applyPeekStyles}
           onResize={applyPeekStyles}

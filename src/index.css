@@ -24,7 +24,6 @@
 }
 
 html {
-  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 
@@ -42,7 +41,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-snap-type: none;
     scroll-behavior: auto;
   }
 }
@@ -202,15 +200,6 @@ code {
 section {
   margin: 0 !important;
   padding: 0 !important;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-/* Footer isn't a <section> but still needs to be a valid snap point —
-   otherwise mandatory scroll-snap has nowhere to rest past the last
-   section and pulls the page back instead of letting it scroll here. */
-footer {
-  scroll-snap-align: start;
 }
 
 /* Ensure consistent spacing between sections (excluding divider) */
