@@ -65,8 +65,6 @@ export default function App() {
           <div className="dialog-meta"><span className="dialog-category">{selected.category}</span><span className={`dialog-status ${selected.status === 'In Progress' ? 'is-progress' : ''}`}><span className="status-dot"/>{selected.status}</span></div>
           <h2 id="project-dialog-title">{selected.title.replace(' (Ongoing)', '')}</h2>
           <p className="dialog-summary">{selected.short_description}</p>
-          <div className="dialog-project-art"><ProjectArtwork project={selected}/></div>
-          <figure className="dialog-preview"><div className="preview-toolbar"><span><i/><i/><i/></span><span>ORIGINAL PROJECT PREVIEW</span><FiArrowUpRight/></div><img className="dialog-image" src={selected.imgUrl} alt={`${selected.title} project screenshot`}/><figcaption>Inside the project <span>Original project preview</span></figcaption></figure>
           <div className="dialog-section-heading"><span className="eyebrow">UNDER THE HOOD</span><h3>What went into it</h3></div>
           <ol className="dialog-features">{selected.description.map((item,index) => <li key={item}><span className="feature-index">{String(index + 1).padStart(2, '0')}</span><p>{item}</p></li>)}</ol>
         </div>
