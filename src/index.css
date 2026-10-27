@@ -743,9 +743,10 @@ details ul {
 }
 
 .contact-section:after {
-  content: '+';
+  content: '';
   position: absolute;
-  font-size: 300px;
+  width: 350px;
+  height: 350px;
   right: 45px;
   top: -100px;
   color: #d3f305;
@@ -1957,10 +1958,9 @@ html {
 }
 
 .contact-section:after {
-  content: '✳';
-  color: #c5a1ff12;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5v90M5 50h90M18 18l64 64M18 82l64-64' fill='none' stroke='%23c5a1ff' stroke-width='14'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: .07;
   top: -65px;
-  font-size: 350px;
   animation: slow-spin 60s linear infinite
 }
 
@@ -3746,4 +3746,12 @@ to {
 .scheduler-flow>small {
   font-size: 4px;
 }
+}
+
+/* Vector separators avoid platform-dependent emoji rendering. */
+.ticker b svg {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }
