@@ -27,16 +27,16 @@ export function SystemPlayground() {
 }
 
 const projectCovers = {
-  'Operations Dashboard': { type: 'dashboard', accent: '#86c9ff', icon: FiLayers, label: 'EC2 / DNS / COMPONENTS / SCHEDULING', className: 'cover-dashboard' },
-  'AI Bruno (Ongoing)': { type: 'assistant', accent: '#c1a0ff', icon: FiCpu, label: 'LANGCHAIN / TOOLS / SYSTEM INSIGHTS', className: 'cover-ai' },
-  'Server Migration in AWS': { type: 'migration', accent: '#ffbd87', icon: FiCloud, label: 'CROSS-REGION AWS MIGRATION', className: 'cover-cloud' },
-  'Datadog Configuration': { type: 'observability', accent: '#ba9fff', icon: FiActivity, label: 'APM / LOGS / SYNTHETICS', className: 'cover-ai' },
-  'GitLab Pipeline Migration': { type: 'pipeline', accent: '#ff9cbe', icon: FiGitBranch, label: 'BAMBOO → GITLAB CI/CD', className: 'cover-devops' },
-  'Monitoring Tool': { type: 'health', accent: '#8bf0bf', icon: FiActivity, label: 'REACT / FASTAPI / REAL-TIME HEALTH', className: 'cover-monitoring' },
-  'FTP File Downloader': { type: 'transfer', accent: '#f2df8a', icon: FiDownload, label: 'DOWNLOAD / VALIDATE / BACK UP', className: 'cover-automation' },
-  'Component Watcher': { type: 'watcher', accent: '#77dce8', icon: FiShield, label: 'PROCESS MONITORING / AUTO-RESTART', className: 'cover-monitoring' },
-  'Component Inventory': { type: 'inventory', accent: '#a6b8ff', icon: FiBox, label: 'DISCOVER / SEARCH / MANAGE', className: 'cover-dashboard' },
-  'Instance Scheduler': { type: 'scheduler', accent: '#ffc18d', icon: FiClock, label: 'LAMBDA / CLOUDWATCH / EC2', className: 'cover-cloud' },
+  'Operations Dashboard': { type: 'dashboard', accent: '#86c9ff', label: 'EC2 / DNS / COMPONENTS / SCHEDULING', className: 'cover-dashboard' },
+  'AI Bruno (Ongoing)': { type: 'assistant', accent: '#c1a0ff', label: 'LANGCHAIN / TOOLS / SYSTEM INSIGHTS', className: 'cover-ai' },
+  'Server Migration in AWS': { type: 'migration', accent: '#ffbd87', label: 'CROSS-REGION AWS MIGRATION', className: 'cover-cloud' },
+  'Datadog Configuration': { type: 'observability', accent: '#ba9fff', label: 'APM / LOGS / SYNTHETICS', className: 'cover-ai' },
+  'GitLab Pipeline Migration': { type: 'pipeline', accent: '#ff9cbe', label: 'BAMBOO → GITLAB CI/CD', className: 'cover-devops' },
+  'Monitoring Tool': { type: 'health', accent: '#8bf0bf', label: 'REACT / FASTAPI / REAL-TIME HEALTH', className: 'cover-monitoring' },
+  'FTP File Downloader': { type: 'transfer', accent: '#f2df8a', label: 'DOWNLOAD / VALIDATE / BACK UP', className: 'cover-automation' },
+  'Component Watcher': { type: 'watcher', accent: '#77dce8', label: 'PROCESS MONITORING / AUTO-RESTART', className: 'cover-monitoring' },
+  'Component Inventory': { type: 'inventory', accent: '#a6b8ff', label: 'DISCOVER / SEARCH / MANAGE', className: 'cover-dashboard' },
+  'Instance Scheduler': { type: 'scheduler', accent: '#ffc18d', label: 'LAMBDA / CLOUDWATCH / EC2', className: 'cover-cloud' },
 };
 
 export function ProjectArtwork({ project }) {

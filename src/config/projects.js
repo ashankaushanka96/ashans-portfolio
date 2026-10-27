@@ -1,18 +1,6 @@
-import projImg1 from "../assets/projects/screenshots/bruno-project.png";
-import projImg2 from "../assets/projects/screenshots/server-migration-project.png";
-import projImg3 from "../assets/projects/screenshots/datadog.png";
-import projImg4 from "../assets/projects/screenshots/gitlab-project.png";
-import projImg5 from "../assets/projects/screenshots/monitoring-tool.png";
-import projImg6 from "../assets/projects/screenshots/FTPFileDownloader.png";
-import projImg7 from "../assets/projects/screenshots/ComponentWatcher.png";
-import projImg8 from "../assets/projects/screenshots/ComponentInventory.png";
-import projImg9 from "../assets/projects/screenshots/InstanceScheduler.png";
-import projImg10 from "../assets/projects/screenshots/OperationsDashboard.png";
-
 export const projects = [
   {
     title: "Operations Dashboard",
-    imgUrl: projImg10,
     description: [
       "Component Management Section: Comprehensive component tracking system displaying IP addresses, versions, deployment paths, last execution times, and deployment history with advanced filtering capabilities by name, IP, version, and status.",
       "EC2 Instance Management: Real-time AWS EC2 instance monitoring and management interface with full filtering support, instance details, performance metrics, and bulk operations for efficient infrastructure management.",
@@ -23,7 +11,6 @@ export const projects = [
     ],
     short_description:
       "Enterprise-grade full-stack operations dashboard built with FastAPI backend and React frontend, providing comprehensive management of system components, EC2 inventory and scheduling, Route53 DNS management, and secure server start/stop functionality for development teams.",
-    images: [],
     demoUrl: "https://ashankaushanka96.github.io/atlas-dashboard/home",
     repoUrl: "https://github.com/ashankaushanka96/operations-dashboard",
     category: "Full-Stack",
@@ -31,7 +18,6 @@ export const projects = [
   },
   {
     title: "AI Bruno (Ongoing)",
-    imgUrl: projImg1,
     description: [
       "Advanced AI-powered chat assistant leveraging LangChain framework for intelligent conversation management and context-aware responses.",
       "Implements custom tool integrations for system monitoring, log analysis, and infrastructure management capabilities.",
@@ -42,13 +28,11 @@ export const projects = [
     ],
     short_description:
       "Advanced AI-powered chat assistant built with LangChain framework, featuring proactive system monitoring, custom tool integrations, and intelligent response generation for enhanced user experience.",
-    images: [projImg1],
     category: "AI/ML",
     status: "In Progress",
   },
   {
     title: "Server Migration in AWS",
-    imgUrl: projImg2,
     description: [
       "Executed comprehensive AWS infrastructure migration involving 50+ critical servers across multiple regions (Ireland to North Virginia).",
       "Implemented automated AMI optimization processes reducing instance startup times by 40% and improving resource utilization.",
@@ -59,13 +43,11 @@ export const projects = [
     ],
     short_description:
       "Comprehensive AWS infrastructure migration project involving cross-region server transfers, AMI optimization for performance, and automated security hardening protocols to ensure data integrity and compliance.",
-    images: [projImg2],
     category: "Cloud",
     status: "Completed",
   },
   {
     title: "Datadog Configuration",
-    imgUrl: projImg3,
     description: [
       "Implemented comprehensive Datadog monitoring solution covering Application Performance Monitoring (APM), centralized log management, and synthetic monitoring for 24/7 system visibility.",
       "Designed and deployed custom dashboards for different stakeholder groups including developers, operations teams, and management with role-based access controls.",
@@ -76,13 +58,11 @@ export const projects = [
     ],
     short_description:
       "End-to-end Datadog monitoring implementation featuring Application Performance Monitoring (APM), centralized log management, synthetic monitoring checks, and custom dashboard creation for comprehensive system observability.",
-    images: [projImg3],
     category: "Monitoring",
     status: "Completed",
   },
   {
     title: "GitLab Pipeline Migration",
-    imgUrl: projImg4,
     description: [
       "Successfully migrated complete CI/CD pipeline infrastructure from Bamboo/Bitbucket to GitLab, reducing deployment times by 50% and improving developer productivity.",
       "Implemented Infrastructure as Code using Terraform for automated environment provisioning and configuration management across multiple environments.",
@@ -93,13 +73,11 @@ export const projects = [
     ],
     short_description:
       "Complete CI/CD pipeline migration from Bamboo/Bitbucket to GitLab, leveraging Infrastructure as Code with Terraform, automated image building with Packer, and configuration management using Ansible for streamlined deployment processes.",
-    images: [projImg4],
     category: "DevOps",
     status: "Completed",
   },
   {
     title: "Monitoring Tool",
-    imgUrl: projImg5,
     description: [
       "Developed full-stack monitoring application using React frontend and Python FastAPI backend for real-time system component and port health monitoring.",
       "Implemented WebSocket connections for live data streaming and real-time dashboard updates without page refresh.",
@@ -110,14 +88,12 @@ export const projects = [
     ],
     short_description:
       "Full-stack monitoring solution built with React frontend and Python backend, providing real-time health monitoring for system components, port status tracking, and instant notification alerts for critical system events.",
-    images: [projImg5],
     repoUrl: "https://github.com/ashankaushanka96/component-checker",
     category: "Full-Stack",
     status: "Completed",
   },
   {
     title: "FTP File Downloader",
-    imgUrl: projImg6,
     description: [
       "Built sophisticated Python automation tool for FTP file management with intelligent pattern recognition and automated download scheduling.",
       "Implemented advanced file comparison algorithms for detecting changes and ensuring data integrity across multiple file formats.",
@@ -128,14 +104,12 @@ export const projects = [
     ],
     short_description:
       "Sophisticated Python automation tool for FTP file management featuring automated downloads, intelligent file comparison, ISIN validation, automated backup systems, and comprehensive email notification reporting for operational transparency.",
-    images: [projImg6],
     repoUrl: "https://github.com/ashankaushanka96/ftp-file-downloader",
     category: "Automation",
     status: "Completed",
   },
   {
     title: "Component Watcher",
-    imgUrl: projImg7,
     description: [
       "Developed advanced multi-threaded monitoring solution capable of monitoring 100+ components concurrently with efficient resource utilization and minimal performance impact.",
       "Implemented intelligent process management system with automatic restart capabilities, PID tracking, and comprehensive uptime metrics collection.",
@@ -146,14 +120,12 @@ export const projects = [
     ],
     short_description:
       "Advanced multi-threaded monitoring solution with Datadog integration, automatic process restart capabilities, PID tracking, uptime metrics, AWS Secrets Manager integration, and dynamic logging with YAML/INI configuration support.",
-    images: [projImg7],
     repoUrl: "https://github.com/ashankaushanka96/component-watcher",
     category: "Monitoring",
     status: "Completed",
   },
   {
     title: "Component Inventory",
-    imgUrl: projImg8,
     description: [
       "Built intelligent component detection system that automatically scans specified directories and identifies components based on configuration files and metadata analysis.",
       "Implemented on-demand component fetching from multiple remote sources including Git repositories, artifact repositories, and cloud storage with caching mechanisms.",
@@ -164,14 +136,12 @@ export const projects = [
     ],
     short_description:
       "Comprehensive Python-based component management system featuring automatic component detection, remote source fetching, advanced search capabilities, server configuration management, and unified interface for complete component lifecycle control.",
-    images: [projImg8],
     repoUrl: "https://github.com/ashankaushanka96/component-inventory",
     category: "Automation",
     status: "Completed",
   },
   {
     title: "Instance Scheduler",
-    imgUrl: projImg9,
     description: [
       "Developed serverless EC2 lifecycle automation solution using AWS Lambda functions triggered by CloudWatch events for cost optimization and resource management.",
       "Implemented cron-style tag expressions for granular scheduling control allowing precise timing for start/stop operations across different time zones and business hours.",
@@ -182,7 +152,6 @@ export const projects = [
     ],
     short_description:
       "Serverless EC2 lifecycle automation solution using AWS Lambda and CloudWatch events, featuring cron-style tag expressions for granular scheduling, comprehensive logging via CloudWatch, and scalable deployment across DEV, UAT, and PROD environments.",
-    images: [projImg9],
     repoUrl: "https://github.com/ashankaushanka96/instance-scheduler",
     category: "Cloud",
     status: "Completed",

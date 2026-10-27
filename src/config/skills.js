@@ -12,17 +12,6 @@ import datadog from "../assets/logos/tools/datadog.svg";
 import python from "../assets/logos/tools/python.svg";
 import java from "../assets/logos/tools/java.svg";
 
-export const skills = [
-  { value: 95, title: "Cloud Architecture", level: "Expert" },
-  { value: 90, title: "Infrastructure Automation", level: "Advanced" },
-  { value: 90, title: "CI/CD Pipelines", level: "Advanced" },
-  { value: 90, title: "Monitoring & Incident Management", level: "Advanced" },
-  { value: 90, title: "Programming & Frameworks", level: "Advanced" },
-  { value: 80, title: "Generative AI & Machine Learning", level: "Intermediate" },
-  { value: 90, title: "Database Management", level: "Advanced" },
-  { value: 80, title: "Network Administration", level: "Intermediate" },
-];
-
 export const toolsAndPlatforms = [
   { image: aws, title: "AWS", category: "Cloud" },
   { image: gcp, title: "GCP", category: "Cloud" },

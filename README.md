@@ -1,57 +1,38 @@
 # Ashan's Portfolio
 
-A modern, responsive portfolio website built with React, Material-UI (MUI), and Tailwind CSS.
+A responsive React portfolio with a dark purple and lime theme, an interactive infrastructure map, project-specific artwork, filterable projects, and accessible project dialogs.
 
-## Features
+## Development
 
-- **Modern UI**: Built with Material-UI components and Tailwind CSS for a sleek, professional design
-- **Responsive Design**: Fully responsive across all devices
-- **Dark Theme**: Beautiful dark theme with custom color palette
-- **Interactive Components**: Smooth animations and hover effects
-- **Professional Sections**: Skills, Certifications, Experience, Projects, and Resume
-- **Contact Integration**: Social media links and contact information
+```sh
+npm install
+npm run dev
+```
 
-## Tech Stack
+Vite serves the site at `/ashans-portfolio/`. The development server listens on all network interfaces for testing on devices connected to the same Wi-Fi.
 
-- **Frontend Framework**: React 18
-- **UI Library**: Material-UI (MUI) v5
-- **Styling**: Tailwind CSS
-- **Icons**: Material Icons + React Icons
-- **Animations**: React On Screen + CSS Transitions
-- **Carousel**: React Multi Carousel
-- **Build Tool**: Vite
-- **Deployment**: GitHub Pages
+```sh
+npm run build    # Production output in dist/
+npm run preview  # Preview the production build
+npm run lint     # Check JavaScript and React code
+```
 
-## Sections
+## Project structure
 
-1. **Navigation**: Fixed header with smooth scrolling navigation
-2. **Banner**: Hero section with animated text and call-to-action
-3. **Skills**: Interactive carousel showcasing technical skills
-4. **Certifications**: Professional certifications with verification links
-5. **Experience**: Work history with detailed responsibilities
-6. **Projects**: Portfolio projects with modal details and GitHub links
-7. **Resume**: PDF preview with download functionality
-8. **Footer**: Social links and copyright information
+- `src/App.jsx` — page sections, navigation, project filters, and dialogs.
+- `src/components/InteractiveVisuals.jsx` — interactive system map, project artwork, and motion effects.
+- `src/config/` — project, experience, certification, tool, and contact data.
+- `src/index.css` — responsive styling, fonts, and animations, including reduced-motion support.
+- `src/assets/` — local fonts and tool/certification logos.
+- `public/resume/` — downloadable CV.
+- `public/branding/` — favicon SVG source and browser PNG; `public/favicon.ico` provides an ICO fallback.
 
-## Getting Started
-
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Start development server: `npm run dev`
-4. Build for production: `npm run build`
-5. Deploy to GitHub Pages: `npm run deploy`
-
-## Customization
-
-- **Colors**: Update the color palette in `tailwind.config.js` and MUI theme in `App.jsx`
-- **Content**: Modify component data in respective component files
-- **Styling**: Use Tailwind classes or MUI's `sx` prop for custom styling
-- **Fonts**: Custom fonts are loaded in `src/index.css`
+The app uses React 18, React Icons, CSS, and Tailwind's base styles. Vite handles builds and ESLint checks the source.
 
 ## Deployment
 
-The portfolio is configured for GitHub Pages deployment. Simply run `npm run deploy` to publish updates.
+```sh
+npm run deploy
+```
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
+This builds the project and publishes `dist/` using `gh-pages`. The base path in `vite.config.js` and homepage in `package.json` target the `ashans-portfolio` GitHub Pages repository.
