@@ -669,8 +669,22 @@ summary::marker {
   color: var(--accent)
 }
 
-details ul {
-  padding-left: 18px
+.experience-content details ul {
+  list-style: disc outside;
+  padding-left: 20px;
+  margin: 14px 0 0;
+}
+
+.experience-content details li {
+  padding-left: 5px;
+}
+
+.experience-content details li + li {
+  margin-top: 10px;
+}
+
+.experience-content details li::marker {
+  color: #bca0e5;
 }
 
 .experience-number {
@@ -3754,4 +3768,22 @@ to {
   width: 20px;
   height: 20px;
   vertical-align: middle;
+}
+
+.tags .technology-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.technology-tag img,
+.technology-tag svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.technology-tag svg {
+  color: #c5ace8;
 }
