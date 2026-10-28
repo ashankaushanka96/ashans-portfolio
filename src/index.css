@@ -3787,3 +3787,88 @@ to {
 .technology-tag svg {
   color: #c5ace8;
 }
+
+/* The objects inside each cover turn toward the viewer, not the entire image. */
+@media (prefers-reduced-motion: no-preference) {
+  .migration-art,
+  .pipeline-art,
+  .transfer-art,
+  .watcher-art,
+  .scheduler-art {
+    transform: perspective(800px) rotateY(-12deg) rotateX(9deg) rotateZ(-4deg);
+    transition: transform .65s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .observability-art,
+  .health-art {
+    transform: perspective(800px) rotateY(-12deg) rotateX(10deg) rotateZ(-5deg);
+    transition: transform .65s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .inventory-art {
+    transform: perspective(800px) rotateY(-12deg) rotateX(8deg) rotateZ(-4deg);
+    transition: transform .65s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .migration-region,
+  .pipeline-step,
+  .transfer-endpoint,
+  .watcher-radar,
+  .watcher-processes,
+  .scheduler-clock,
+  .scheduler-flow {
+    transition: transform .65s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .project-card:is(:hover, :focus-visible) :is(.migration-art, .observability-art, .pipeline-art, .health-art, .transfer-art, .watcher-art, .inventory-art, .scheduler-art) {
+    transform: perspective(800px) rotateY(5deg) rotateX(0deg) rotateZ(1deg) translateY(-5px);
+  }
+
+  .project-card:is(:hover, :focus-visible) .migration-region:nth-of-type(2) {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+
+  .project-card:is(:hover, :focus-visible) .migration-region:nth-of-type(4) {
+    transform: translateX(5px) rotate(5deg);
+  }
+
+  .pipeline-stages > div:nth-child(2) .pipeline-step { transition-delay: .04s; }
+  .pipeline-stages > div:nth-child(3) .pipeline-step { transition-delay: .08s; }
+  .pipeline-stages > div:nth-child(4) .pipeline-step { transition-delay: .12s; }
+
+  .project-card:is(:hover, :focus-visible) .pipeline-step {
+    transform: translateY(-7px) rotateY(18deg) rotateZ(-6deg);
+  }
+
+  .project-card:is(:hover, :focus-visible) .transfer-endpoint:first-child {
+    transform: rotate(-7deg) translateX(-4px);
+  }
+
+  .project-card:is(:hover, :focus-visible) .transfer-endpoint:nth-child(3) {
+    transform: rotate(7deg) translateX(4px);
+  }
+
+  .project-card:is(:hover, :focus-visible) .watcher-radar {
+    transform: perspective(500px) rotateY(20deg) rotateZ(12deg);
+  }
+
+  .project-card:is(:hover, :focus-visible) .watcher-processes {
+    transform: translateX(5px) rotateY(-8deg);
+  }
+
+  .project-card:is(:hover, :focus-visible) .scheduler-clock {
+    transform: perspective(500px) rotateY(-18deg) rotateZ(-10deg);
+  }
+
+  .project-card:is(:hover, :focus-visible) .scheduler-flow {
+    transform: translateX(5px) rotateY(10deg);
+  }
+
+  .project-card:focus-visible .ops-art {
+    transform: perspective(800px) rotateY(0) rotateX(0) rotateZ(-2deg);
+  }
+
+  .project-card:focus-visible .neural-orb {
+    transform: translate(-50%, -50%) rotate(18deg) scale(1.1);
+  }
+}
