@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { FiArrowUpRight, FiArrowDown, FiArrowRight, FiDownload, FiGithub, FiLinkedin, FiMenu, FiX, FiLayers, FiCloud, FiTerminal, FiActivity } from 'react-icons/fi';
+import { contactChannels } from './config/contact';
 import { projects } from './config/projects';
 import { experiences } from './config/experience';
 import { toolsAndPlatforms } from './config/skills';
 import TechnologyTags from './components/TechnologyTags';
+import ContactOptions from './components/ContactOptions';
+import ScrollNavigation from './components/ScrollNavigation';
 import { certifications } from './config/certifications';
 import { siteConfig } from './config/site';
 import { SystemPlayground, ProjectArtwork, MotionEffects } from './components/InteractiveVisuals';
@@ -31,10 +34,11 @@ export default function App() {
   }, [selected]);
   return <>
     <MotionEffects/>
+    <ScrollNavigation items={navigation}/>
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="site-header"><a className="wordmark" href="#home" aria-label="Ashan Pathiranage home">ashan<span>.</span></a>
       <nav className={menuOpen ? 'navigation is-open' : 'navigation'} aria-label="Main navigation">{navigation.map(([id, label]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}</nav>
-      <a className="nav-contact" href={`mailto:${siteConfig.email}`}>Let’s talk <FiArrowUpRight/></a>
+      <ContactOptions/>
       <button className="menu-toggle" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <FiX/> : <FiMenu/>}</button>
     </header>
     <main id="main">
@@ -57,7 +61,7 @@ export default function App() {
       <section id="skills" className="expertise-section"><div className="container section"><div className="section-heading"><div><div className="eyebrow">02 / THE TOOLKIT</div><h2>Complex challenges.<br/><span>Practical solutions.</span></h2></div><p>Deep infrastructure experience, a builder’s mindset, and the right tools for the job.</p></div><div className="expertise-grid">{expertise.map(([Icon, title, subtitle, description, tags]) => <article className="expertise-card" key={title}><Icon className="expertise-icon"/><h3>{title}</h3><h4>{subtitle}</h4><p>{description}</p><TechnologyTags technologies={tags}/></article>)}</div><div className="tool-strip">{toolsAndPlatforms.map(tool => <div key={tool.title}><img src={tool.image} alt="" loading="lazy"/><span>{tool.title}</span></div>)}</div></div></section>
       <section id="experience" className="section container"><div className="section-heading"><div><div className="eyebrow">03 / THE JOURNEY</div><h2>Growing systems.<br/><span>Growing with them.</span></h2></div><p>From engineering foundations to leading SRE initiatives. A journey built on curiosity and continuous improvement.</p></div><div className="timeline">{experiences.map((experience, index) => <article className="experience-row" key={experience.role}><div className="experience-date"><span>{experience.duration}</span>{index === 0 && <span className="current-label"><span className="status-dot"/> CURRENT ROLE</span>}</div><div className="experience-content"><span className="company">{experience.company} <span> / {experience.location}</span></span><h3>{experience.role}</h3><p>{experience.responsibilities[0]}</p><details><summary>Role details <FiArrowDown/></summary><ul>{experience.responsibilities.slice(1).map(item => <li key={item}>{item}</li>)}</ul></details><TechnologyTags technologies={experience.technologies}/></div><span className="experience-number">0{index + 1}</span></article>)}</div></section>
       <section id="certifications" className="certification-section container"><div className="cert-heading"><div className="eyebrow">ALWAYS LEARNING</div><h2>Backed by knowledge.<br/><span>Proven in practice.</span></h2></div><div className="certifications">{certifications.map(cert => <a href={cert.certLink} target="_blank" rel="noreferrer" key={cert.title}><img src={cert.logo} alt="" loading="lazy"/><div><span>{cert.issuer}</span><h3>{cert.title}</h3></div><FiArrowUpRight/></a>)}</div></section>
-      <section id="contact" className="contact-section container"><div className="eyebrow"><span className="status-dot"/> GOOD SYSTEMS START WITH A CONVERSATION</div><h2>Your next big thing.<br/><span>Let’s make it happen.</span><FiArrowUpRight/></h2><div className="contact-bottom"><a className="contact-email" href={`mailto:${siteConfig.email}`}>{siteConfig.email} <FiArrowUpRight/></a><a className="text-link" href={cvUrl} download>Get my resume <FiDownload/></a></div></section>
+      <section id="contact" className="contact-section container"><div className="eyebrow"><span className="status-dot"/> GOOD SYSTEMS START WITH A CONVERSATION</div><h2>Your next big thing.<br/><span>Let’s make it happen.</span><FiArrowUpRight/></h2><div className="contact-bottom contact-bottom-channels"><div className="contact-channel-grid">{contactChannels.map(({ label, detail, icon: Icon, href }) => <a className="contact-channel-card" key={label} href={href} {...(href.startsWith('https:') ? { target: '_blank', rel: 'noreferrer' } : {})}><Icon className="channel-card-icon" aria-hidden="true"/><span><strong>{label}</strong><small>{detail}</small></span><FiArrowUpRight className="channel-card-arrow" aria-hidden="true"/></a>)}</div><a className="text-link" href={cvUrl} download>Get my resume <FiDownload/></a></div></section>
     </main><footer className="site-footer container"><a className="wordmark" href="#home">ashan<span>.</span></a><span>© {new Date().getFullYear()} Ashan Pathiranage</span><div><a href="https://github.com/ashankaushanka96" target="_blank" rel="noreferrer">GitHub <FiArrowUpRight/></a><a href={siteConfig.linkedInUrl} target="_blank" rel="noreferrer">LinkedIn <FiArrowUpRight/></a><a href="#home">Back to top ↑</a></div></footer>
     <dialog aria-labelledby="project-dialog-title" ref={dialog} className="project-dialog" onClose={() => setSelected(null)} onClick={event => {if (event.target === dialog.current) setSelected(null);}}>
       {selected && <div className="dialog-shell">
